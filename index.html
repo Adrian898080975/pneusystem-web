@@ -146,7 +146,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 72px 5% 200px;
+      padding: 72px 5% 0;
       position: relative;
       overflow: hidden;
     }
@@ -924,12 +924,10 @@
 
     /* HERO LOGOS */
     .hero-logos {
-      position: absolute;
-      bottom: 0;
-      left: 0; right: 0;
-      z-index: 3;
-      padding: 2rem 5%;
-      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 100%);
+      padding: 3rem 5%;
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .hero-logos-label {
       font-size: 0.75rem;
@@ -951,7 +949,7 @@
       align-items: center;
     }
     .hero-logos-track img {
-      height: 32px;
+      height: 42px;
       object-fit: contain;
       filter: grayscale(1) brightness(2);
       opacity: 0.35;
@@ -968,8 +966,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--grey);
-      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       text-decoration: none;
@@ -1249,7 +1247,6 @@
     </div>
   </div>
 
-  <a href="#referencie" class="hero-scroll" style="text-decoration:none;color:inherit">Rolovať</a>
   </section>
 
 
