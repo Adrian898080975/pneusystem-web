@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zjednodušujeme a zefektívňujeme Váš nákup pneumatík a služby s nimi spojené. Pre akýkoľvek automobilový park, kdekoľvek na Slovensku.">
+  <meta name="keywords" content="pneumatiky, pneuservis, bratislava, pneusystem, uskladnenie pneumatik, oprava defektov, defekt, prezutie gum, nakup pneumatik">
+  <title>Pneusystem.sk — Partner pre vaše pneumatiky</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #D9001B;
+      --red-dark: #A50014;
+      --red-glow: rgba(217,0,27,0.15);
+      --black: #0A0A0A;
+      --dark: #111111;
+      --dark2: #1A1A1A;
+      --dark3: #222222;
+      --grey: #888888;
+      --light-grey: #CCCCCC;
+      --white: #F5F5F5;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* CUSTOM CURSOR */
+    .cursor {
+      position: fixed;
+      width: 12px; height: 12px;
+      background: var(--red);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+      mix-blend-mode: normal;
+    }
+    .cursor-ring {
+      position: fixed;
+      width: 40px; height: 40px;
+      border: 1px solid rgba(217,0,27,0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    }
+    body:has(a:hover) .cursor { width: 20px; height: 20px; background: var(--red); }
+    body:has(a:hover) .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      height: 60px;
+      background: rgba(10,10,10,0.97);
+    }
+    .nav-logo img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      transition: filter 0.3s;
+    }
+    .nav-logo img:hover { filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--red)); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--light-grey);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      letter-spacing: 0.08em;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--red-dark) !important; transform: translateY(-1px); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 72px 5% 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(217,0,27,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-bg-text {
+      position: absolute;
+      bottom: -2rem;
+      right: -1rem;
+      font-family: var(--font-display);
+      font-size: clamp(8rem, 20vw, 22rem);
+      color: rgba(255,255,255,0.02);
+      letter-spacing: -0.02em;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--red);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.35s forwards;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--grey);
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.65s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--red);
+      color: var(--white);
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(217,0,27,0.3);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1.2s 0.4s forwards;
+    }
+    .hero-img-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: -20px; left: -20px;
+      right: 20px; bottom: 20px;
+      border: 1px solid rgba(217,0,27,0.3);
+      z-index: -1;
+    }
+    .hero-stats {
+      position: absolute;
+      bottom: -20px;
+      left: -40px;
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 28px;
+      display: flex;
+      gap: 32px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--red);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--grey);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--grey), transparent);
+    }
+
+    /* LOGOS */
+    .logos-section {
+      padding: 4rem 5%;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .logos-label {
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2rem;
+    }
+    .logos-track-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+    .logos-track {
+      display: flex;
+      gap: 4rem;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+    }
+    .logos-track img {
+      height: 36px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.35;
+      transition: opacity 0.3s;
+      flex-shrink: 0;
+    }
+    .logos-track img:hover { opacity: 0.8; }
+
+    /* ABOUT */
+    .about-section {
+      padding: 8rem 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 60%; height: 60%;
+      border: 1px solid var(--red);
+      opacity: 0.4;
+      z-index: -1;
+    }
+    .about-badge {
+      position: absolute;
+      top: 2rem; right: -2rem;
+      background: var(--red);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .about-badge-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+    .about-badge-txt {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--red);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .section-title em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .section-text {
+      color: var(--grey);
+      line-height: 1.8;
+      font-size: 0.97rem;
+      margin-bottom: 2rem;
+    }
+
+    /* VYHODY */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 4rem;
+      background: rgba(255,255,255,0.06);
+    }
+    .benefit-item {
+      background: var(--black);
+      padding: 2.5rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .benefit-item:hover { background: var(--dark2); }
+    .benefit-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      color: rgba(217,0,27,0.15);
+      line-height: 1;
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+    }
+    .benefit-icon {
+      width: 44px; height: 44px;
+      background: var(--red-glow);
+      border: 1px solid rgba(217,0,27,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+    }
+    .benefit-title {
+      font-weight: 700;
+      font-size: 0.97rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+    .benefit-text {
+      color: var(--grey);
+      font-size: 0.87rem;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    .services-section {
+      padding: 8rem 5%;
+      background: var(--dark);
+    }
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: none;
+    }
+    .service-card:hover {
+      border-color: rgba(217,0,27,0.4);
+      transform: translateY(-6px);
+    }
+    .service-card:hover .service-img { transform: scale(1.05); }
+    .service-img-wrap { overflow: hidden; height: 220px; }
+    .service-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .service-body { padding: 1.5rem; }
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.6rem;
+    }
+    .service-desc {
+      color: var(--grey);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--red);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: gap 0.2s;
+    }
+    .service-link:hover { gap: 12px; }
+
+    /* BOXES */
+    .boxes-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .box-item {
+      background: var(--red);
+      padding: 3.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .box-item:nth-child(2) { background: var(--red-dark); }
+    .box-item:nth-child(3) { background: #8B0010; }
+    .box-item:hover { filter: brightness(1.1); }
+    .box-item::before {
+      content: '';
+      position: absolute;
+      bottom: -2rem; right: -2rem;
+      width: 120px; height: 120px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    .box-item::after {
+      content: '';
+      position: absolute;
+      bottom: -4rem; right: -4rem;
+      width: 180px; height: 180px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .box-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.8rem;
+    }
+    .box-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.85;
+      margin-bottom: 1.8rem;
+    }
+    .box-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, gap 0.2s;
+    }
+    .box-link:hover { border-color: white; gap: 14px; }
+
+    /* NETWORK BANNER */
+    .network-banner {
+      padding: 6rem 5%;
+      background: var(--dark2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .network-banner-visual {
+      position: relative;
+    }
+    .network-banner-visual img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+
+    /* SERVISNA SIET */
+    .network-section {
+      padding: 8rem 5%;
+    }
+    .network-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+    .partner-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .partner-table thead tr {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .partner-table th {
+      text-align: left;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      font-weight: 500;
+    }
+    .partner-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.2s;
+    }
+    .partner-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .partner-table td {
+      padding: 1rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--light-grey);
+    }
+    .partner-table td:first-child {
+      font-weight: 600;
+      color: var(--white);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+    }
+    .partner-table td:last-child {
+      color: var(--grey);
+      font-size: 0.85rem;
+    }
+    .partner-row-num {
+      color: rgba(217,0,27,0.4) !important;
+      font-family: var(--font-display) !important;
+      font-size: 1rem !important;
+      font-weight: 400 !important;
+      width: 40px;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 8rem 5%;
+      background: var(--dark);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+    .contact-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .contact-block {
+      border-top: 2px solid var(--red);
+      padding-top: 1.2rem;
+    }
+    .contact-block-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 0.6rem;
+    }
+    .contact-block-content {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--light-grey);
+    }
+    .contact-block-content strong { color: var(--white); font-weight: 600; }
+    .contact-block-content a {
+      color: var(--light-grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-block-content a:hover { color: var(--red); }
+    .map-wrap {
+      position: relative;
+      height: 420px;
+    }
+    .map-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      filter: grayscale(1) invert(0.9) hue-rotate(180deg);
+      opacity: 0.8;
+    }
+    .hours-badge {
+      position: absolute;
+      top: 1.5rem; left: 1.5rem;
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.2rem 1.5rem;
+      z-index: 10;
+    }
+    .hours-badge-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.4rem;
+    }
+    .hours-badge-time {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .hours-badge-note {
+      font-size: 0.72rem;
+      color: var(--grey);
+      margin-top: 2px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 4rem 5% 2rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 2rem;
+    }
+    .footer-brand img {
+      height: 32px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--grey);
+      line-height: 1.6;
+      max-width: 240px;
+    }
+    .footer-col-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a {
+      color: var(--light-grey);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--red); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--grey);
+    }
+    .footer-ico span { color: rgba(255,255,255,0.5); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* MOBILE NAV */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--dark);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--red); }
+    .mobile-nav-close {
+      position: absolute;
+      top: 1.5rem; right: 5%;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 100px; padding-bottom: 4rem; }
+      .hero-visual { display: none; }
+      .hero-bg-text { font-size: 30vw; }
+      .about-section { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-wrap { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .boxes-section { grid-template-columns: 1fr; }
+      .network-banner { grid-template-columns: 1fr; }
+      .network-banner-visual { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-blocks { grid-template-columns: 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .network-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .partner-table th:nth-child(3), .partner-table td:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">
+      <img src="https://pneusystem.sk/images/logo.png" alt="Pneusystem">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#referencie">Referencie</a></li>
+      <li><a href="#siet">Servisná sieť</a></li>
+      <li><a href="#sluzby">Produkty</a></li>
+      <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="https://reservation.pneusystem.sk/" target="_blank" class="nav-cta">Rezervácia</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="closeNav">✕</button>
+    <a href="#referencie" class="nav-item">Referencie</a>
+    <a href="#siet" class="nav-item">Servisná sieť</a>
+    <a href="#sluzby" class="nav-item">Produkty</a>
+    <a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a>
+    <a href="#kontakt" class="nav-item">Kontakt</a>
+    <a href="https://reservation.pneusystem.sk/" target="_blank" style="color:var(--red)">Rezervácia →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Sieť partnerských pneuservisov</span>
+      <h1>Vaše<br><em>pneumatiky.</em><br>Celé Slovensko.</h1>
+      <p class="hero-desc">Zjednodušujeme a zefektívňujeme Váš nákup pneumatík a služby s nimi spojené. Pre akýkoľvek automobilový park, kdekoľvek na Slovensku.</p>
+      <div class="hero-actions">
+        <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary">Rezervovať termín →</a>
+        <a href="#siet" class="btn-secondary">Servisná sieť</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="https://pneusystem.sk/images/about.jpg" alt="Pneusystem">
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">40+</div>
+            <div class="stat-label">Servisov</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">300</div>
+            <div class="stat-label">Aut max</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">SK</div>
+            <div class="stat-label">Pokrytie</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg-text">PNEU</div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- LOGOS -->
+  <section class="logos-section" id="referencie">
+    <p class="logos-label">Naši partneri a referencie</p>
+    <div class="logos-track-wrap">
+      <div class="logos-track" id="logosTrack">
+        <img src="https://pneusystem.sk/images/logo-1.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-2.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-3.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-4.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-5.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-7.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-8.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-9.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-10.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-11.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-12.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-13.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-15.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-16.jpg" alt="Partner">
+        <!-- duplicate for seamless loop -->
+        <img src="https://pneusystem.sk/images/logo-1.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-2.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-3.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-4.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-5.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-7.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-8.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-9.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-10.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-11.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-12.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-13.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-15.jpg" alt="Partner">
+        <img src="https://pneusystem.sk/images/logo-16.jpg" alt="Partner">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-img-wrap reveal">
+      <img src="https://pneusystem.sk/images/about.jpg" alt="Pneusystem sieť">
+      <div class="about-badge">
+        <div class="about-badge-num">40+</div>
+        <div class="about-badge-txt">Pneuservisov</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="section-label">Pneusystem.sk</span>
+      <h2 class="section-title">Sieť<br>partnerských<br><em>pneuservisov</em></h2>
+      <p class="section-text">Špecializujeme sa na autoparky podnikateľských subjektov, či už vo vlastníctve, alebo v nájme operatívneho leasingu. Dodávame a servisujeme pneumatiky po celom území Slovenska spoločnostiam s vozovým parkom od 1 do 300 automobilov.</p>
+      <p class="section-text">Každej spoločnosti je pridelený náš fleet manager, ktorý osobne komunikuje so zástupcom spoločnosti. Kdekoľvek na Slovensku vieme zabezpečiť dodávku, servis a uskladnenie pneumatík.</p>
+      <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary">Rezervácia služieb →</a>
+
+      <div class="benefits-grid" style="margin-top:3rem;">
+        <div class="benefit-item">
+          <div class="benefit-num">01</div>
+          <div class="benefit-icon">🌐</div>
+          <div class="benefit-title">Sieť 40+ pneuservisov</div>
+          <div class="benefit-text">Stále rozvíjajúca sa sieť po celom Slovensku. V prípade potreby zabezpečíme servis v akomkoľvek meste.</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-num">02</div>
+          <div class="benefit-icon">🧾</div>
+          <div class="benefit-title">Hromadná fakturácia</div>
+          <div class="benefit-text">Faktúry vystavované v časových odstupoch za celý vozový park na Slovensku.</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-num">03</div>
+          <div class="benefit-icon">👤</div>
+          <div class="benefit-title">Jeden kontakt</div>
+          <div class="benefit-text">Komunikácia s jedným konkrétnym pracovníkom. V prípade potreby Vás kedykoľvek navštívime.</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-num">04</div>
+          <div class="benefit-icon">💰</div>
+          <div class="benefit-title">Zvýhodnené ceny</div>
+          <div class="benefit-text">Ako zmluvnému odberateľovi garantujeme zvýhodnené ceny tovarov a služieb.</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-num">05</div>
+          <div class="benefit-icon">🚗</div>
+          <div class="benefit-title">Pick-up servis</div>
+          <div class="benefit-text">Pre Vaše auto si prídeme k Vám do spoločnosti, zabezpečíme služby a dovezieme Vám auto späť.</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-num">06</div>
+          <div class="benefit-icon">📊</div>
+          <div class="benefit-title">Sezónne štatistiky</div>
+          <div class="benefit-text">Na konci každej sezóny spracujeme štatistiku stavu Vašich uskladnených pneumatík.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 BOXES -->
+  <div class="boxes-section">
+    <div class="box-item">
+      <div class="box-title">Služby</div>
+      <div class="box-text">V prípade potreby osobného kontaktu, Vás kedykoľvek navštívime u Vás v spoločnosti.</div>
+      <a href="#kontakt" class="box-link">Zavolajte nám →</a>
+    </div>
+    <div class="box-item">
+      <div class="box-title">Pickup</div>
+      <div class="box-text">Pre Vaše auto si prídeme k Vám do spoločnosti, zabezpečíme dohodnuté služby a dovezieme Vám auto späť.</div>
+      <a href="https://reservation.pneusystem.sk/" target="_blank" class="box-link">Rezervovať termín →</a>
+    </div>
+    <div class="box-item">
+      <div class="box-title">Uskladnenie</div>
+      <div class="box-text">Sezónne uskladnenie so štatistikou opotrebovania uskladnených pneumatík.</div>
+      <a href="https://reservation.pneusystem.sk/" target="_blank" class="box-link">Rezervovať termín →</a>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="sluzby">
+    <div class="services-header reveal">
+      <div>
+        <span class="section-label">Čo ponúkame</span>
+        <h2 class="section-title">Naše <em>služby</em></h2>
+      </div>
+      <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-secondary">Všetky rezervácie →</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img src="https://pneusystem.sk/images/1.jpg" alt="Pneumatiky" class="service-img">
+        </div>
+        <div class="service-body">
+          <div class="service-name">Pneumatiky</div>
+          <div class="service-desc">Dodávame všetky značky pneumatík etablovaných na slovenskom trhu.</div>
+          <a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank" class="service-link">Rezervácia →</a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img src="https://pneusystem.sk/images/2a.jpg" alt="Služby" class="service-img">
+        </div>
+        <div class="service-body">
+          <div class="service-name">Služby</div>
+          <div class="service-desc">Zabezpečujeme komplexné služby spojené so starostlivosťou o pneumatiky.</div>
+          <a href="https://reservation.pneusystem.sk/" target="_blank" class="service-link">Rezervácia →</a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img src="https://pneusystem.sk/images/2.jpg" alt="Uskladnenie" class="service-img">
+        </div>
+        <div class="service-body">
+          <div class="service-name">Uskladnenie</div>
+          <div class="service-desc">Sezónne uskladnenie so štatistikou opotrebovania uskladnených pneumatík.</div>
+          <a href="https://reservation.pneusystem.sk/" target="_blank" class="service-link">Rezervácia →</a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <img src="https://pneusystem.sk/images/3.jpg" alt="Pickup" class="service-img">
+        </div>
+        <div class="service-body">
+          <div class="service-name">Pickup</div>
+          <div class="service-desc">Pre Vaše auto si prídeme k Vám do spoločnosti, zabezpečíme dohodnuté služby a dovezieme Vám auto späť.</div>
+          <a href="https://reservation.pneusystem.sk/" target="_blank" class="service-link">Rezervácia →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NETWORK BANNER -->
+  <div class="network-banner reveal">
+    <div>
+      <span class="section-label">Celé Slovensko</span>
+      <h2 class="section-title">Servisná<br><em>sieť</em></h2>
+      <p class="section-text">Každej spoločnosti je pridelený náš fleet manager, ktorý osobne komunikuje so zástupcom spoločnosti. Kdekoľvek na Slovensku vieme zabezpečiť dodávku, servis a uskladnenie pneumatík.</p>
+      <a href="#siet" class="btn-primary">Zobraziť všetkých partnerov →</a>
+    </div>
+    <div class="network-banner-visual">
+      <img src="https://pneusystem.sk/images/siet.jpg" alt="Servisná sieť">
+    </div>
+  </div>
+
+  <!-- PARTNER TABLE -->
+  <section class="network-section" id="siet">
+    <div class="network-header reveal">
+      <div>
+        <span class="section-label">Naši partneri</span>
+        <h2 class="section-title">Zoznam servisných<br><em>partnerov</em></h2>
+      </div>
+      <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary">Rezervovať →</a>
+    </div>
+    <table class="partner-table reveal">
+      <thead>
+        <tr>
+          <th style="width:40px">#</th>
+          <th>Mesto</th>
+          <th>Partner</th>
+          <th>Adresa</th>
+          <th>Kontakt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="partner-row-num">01</td><td>Banská Bystrica</td><td>Nicholtrackt</td><td>Zvolenská cesta 23</td><td>0905 813 712</td></tr>
+        <tr><td class="partner-row-num">02</td><td>Bardejov</td><td>MILEND s.r.o.</td><td>Mičková 3162</td><td>0915 921 761</td></tr>
+        <tr><td class="partner-row-num">03</td><td>Bojnice</td><td>Pneuservis Humaj</td><td>Opatovská cesta 9</td><td>0905 259 211</td></tr>
+        <tr><td class="partner-row-num">04</td><td>Bratislava</td><td>PNEUSYSTEM s.r.o.</td><td>Galvániho 16/A</td><td>0905 643 169</td></tr>
+        <tr><td class="partner-row-num">05</td><td>Dunajská Streda</td><td>Clean Car Servis s.r.o.</td><td>Kračanská cesta 690/23</td><td>0905 501 262</td></tr>
+        <tr><td class="partner-row-num">06</td><td>Hriadky (Michalovce)</td><td>GUMA s.r.o.</td><td>Hlavná 170/2</td><td>0918 562 382</td></tr>
+        <tr><td class="partner-row-num">07</td><td>Kežmarok</td><td>PNEUVOSOVIČ</td><td>Nad Traťou 1</td><td>0905 358 612</td></tr>
+        <tr><td class="partner-row-num">08</td><td>Komárno</td><td>MEHES s.r.o</td><td>Gútsky rad 7</td><td>0905 826 825</td></tr>
+        <tr><td class="partner-row-num">09</td><td>Košice</td><td>MOL EXTRANS MOLNÁR</td><td>Omska 23</td><td>0915 958 311</td></tr>
+        <tr><td class="partner-row-num">10</td><td>Levice</td><td>Autoline</td><td>Mochovská 15</td><td>0905 969 355</td></tr>
+        <tr><td class="partner-row-num">11</td><td>Liptovský Mikuláš</td><td>PNEUSERVIS VIANOR</td><td>Okoličianská 681</td><td>0905 950 080</td></tr>
+        <tr><td class="partner-row-num">12</td><td>Lučenec</td><td>TOP PNEUSERVIS FIDES</td><td>Gemerská cesta 12</td><td>0911 691 667</td></tr>
+        <tr><td class="partner-row-num">13</td><td>Malacky</td><td>Pneuservis Chmela</td><td>Poľná 5426/2</td><td>0911 305 644</td></tr>
+        <tr><td class="partner-row-num">14</td><td>Martin</td><td>VEMAX servis s.r.o</td><td>Kollárova 75</td><td>0905 276 210</td></tr>
+        <tr><td class="partner-row-num">15</td><td>Nitra</td><td>Pneuservis ROKO</td><td>Braneckého 23</td><td>0905 258 421</td></tr>
+        <tr><td class="partner-row-num">16</td><td>Nitra</td><td>Pneuservis Kováčik</td><td>Braneckého 23</td><td>0905 258 421</td></tr>
+        <tr><td class="partner-row-num">17</td><td>Nové Mesto n.Váhom</td><td>PROFI TYRES</td><td>Trenčianska 17</td><td>0905 244 526</td></tr>
+        <tr><td class="partner-row-num">18</td><td>Nové Zámky</td><td>AUTOBOT Centrum</td><td>Výpalisko 65 (areál ARC)</td><td>0904 380 084</td></tr>
+        <tr><td class="partner-row-num">19</td><td>Piešťany</td><td>AMIKO SLOVAKIA</td><td>Bratislavská 130</td><td>0911 352 974</td></tr>
+        <tr><td class="partner-row-num">20</td><td>Poprad</td><td>PNEU TATRY s.r.o.</td><td>Levočská ulica 857</td><td>0903 646 226</td></tr>
+        <tr><td class="partner-row-num">21</td><td>Prešov</td><td>Pneuservis Biado</td><td>Bottova 3</td><td>0915 898 688</td></tr>
+        <tr><td class="partner-row-num">22</td><td>Rimavská Sobota</td><td>AUTOTRADE s.r.o.</td><td>Čerenčianska cesta 2379</td><td>0905 240 269</td></tr>
+        <tr><td class="partner-row-num">23</td><td>Rožňava</td><td>UNI RACING s.r.o.</td><td>Šafárikova 4135</td><td>0905 625 281</td></tr>
+        <tr><td class="partner-row-num">24</td><td>Senica</td><td>PNEUSERVIS ROJT</td><td>Železničná 1534</td><td>0903 263 539</td></tr>
+        <tr><td class="partner-row-num">25</td><td>Spišská Nová Ves</td><td>PNEUSPIŠ s.r.o.</td><td>Markušovska cesta 3</td><td>0907 238 393</td></tr>
+        <tr><td class="partner-row-num">26</td><td>Šaľa</td><td>PNEUSERVIS HUČKO</td><td>Nitrianska 1754</td><td>0948 517 402</td></tr>
+        <tr><td class="partner-row-num">27</td><td>Topoľčany</td><td>DDJ Servis</td><td>M.Rázusa 683/32A</td><td>0905 659 129</td></tr>
+        <tr><td class="partner-row-num">28</td><td>Trenčín</td><td>PROFI TYRES</td><td>Bratislavská 478</td><td>0905 930 911</td></tr>
+        <tr><td class="partner-row-num">29</td><td>Trnava</td><td>PNEUSYSTEM TT s.r.o.</td><td>Bratislavská cesta 45</td><td>0915 761 862</td></tr>
+        <tr><td class="partner-row-num">30</td><td>Zvolen</td><td>SLOSO SERVIS s.r.o.</td><td>J. Jesenského 10204/68</td><td>0915 715 169</td></tr>
+        <tr><td class="partner-row-num">31</td><td>Žilina</td><td>PNEUSERVIS MRÁZIK</td><td>Kragujevská 1</td><td>0903 555 505</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="kontakt">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="section-label">Kde nás nájdete</span>
+        <h2 class="section-title">Kontaktujte<br><em>nás</em></h2>
+        <p class="section-text">Nájsť nás môžete v bode stretu Galvaniho a Starej Ivánskej cesty, oproti parkovisku kúpeľne SIKO.</p>
+        <div class="contact-blocks">
+          <div class="contact-block">
+            <div class="contact-block-label">Sídlo spoločnosti</div>
+            <div class="contact-block-content">
+              <strong>PNEUSYSTEM s.r.o.</strong><br>
+              Galvániho 16 A<br>
+              821 04 Bratislava
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Predajňa / servis</div>
+            <div class="contact-block-content">
+              <a href="tel:+421905717661">0905 717 661</a><br>
+              <a href="tel:+421905643169">0905 643 169</a><br>
+              <a href="mailto:posta@pneusystem.sk">posta@pneusystem.sk</a>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Fleet / Firemný autopark</div>
+            <div class="contact-block-content">
+              <strong>Katarína Ovečková</strong><br>
+              <a href="tel:+421908797492">0908 797 492</a><br>
+              <a href="mailto:katarina.oveckova@pneusystem.sk">katarina.oveckova@pneusystem.sk</a>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-label">Otváracie hodiny</div>
+            <div class="contact-block-content">
+              <strong>Po – Pi: 8:30 – 17:00</strong><br>
+              <span style="color:var(--grey);font-size:0.82rem">Január, Február, Jún, Júl, August do 16:00</span>
+            </div>
+          </div>
+          <div class="contact-block" style="grid-column:1/-1;">
+            <div class="contact-block-label">Fakturačné údaje</div>
+            <div class="contact-block-content">
+              IČO: 44342951 &nbsp;|&nbsp; DIČ: 2022684873 &nbsp;|&nbsp; IČ DPH: SK2022684873
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap reveal">
+        <div class="hours-badge">
+          <div class="hours-badge-label">Otváracie hodiny</div>
+          <div class="hours-badge-time">Po – Pi: 8:30 – 17:00</div>
+          <div class="hours-badge-note">Aug, Jún, Júl, Jan, Feb do 16:00</div>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.887084603202!2d17.174309315943646!3d48.170257456862636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8f223e175113%3A0xf605df032f889132!2sGalvaniho+16051%2F16A%2C+821+04+Bratislava!5e0!3m2!1ssk!2ssk!4v1524778186120"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://pneusystem.sk/images/logo.png" alt="Pneusystem">
+        <p class="footer-tagline">Zjednodušujeme a zefektívňujeme Váš nákup pneumatík a služby s nimi spojené. Pre akýkoľvek automobilový park, kdekoľvek na Slovensku.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigácia</div>
+        <ul>
+          <li><a href="#referencie">Referencie</a></li>
+          <li><a href="#siet">Servisná sieť</a></li>
+          <li><a href="#sluzby">Produkty</a></li>
+          <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Kontakt</div>
+        <ul>
+          <li><a href="tel:+421905717661">0905 717 661</a></li>
+          <li><a href="tel:+421905643169">0905 643 169</a></li>
+          <li><a href="mailto:posta@pneusystem.sk">posta@pneusystem.sk</a></li>
+          <li><a href="#kontakt">Galvániho 16A, BA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Rezervácia</div>
+        <ul>
+          <li><a href="https://reservation.pneusystem.sk/" target="_blank">Online rezervácia</a></li>
+          <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 PNEUSYSTEM s.r.o. Všetky práva vyhradené.</span>
+      <span class="footer-ico">IČO: <span>44342951</span> &nbsp; DIČ: <span>2022684873</span> &nbsp; IČ DPH: <span>SK2022684873</span></span>
+    </div>
+  </footer>
+
+  <script>
+    // CURSOR
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      setTimeout(() => {
+        ring.style.left = e.clientX + 'px';
+        ring.style.top = e.clientY + 'px';
+      }, 80);
+    });
+
+    // NAV scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // MOBILE NAV
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeNav = document.getElementById('closeNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeNav.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // SCROLL REVEAL
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
