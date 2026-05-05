@@ -893,16 +893,137 @@
       .benefits-grid { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 640px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .contact-blocks { grid-template-columns: 1fr; }
-      .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .network-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-      .partner-table th:nth-child(3), .partner-table td:nth-child(3) { display: none; }
+    /* BENEFITS SECTION (screen 2) */
+    .benefits-section {
+      padding: 8rem 5%;
+      background: var(--dark);
     }
-  </style>
+    .benefits-section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .benefits-section-header .section-label { justify-content: center; }
+    .benefits-grid-full {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .benefit-icon-svg {
+      width: 44px; height: 44px;
+      background: var(--red-glow);
+      border: 1px solid rgba(217,0,27,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      padding: 10px;
+      color: var(--red);
+    }
+    .benefit-icon-svg svg { width: 100%; height: 100%; }
+
+    /* SIET LAYOUT */
+    .siet-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.06);
+      min-height: 520px;
+    }
+    .siet-map-wrap { position: relative; }
+    .siet-list {
+      background: var(--dark2);
+      border-left: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .siet-search-wrap { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .siet-search {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      padding: 10px 14px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .siet-search:focus { border-color: var(--red); }
+    .siet-search::placeholder { color: var(--grey); }
+    .partner-accordion {
+      overflow-y: auto;
+      flex: 1;
+      max-height: 460px;
+    }
+    .partner-accordion::-webkit-scrollbar { width: 4px; }
+    .partner-accordion::-webkit-scrollbar-track { background: var(--dark2); }
+    .partner-accordion::-webkit-scrollbar-thumb { background: var(--red); }
+    .acc-item {
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.2s;
+    }
+    .acc-item.active { background: rgba(217,0,27,0.05); }
+    .acc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.2rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .acc-header:hover { background: rgba(255,255,255,0.03); }
+    .acc-city {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+    .acc-partner-name {
+      font-size: 0.78rem;
+      color: var(--grey);
+      margin-top: 2px;
+    }
+    .acc-chevron {
+      width: 16px; height: 16px;
+      color: var(--grey);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .acc-item.active .acc-chevron { transform: rotate(180deg); color: var(--red); }
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .acc-item.active .acc-body { max-height: 120px; }
+    .acc-body-inner {
+      padding: 0 1.2rem 1rem;
+      font-size: 0.82rem;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+    .acc-body-inner a {
+      color: var(--red);
+      text-decoration: none;
+    }
+    .acc-num {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: rgba(217,0,27,0.4);
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .siet-layout { grid-template-columns: 1fr; }
+      .siet-list { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); }
+      .benefits-grid-full { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .benefits-grid-full { grid-template-columns: 1fr; }
+    }
+
+  
 </head>
 <body>
 
@@ -969,7 +1090,7 @@
       </div>
     </div>
     <div class="hero-bg-text">PNEU</div>
-    <div class="hero-scroll">Scroll</div>
+    <div class="hero-scroll">Rolovať</div>
   </section>
 
   <!-- LOGOS -->
@@ -1008,7 +1129,7 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT SCREEN 1 -->
   <section class="about-section">
     <div class="about-img-wrap reveal">
       <img src="https://pneusystem.sk/images/about.jpg" alt="Pneusystem sieť">
@@ -1023,44 +1144,63 @@
       <p class="section-text">Špecializujeme sa na autoparky podnikateľských subjektov, či už vo vlastníctve, alebo v nájme operatívneho leasingu. Dodávame a servisujeme pneumatiky po celom území Slovenska spoločnostiam s vozovým parkom od 1 do 300 automobilov.</p>
       <p class="section-text">Každej spoločnosti je pridelený náš fleet manager, ktorý osobne komunikuje so zástupcom spoločnosti. Kdekoľvek na Slovensku vieme zabezpečiť dodávku, servis a uskladnenie pneumatík.</p>
       <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary">Rezervácia služieb →</a>
+    </div>
+  </section>
 
-      <div class="benefits-grid" style="margin-top:3rem;">
-        <div class="benefit-item">
-          <div class="benefit-num">01</div>
-          <div class="benefit-icon">🌐</div>
-          <div class="benefit-title">Sieť 40+ pneuservisov</div>
-          <div class="benefit-text">Stále rozvíjajúca sa sieť po celom Slovensku. V prípade potreby zabezpečíme servis v akomkoľvek meste.</div>
+  <!-- ABOUT SCREEN 2 - BENEFITS -->
+  <section class="benefits-section">
+    <div class="benefits-section-header reveal">
+      <span class="section-label">Prečo s nami</span>
+      <h2 class="section-title">Výhody<br><em>spolupráce</em></h2>
+    </div>
+    <div class="benefits-grid-full reveal">
+      <div class="benefit-item">
+        <div class="benefit-num">01</div>
+        <div class="benefit-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-num">02</div>
-          <div class="benefit-icon">🧾</div>
-          <div class="benefit-title">Hromadná fakturácia</div>
-          <div class="benefit-text">Faktúry vystavované v časových odstupoch za celý vozový park na Slovensku.</div>
+        <div class="benefit-title">Sieť 40+ pneuservisov</div>
+        <div class="benefit-text">Stále rozvíjajúca sa sieť po celom Slovensku. V prípade potreby zabezpečíme servis v akomkoľvek meste.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">02</div>
+        <div class="benefit-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-num">03</div>
-          <div class="benefit-icon">👤</div>
-          <div class="benefit-title">Jeden kontakt</div>
-          <div class="benefit-text">Komunikácia s jedným konkrétnym pracovníkom. V prípade potreby Vás kedykoľvek navštívime.</div>
+        <div class="benefit-title">Hromadná fakturácia</div>
+        <div class="benefit-text">Faktúry vystavované v časových odstupoch za celý vozový park na Slovensku.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">03</div>
+        <div class="benefit-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-num">04</div>
-          <div class="benefit-icon">💰</div>
-          <div class="benefit-title">Zvýhodnené ceny</div>
-          <div class="benefit-text">Ako zmluvnému odberateľovi garantujeme zvýhodnené ceny tovarov a služieb.</div>
+        <div class="benefit-title">Jeden kontakt</div>
+        <div class="benefit-text">Komunikácia s jedným konkrétnym pracovníkom. V prípade potreby Vás kedykoľvek navštívime.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">04</div>
+        <div class="benefit-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-num">05</div>
-          <div class="benefit-icon">🚗</div>
-          <div class="benefit-title">Pick-up servis</div>
-          <div class="benefit-text">Pre Vaše auto si prídeme k Vám do spoločnosti, zabezpečíme služby a dovezieme Vám auto späť.</div>
+        <div class="benefit-title">Zvýhodnené ceny</div>
+        <div class="benefit-text">Ako zmluvnému odberateľovi garantujeme zvýhodnené ceny tovarov a služieb.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">05</div>
+        <div class="benefit-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-num">06</div>
-          <div class="benefit-icon">📊</div>
-          <div class="benefit-title">Sezónne štatistiky</div>
-          <div class="benefit-text">Na konci každej sezóny spracujeme štatistiku stavu Vašich uskladnených pneumatík.</div>
+        <div class="benefit-title">Pick-up servis</div>
+        <div class="benefit-text">Pre Vaše auto si prídeme k Vám do spoločnosti, zabezpečíme služby a dovezieme Vám auto späť.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">06</div>
+        <div class="benefit-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         </div>
+        <div class="benefit-title">Sezónne štatistiky</div>
+        <div class="benefit-text">Na konci každej sezóny spracujeme štatistiku stavu Vašich uskladnených pneumatík.</div>
       </div>
     </div>
   </section>
@@ -1137,76 +1277,32 @@
     </div>
   </section>
 
-  <!-- NETWORK BANNER -->
-  <div class="network-banner reveal">
-    <div>
-      <span class="section-label">Celé Slovensko</span>
-      <h2 class="section-title">Servisná<br><em>sieť</em></h2>
-      <p class="section-text">Každej spoločnosti je pridelený náš fleet manager, ktorý osobne komunikuje so zástupcom spoločnosti. Kdekoľvek na Slovensku vieme zabezpečiť dodávku, servis a uskladnenie pneumatík.</p>
-      <a href="#siet" class="btn-primary">Zobraziť všetkých partnerov →</a>
-    </div>
-    <div class="network-banner-visual">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.887084603202!2d17.174309315943646!3d48.170257456862636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8f223e175113%3A0xf605df032f889132!2sGalvaniho+16051%2F16A%2C+821+04+Bratislava!5e0!3m2!1ssk!2ssk!4v1524778186120"
-        width="100%" height="380" style="border:0; display:block; filter: grayscale(1) invert(0.9) hue-rotate(180deg); opacity:0.85;"
-        allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-  </div>
-
-  <!-- PARTNER TABLE -->
+  <!-- SERVISNA SIET - MAPA + ZOZNAM -->
   <section class="network-section" id="siet">
     <div class="network-header reveal">
       <div>
         <span class="section-label">Naši partneri</span>
-        <h2 class="section-title">Zoznam servisných<br><em>partnerov</em></h2>
+        <h2 class="section-title">Servisná sieť<br><em>po celom Slovensku</em></h2>
       </div>
       <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary">Rezervovať →</a>
     </div>
-    <table class="partner-table reveal">
-      <thead>
-        <tr>
-          <th style="width:40px">#</th>
-          <th>Mesto</th>
-          <th>Partner</th>
-          <th>Adresa</th>
-          <th>Kontakt</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="partner-row-num">01</td><td>Banská Bystrica</td><td>Nicholtrackt</td><td>Zvolenská cesta 23</td><td>0905 813 712</td></tr>
-        <tr><td class="partner-row-num">02</td><td>Bardejov</td><td>MILEND s.r.o.</td><td>Mičková 3162</td><td>0915 921 761</td></tr>
-        <tr><td class="partner-row-num">03</td><td>Bojnice</td><td>Pneuservis Humaj</td><td>Opatovská cesta 9</td><td>0905 259 211</td></tr>
-        <tr><td class="partner-row-num">04</td><td>Bratislava</td><td>PNEUSYSTEM s.r.o.</td><td>Galvániho 16/A</td><td>0905 643 169</td></tr>
-        <tr><td class="partner-row-num">05</td><td>Dunajská Streda</td><td>Clean Car Servis s.r.o.</td><td>Kračanská cesta 690/23</td><td>0905 501 262</td></tr>
-        <tr><td class="partner-row-num">06</td><td>Hriadky (Michalovce)</td><td>GUMA s.r.o.</td><td>Hlavná 170/2</td><td>0918 562 382</td></tr>
-        <tr><td class="partner-row-num">07</td><td>Kežmarok</td><td>PNEUVOSOVIČ</td><td>Nad Traťou 1</td><td>0905 358 612</td></tr>
-        <tr><td class="partner-row-num">08</td><td>Komárno</td><td>MEHES s.r.o</td><td>Gútsky rad 7</td><td>0905 826 825</td></tr>
-        <tr><td class="partner-row-num">09</td><td>Košice</td><td>MOL EXTRANS MOLNÁR</td><td>Omska 23</td><td>0915 958 311</td></tr>
-        <tr><td class="partner-row-num">10</td><td>Levice</td><td>Autoline</td><td>Mochovská 15</td><td>0905 969 355</td></tr>
-        <tr><td class="partner-row-num">11</td><td>Liptovský Mikuláš</td><td>PNEUSERVIS VIANOR</td><td>Okoličianská 681</td><td>0905 950 080</td></tr>
-        <tr><td class="partner-row-num">12</td><td>Lučenec</td><td>TOP PNEUSERVIS FIDES</td><td>Gemerská cesta 12</td><td>0911 691 667</td></tr>
-        <tr><td class="partner-row-num">13</td><td>Malacky</td><td>Pneuservis Chmela</td><td>Poľná 5426/2</td><td>0911 305 644</td></tr>
-        <tr><td class="partner-row-num">14</td><td>Martin</td><td>VEMAX servis s.r.o</td><td>Kollárova 75</td><td>0905 276 210</td></tr>
-        <tr><td class="partner-row-num">15</td><td>Nitra</td><td>Pneuservis ROKO</td><td>Braneckého 23</td><td>0905 258 421</td></tr>
-        <tr><td class="partner-row-num">16</td><td>Nitra</td><td>Pneuservis Kováčik</td><td>Braneckého 23</td><td>0905 258 421</td></tr>
-        <tr><td class="partner-row-num">17</td><td>Nové Mesto n.Váhom</td><td>PROFI TYRES</td><td>Trenčianska 17</td><td>0905 244 526</td></tr>
-        <tr><td class="partner-row-num">18</td><td>Nové Zámky</td><td>AUTOBOT Centrum</td><td>Výpalisko 65 (areál ARC)</td><td>0904 380 084</td></tr>
-        <tr><td class="partner-row-num">19</td><td>Piešťany</td><td>AMIKO SLOVAKIA</td><td>Bratislavská 130</td><td>0911 352 974</td></tr>
-        <tr><td class="partner-row-num">20</td><td>Poprad</td><td>PNEU TATRY s.r.o.</td><td>Levočská ulica 857</td><td>0903 646 226</td></tr>
-        <tr><td class="partner-row-num">21</td><td>Prešov</td><td>Pneuservis Biado</td><td>Bottova 3</td><td>0915 898 688</td></tr>
-        <tr><td class="partner-row-num">22</td><td>Rimavská Sobota</td><td>AUTOTRADE s.r.o.</td><td>Čerenčianska cesta 2379</td><td>0905 240 269</td></tr>
-        <tr><td class="partner-row-num">23</td><td>Rožňava</td><td>UNI RACING s.r.o.</td><td>Šafárikova 4135</td><td>0905 625 281</td></tr>
-        <tr><td class="partner-row-num">24</td><td>Senica</td><td>PNEUSERVIS ROJT</td><td>Železničná 1534</td><td>0903 263 539</td></tr>
-        <tr><td class="partner-row-num">25</td><td>Spišská Nová Ves</td><td>PNEUSPIŠ s.r.o.</td><td>Markušovska cesta 3</td><td>0907 238 393</td></tr>
-        <tr><td class="partner-row-num">26</td><td>Šaľa</td><td>PNEUSERVIS HUČKO</td><td>Nitrianska 1754</td><td>0948 517 402</td></tr>
-        <tr><td class="partner-row-num">27</td><td>Topoľčany</td><td>DDJ Servis</td><td>M.Rázusa 683/32A</td><td>0905 659 129</td></tr>
-        <tr><td class="partner-row-num">28</td><td>Trenčín</td><td>PROFI TYRES</td><td>Bratislavská 478</td><td>0905 930 911</td></tr>
-        <tr><td class="partner-row-num">29</td><td>Trnava</td><td>PNEUSYSTEM TT s.r.o.</td><td>Bratislavská cesta 45</td><td>0915 761 862</td></tr>
-        <tr><td class="partner-row-num">30</td><td>Zvolen</td><td>SLOSO SERVIS s.r.o.</td><td>J. Jesenského 10204/68</td><td>0915 715 169</td></tr>
-        <tr><td class="partner-row-num">31</td><td>Žilina</td><td>PNEUSERVIS MRÁZIK</td><td>Kragujevská 1</td><td>0903 555 505</td></tr>
-      </tbody>
-    </table>
+
+    <div class="siet-layout reveal">
+      <!-- INTERAKTÍVNA MAPA -->
+      <div class="siet-map-wrap">
+        <div id="map" style="width:100%;height:520px;"></div>
+      </div>
+
+      <!-- ACCORDION ZOZNAM -->
+      <div class="siet-list">
+        <div class="siet-search-wrap">
+          <input type="text" id="partnerSearch" placeholder="Hľadať mesto alebo partnera..." class="siet-search">
+        </div>
+        <div class="partner-accordion" id="partnerList">
+          <!-- generated by JS -->
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -1347,5 +1443,164 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
   </script>
+  <!-- GOOGLE MAPS + ACCORDION -->
+  <script>
+    const PARTNERS = [
+      {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23', tel:'0905 813 712', lat:48.7395, lng:19.1457},
+      {city:'Bardejov', name:'MILEND s.r.o.', addr:'Mičková 3162', tel:'0915 921 761', lat:49.2950, lng:21.2762},
+      {city:'Bojnice', name:'Pneuservis Humaj', addr:'Opatovská cesta 9', tel:'0905 259 211', lat:48.7791, lng:18.5769},
+      {city:'Bratislava', name:'PNEUSYSTEM s.r.o.', addr:'Galvániho 16/A', tel:'0905 643 169', lat:48.1702, lng:17.1763},
+      {city:'Dunajská Streda', name:'Clean Car Servis s.r.o.', addr:'Kračanská cesta 690/23', tel:'0905 501 262', lat:47.9953, lng:17.6171},
+      {city:'Hriadky (Michalovce)', name:'GUMA s.r.o.', addr:'Hlavná 170/2', tel:'0918 562 382', lat:48.7530, lng:21.9200},
+      {city:'Kežmarok', name:'PNEUVOSOVIČ', addr:'Nad Traťou 1', tel:'0905 358 612', lat:49.1354, lng:20.4298},
+      {city:'Komárno', name:'MEHES s.r.o', addr:'Gútsky rad 7', tel:'0905 826 825', lat:47.7632, lng:18.1283},
+      {city:'Košice', name:'MOL EXTRANS MOLNÁR', addr:'Omska 23', tel:'0915 958 311', lat:48.7164, lng:21.2611},
+      {city:'Levice', name:'Autoline', addr:'Mochovská 15', tel:'0905 969 355', lat:48.2147, lng:18.6068},
+      {city:'Liptovský Mikuláš', name:'PNEUSERVIS VIANOR', addr:'Okoličianská 681', tel:'0905 950 080', lat:49.0830, lng:19.6117},
+      {city:'Lučenec', name:'TOP PNEUSERVIS FIDES', addr:'Gemerská cesta 12', tel:'0911 691 667', lat:48.3310, lng:19.6677},
+      {city:'Malacky', name:'Pneuservis Chmela', addr:'Poľná 5426/2', tel:'0911 305 644', lat:48.4348, lng:17.0178},
+      {city:'Martin', name:'VEMAX servis s.r.o', addr:'Kollárova 75', tel:'0905 276 210', lat:49.0666, lng:18.9225},
+      {city:'Nitra', name:'Pneuservis ROKO', addr:'Braneckého 23', tel:'0905 258 421', lat:48.3070, lng:18.0870},
+      {city:'Nitra', name:'Pneuservis Kováčik', addr:'Braneckého 23', tel:'0905 258 421', lat:48.3090, lng:18.0890},
+      {city:'Nové Mesto n.Váhom', name:'PROFI TYRES', addr:'Trenčianska 17', tel:'0905 244 526', lat:48.7564, lng:17.8315},
+      {city:'Nové Zámky', name:'AUTOBOT Centrum', addr:'Výpalisko 65', tel:'0904 380 084', lat:47.9840, lng:18.1608},
+      {city:'Piešťany', name:'AMIKO SLOVAKIA', addr:'Bratislavská 130', tel:'0911 352 974', lat:48.5883, lng:17.8302},
+      {city:'Poprad', name:'PNEU TATRY s.r.o.', addr:'Levočská ulica 857', tel:'0903 646 226', lat:49.0536, lng:20.2974},
+      {city:'Prešov', name:'Pneuservis Biado', addr:'Bottova 3', tel:'0915 898 688', lat:48.9984, lng:21.2393},
+      {city:'Rimavská Sobota', name:'AUTOTRADE s.r.o.', addr:'Čerenčianska cesta 2379', tel:'0905 240 269', lat:48.3810, lng:20.0194},
+      {city:'Rožňava', name:'UNI RACING s.r.o.', addr:'Šafárikova 4135', tel:'0905 625 281', lat:48.6602, lng:20.5279},
+      {city:'Senica', name:'PNEUSERVIS ROJT', addr:'Železničná 1534', tel:'0903 263 539', lat:48.6802, lng:17.3649},
+      {city:'Spišská Nová Ves', name:'PNEUSPIŠ s.r.o.', addr:'Markušovska cesta 3', tel:'0907 238 393', lat:48.9446, lng:20.5682},
+      {city:'Šaľa', name:'PNEUSERVIS HUČKO', addr:'Nitrianska 1754', tel:'0948 517 402', lat:48.1509, lng:17.8779},
+      {city:'Topoľčany', name:'DDJ Servis', addr:'M.Rázusa 683/32A', tel:'0905 659 129', lat:48.5593, lng:18.1704},
+      {city:'Trenčín', name:'PROFI TYRES', addr:'Bratislavská 478', tel:'0905 930 911', lat:48.8943, lng:18.0445},
+      {city:'Trnava', name:'PNEUSYSTEM TT s.r.o.', addr:'Bratislavská cesta 45', tel:'0915 761 862', lat:48.3773, lng:17.5868},
+      {city:'Zvolen', name:'SLOSO SERVIS s.r.o.', addr:'J. Jesenského 10204/68', tel:'0915 715 169', lat:48.5745, lng:19.1271},
+      {city:'Žilina', name:'PNEUSERVIS MRÁZIK', addr:'Kragujevská 1', tel:'0903 555 505', lat:49.2231, lng:18.7398},
+    ];
+
+    let map, markers = [], infoWindow;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 48.7, lng: 19.5},
+        zoom: 7,
+        styles: [
+          {elementType:'geometry', stylers:[{color:'#1a1a1a'}]},
+          {elementType:'labels.text.stroke', stylers:[{color:'#111'}]},
+          {elementType:'labels.text.fill', stylers:[{color:'#888'}]},
+          {featureType:'road', elementType:'geometry', stylers:[{color:'#2a2a2a'}]},
+          {featureType:'road', elementType:'labels.text.fill', stylers:[{color:'#666'}]},
+          {featureType:'water', elementType:'geometry', stylers:[{color:'#0d1117'}]},
+          {featureType:'administrative.country', elementType:'geometry.stroke', stylers:[{color:'#444'}]},
+          {featureType:'administrative.province', elementType:'geometry.stroke', stylers:[{color:'#333'}]},
+        ],
+        disableDefaultUI: false,
+        zoomControl: true,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: true,
+      });
+
+      infoWindow = new google.maps.InfoWindow();
+
+      PARTNERS.forEach((p, i) => {
+        const marker = new google.maps.Marker({
+          position: {lat: p.lat, lng: p.lng},
+          map,
+          title: p.city,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: '#D9001B',
+            fillOpacity: 1,
+            strokeColor: '#fff',
+            strokeWeight: 1.5,
+          }
+        });
+
+        marker.addListener('click', () => {
+          infoWindow.setContent(`
+            <div style="font-family:sans-serif;padding:4px;min-width:180px">
+              <div style="font-weight:700;color:#111;margin-bottom:4px">${p.city}</div>
+              <div style="color:#333;font-size:13px">${p.name}</div>
+              <div style="color:#666;font-size:12px;margin-top:4px">${p.addr}</div>
+              <div style="color:#D9001B;font-size:12px;margin-top:4px"><a href="tel:${p.tel}" style="color:#D9001B">${p.tel}</a></div>
+            </div>
+          `);
+          infoWindow.open(map, marker);
+          openAccordion(i);
+        });
+
+        markers.push(marker);
+      });
+    }
+
+    function openAccordion(index) {
+      document.querySelectorAll('.acc-item').forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+      });
+      const el = document.querySelectorAll('.acc-item')[index];
+      if (el) el.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+
+    function buildAccordion(list) {
+      const container = document.getElementById('partnerList');
+      container.innerHTML = '';
+      list.forEach((p, i) => {
+        const realIndex = PARTNERS.indexOf(p);
+        const div = document.createElement('div');
+        div.className = 'acc-item';
+        div.innerHTML = `
+          <div class="acc-header" onclick="toggleAcc(this, ${realIndex})">
+            <div>
+              <span class="acc-num">${String(realIndex+1).padStart(2,'0')}</span>
+              <span class="acc-city">${p.city}</span>
+              <div class="acc-partner-name" style="padding-left:30px">${p.name}</div>
+            </div>
+            <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              ${p.addr}<br>
+              <a href="tel:${p.tel}">${p.tel}</a>
+            </div>
+          </div>`;
+        container.appendChild(div);
+      });
+    }
+
+    function toggleAcc(header, realIndex) {
+      const item = header.parentElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.acc-item').forEach(el => el.classList.remove('active'));
+      if (!isActive) {
+        item.classList.add('active');
+        if (markers[realIndex] && map) {
+          map.panTo(markers[realIndex].getPosition());
+          map.setZoom(13);
+          google.maps.event.trigger(markers[realIndex], 'click');
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buildAccordion(PARTNERS);
+
+      document.getElementById('partnerSearch').addEventListener('input', function() {
+        const q = this.value.toLowerCase();
+        const filtered = PARTNERS.filter(p =>
+          p.city.toLowerCase().includes(q) || p.name.toLowerCase().includes(q)
+        );
+        buildAccordion(filtered);
+        markers.forEach((m, i) => {
+          const visible = filtered.some(p => PARTNERS.indexOf(p) === i || p === PARTNERS[i]);
+          m.setVisible(PARTNERS.some((p,idx) => idx === i && filtered.includes(p)));
+        });
+      });
+    });
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&callback=initMap"></script>
+
 </body>
 </html>
