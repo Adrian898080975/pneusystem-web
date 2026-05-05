@@ -95,7 +95,7 @@
     .nav-links a {
       color: var(--light-grey);
       text-decoration: none;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -549,7 +549,7 @@
     }
     .service-desc {
       color: var(--grey);
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 1.2rem;
     }
@@ -988,7 +988,7 @@
     .acc-header:hover { background: rgba(255,255,255,0.03); }
     .acc-city {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--white);
     }
     .acc-partner-name {
@@ -1366,7 +1366,6 @@
           <li><a href="#referencie">Referencie</a></li>
           <li><a href="#siet">Servisná sieť</a></li>
           <li><a href="#sluzby">Produkty</a></li>
-          <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1487,7 +1486,7 @@
       PARTNERS.forEach((p, i) => {
         const marker = L.marker([p.lat, p.lng], {icon: redIcon})
           .addTo(map)
-          .bindPopup(`<div style="font-family:sans-serif;min-width:160px"><strong>${p.city}</strong><br><span style="font-size:12px">${p.name}</span><br><span style="color:#666;font-size:11px">${p.addr}</span><br><a href="tel:${p.tel}" style="color:#D9001B;font-size:12px">${p.tel}</a></div>`);
+          .bindPopup(`<div style="font-family:sans-serif;min-width:220px;padding:6px 2px"><strong style="font-size:16px;display:block;margin-bottom:6px">${p.city}</strong><span style="font-size:14px;display:block;margin-bottom:4px">${p.name}</span><span style="color:#666;font-size:13px;display:block;margin-bottom:6px">${p.addr}</span><a href="tel:${p.tel}" style="color:#D9001B;font-size:15px;font-weight:600">${p.tel}</a></div>`, {maxWidth: 280});
         marker.on('click', () => openAccordion(i));
         markers.push(marker);
       });
