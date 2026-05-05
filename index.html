@@ -316,7 +316,20 @@
       margin-top: 4px;
     }
     .hero-scroll {
-      display: none !important;
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--grey);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 4;
+      text-decoration: none;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -731,8 +744,8 @@
     .contact-blocks {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 2.5rem;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
     .contact-block {
       border-top: 2px solid var(--red);
@@ -925,7 +938,7 @@
     /* HERO LOGOS */
     .hero-logos {
       position: absolute;
-      bottom: 3.5rem;
+      bottom: 4.5rem;
       left: 0; right: 0;
       z-index: 3;
       padding: 0 5%;
@@ -1142,8 +1155,7 @@
       <li><a href="#referencie">Referencie</a></li>
       <li><a href="#siet">Servisná sieť</a></li>
       <li><a href="#sluzby">Produkty</a></li>
-      <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
       <li><a href="https://reservation.pneusystem.sk/" target="_blank" class="nav-cta">Rezervácia</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -1157,7 +1169,6 @@
     <a href="#referencie" class="nav-item">Referencie</a>
     <a href="#siet" class="nav-item">Servisná sieť</a>
     <a href="#sluzby" class="nav-item">Produkty</a>
-    <a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a>
     <a href="#kontakt" class="nav-item">Kontakt</a>
     <a href="https://reservation.pneusystem.sk/" target="_blank" style="color:var(--red)">Rezervácia →</a>
   </div>
@@ -1549,8 +1560,7 @@
         <div class="footer-col-title">Rezervácia</div>
         <ul>
           <li><a href="https://reservation.pneusystem.sk/" target="_blank">Online rezervácia</a></li>
-          <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank">Partneri</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </div>
     </div>
