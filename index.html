@@ -938,7 +938,7 @@
     /* SIET LAYOUT */
     .siet-layout {
       display: grid;
-      grid-template-columns: 1fr 400px;
+      grid-template-columns: 1fr 460px;
       gap: 0;
       border: 1px solid rgba(255,255,255,0.06);
       min-height: 520px;
@@ -981,20 +981,20 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 1.2rem;
+      padding: 1.1rem 1.4rem;
       cursor: pointer;
       user-select: none;
     }
     .acc-header:hover { background: rgba(255,255,255,0.03); }
     .acc-city {
-      font-weight: 600;
-      font-size: 0.88rem;
+      font-weight: 700;
+      font-size: 1rem;
       color: var(--white);
     }
     .acc-partner-name {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       color: var(--grey);
-      margin-top: 2px;
+      margin-top: 3px;
     }
     .acc-chevron {
       width: 16px; height: 16px;
@@ -1010,10 +1010,10 @@
     }
     .acc-item.active .acc-body { max-height: 120px; }
     .acc-body-inner {
-      padding: 0 1.2rem 1rem;
-      font-size: 0.82rem;
+      padding: 0 1.4rem 1.2rem;
+      font-size: 0.9rem;
       color: var(--grey);
-      line-height: 1.7;
+      line-height: 1.8;
     }
     .acc-body-inner a {
       color: var(--red);
@@ -1429,7 +1429,9 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
   </script>
-  <!-- GOOGLE MAPS + ACCORDION -->
+  <!-- LEAFLET MAP (OpenStreetMap, no API key needed) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const PARTNERS = [
       {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23', tel:'0905 813 712', lat:48.7395, lng:19.1457},
@@ -1465,59 +1467,28 @@
       {city:'Žilina', name:'PNEUSERVIS MRÁZIK', addr:'Kragujevská 1', tel:'0903 555 505', lat:49.2231, lng:18.7398},
     ];
 
-    let map, markers = [], infoWindow;
+    let map, markers = [];
 
     function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 48.7, lng: 19.5},
-        zoom: 7,
-        styles: [
-          {elementType:'geometry', stylers:[{color:'#1a1a1a'}]},
-          {elementType:'labels.text.stroke', stylers:[{color:'#111'}]},
-          {elementType:'labels.text.fill', stylers:[{color:'#888'}]},
-          {featureType:'road', elementType:'geometry', stylers:[{color:'#2a2a2a'}]},
-          {featureType:'road', elementType:'labels.text.fill', stylers:[{color:'#666'}]},
-          {featureType:'water', elementType:'geometry', stylers:[{color:'#0d1117'}]},
-          {featureType:'administrative.country', elementType:'geometry.stroke', stylers:[{color:'#444'}]},
-          {featureType:'administrative.province', elementType:'geometry.stroke', stylers:[{color:'#333'}]},
-        ],
-        disableDefaultUI: false,
-        zoomControl: true,
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: true,
+      map = L.map('map', {zoomControl: true}).setView([48.7, 19.5], 7);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        maxZoom: 19
+      }).addTo(map);
+
+      const redIcon = L.divIcon({
+        className: '',
+        html: '<div style="width:14px;height:14px;background:#D9001B;border:2px solid #fff;border-radius:50%;box-shadow:0 0 6px rgba(217,0,27,0.5)"></div>',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7],
+        popupAnchor: [0, -10]
       });
 
-      infoWindow = new google.maps.InfoWindow();
-
       PARTNERS.forEach((p, i) => {
-        const marker = new google.maps.Marker({
-          position: {lat: p.lat, lng: p.lng},
-          map,
-          title: p.city,
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: '#D9001B',
-            fillOpacity: 1,
-            strokeColor: '#fff',
-            strokeWeight: 1.5,
-          }
-        });
-
-        marker.addListener('click', () => {
-          infoWindow.setContent(`
-            <div style="font-family:sans-serif;padding:4px;min-width:180px">
-              <div style="font-weight:700;color:#111;margin-bottom:4px">${p.city}</div>
-              <div style="color:#333;font-size:13px">${p.name}</div>
-              <div style="color:#666;font-size:12px;margin-top:4px">${p.addr}</div>
-              <div style="color:#D9001B;font-size:12px;margin-top:4px"><a href="tel:${p.tel}" style="color:#D9001B">${p.tel}</a></div>
-            </div>
-          `);
-          infoWindow.open(map, marker);
-          openAccordion(i);
-        });
-
+        const marker = L.marker([p.lat, p.lng], {icon: redIcon})
+          .addTo(map)
+          .bindPopup(`<div style="font-family:sans-serif;min-width:160px"><strong>${p.city}</strong><br><span style="font-size:12px">${p.name}</span><br><span style="color:#666;font-size:11px">${p.addr}</span><br><a href="tel:${p.tel}" style="color:#D9001B;font-size:12px">${p.tel}</a></div>`);
+        marker.on('click', () => openAccordion(i));
         markers.push(marker);
       });
     }
@@ -1563,14 +1534,15 @@
       if (!isActive) {
         item.classList.add('active');
         if (markers[realIndex] && map) {
-          map.panTo(markers[realIndex].getPosition());
-          map.setZoom(13);
-          google.maps.event.trigger(markers[realIndex], 'click');
+          const p = PARTNERS[realIndex];
+          map.setView([p.lat, p.lng], 13);
+          markers[realIndex].openPopup();
         }
       }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      initMap();
       buildAccordion(PARTNERS);
 
       document.getElementById('partnerSearch').addEventListener('input', function() {
@@ -1580,13 +1552,16 @@
         );
         buildAccordion(filtered);
         markers.forEach((m, i) => {
-          const visible = filtered.some(p => PARTNERS.indexOf(p) === i || p === PARTNERS[i]);
-          m.setVisible(PARTNERS.some((p,idx) => idx === i && filtered.includes(p)));
+          if (filtered.includes(PARTNERS[i])) {
+            m.addTo(map);
+          } else {
+            m.remove();
+          }
         });
       });
     });
   </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&callback=initMap"></script>
+
 
 </body>
 </html>
