@@ -272,9 +272,7 @@
       opacity: 0;
       animation: fadeIn 1.2s 0.4s forwards;
     }
-    @media (min-width: 1025px) {
-      .hero-visual { display: flex !important; }
-    }
+
     .hero-img-wrap {
       position: relative;
       width: 100%;
@@ -932,19 +930,20 @@
       background: var(--dark);
       border-top: 1px solid rgba(255,255,255,0.05);
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
     }
     .hero-logos-label {
       font-size: 0.75rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 1.2rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
       font-weight: 500;
-      text-align: center;
-      padding: 0 5%;
+      display: block;
     }
     .hero-logos-track-wrap {
       overflow: hidden;
+      width: 100%;
       mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     }
     .hero-logos-track {
@@ -1147,6 +1146,11 @@
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { gap: 2rem; }
     }
+    /* DESKTOP FORCE SHOW */
+    @media (min-width: 1025px) {
+      .hero-visual { display: flex !important; }
+      .hero { grid-template-columns: 1fr 1fr !important; }
+    }
   </style>
 </head>
 <body>
@@ -1218,7 +1222,7 @@
     <div class="hero-bg-text">PNEU</div>
     <!-- LOGOS IN HERO -->
   <div class="hero-logos" id="referencie">
-    <p class="hero-logos-label">Naši klienti</p>
+    <p class="hero-logos-label">NAŠI KLIENTI</p>
     <div class="hero-logos-track-wrap">
       <div class="hero-logos-track">
         <img src="images/logo-asseco.png" alt="Asseco">
