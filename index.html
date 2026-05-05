@@ -317,7 +317,7 @@
     }
     .hero-scroll {
       position: absolute;
-      bottom: 2.5rem;
+      bottom: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -365,18 +365,16 @@
     .logos-track img {
       height: 44px;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: 0.5;
-      transition: opacity 0.4s, filter 0.4s;
+      filter: grayscale(1) brightness(1.8);
+      opacity: 0.4;
+      transition: opacity 0.4s, filter 0.5s;
       flex-shrink: 0;
       max-width: 160px;
     }
-    .logos-track img:hover { opacity: 1; }
-    .logos-track img.logo-color {
-      filter: grayscale(1) brightness(3);
-      opacity: 0.45;
+    .logos-track img:hover {
+      filter: grayscale(0) brightness(1);
+      opacity: 1;
     }
-    .logos-track img.logo-color:hover { opacity: 0.9; filter: grayscale(0) brightness(1); }
     .logos-track img:hover { opacity: 0.8; }
 
 
@@ -716,6 +714,17 @@
       padding: 8rem 5%;
       background: var(--dark);
     }
+    .contact-grid > * {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-form-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-form {
+      flex: 1;
+    }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -913,6 +922,46 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .benefits-grid { grid-template-columns: 1fr; }
+    }
+
+    /* HERO LOGOS */
+    .hero-logos {
+      position: absolute;
+      bottom: 5rem;
+      left: 0; right: 0;
+      z-index: 3;
+      padding: 0 5%;
+    }
+    .hero-logos-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1rem;
+    }
+    .hero-logos-track-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .hero-logos-track {
+      display: flex;
+      gap: 3.5rem;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+      align-items: center;
+    }
+    .hero-logos-track img {
+      height: 32px;
+      object-fit: contain;
+      filter: grayscale(1) brightness(2);
+      opacity: 0.35;
+      transition: opacity 0.4s, filter 0.5s;
+      flex-shrink: 0;
+      max-width: 130px;
+    }
+    .hero-logos-track img:hover {
+      filter: grayscale(0) brightness(1);
+      opacity: 1;
     }
 
     /* BENEFITS SECTION (screen 2) */
@@ -1146,22 +1195,53 @@
       </div>
     </div>
     <div class="hero-bg-text">PNEU</div>
-    <a href="#referencie" class="hero-scroll" style="text-decoration:none;color:inherit">Rolovať</a>
+    <!-- LOGOS IN HERO -->
+  <div class="hero-logos" id="referencie">
+    <p class="hero-logos-label">Naši klienti</p>
+    <div class="hero-logos-track-wrap">
+      <div class="hero-logos-track">
+        <img src="images/logo-asseco.png" alt="Asseco">
+        <img src="images/logo-avis.png" alt="AVIS">
+        <img src="images/logo-budget.png" alt="Budget">
+        <img src="images/logo-business-lease.png" alt="Business Lease">
+        <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
+        <img src="images/logo-leaseplan.png" alt="LeasePlan">
+        <img src="images/logo-sap.png" alt="SAP">
+        <img src="images/logo-schneider.png" alt="Schneider Electric">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
+        <img src="images/logo-union.png" alt="Union">
+        <img src="images/logo-veolia.png" alt="Veolia">
+        <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
+        <img src="images/logo-vw-financial.png" alt="VW Financial">
+        <img src="images/logo-asseco.png" alt="Asseco">
+        <img src="images/logo-avis.png" alt="AVIS">
+        <img src="images/logo-budget.png" alt="Budget">
+        <img src="images/logo-business-lease.png" alt="Business Lease">
+        <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
+        <img src="images/logo-leaseplan.png" alt="LeasePlan">
+        <img src="images/logo-sap.png" alt="SAP">
+        <img src="images/logo-schneider.png" alt="Schneider Electric">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
+        <img src="images/logo-union.png" alt="Union">
+        <img src="images/logo-veolia.png" alt="Veolia">
+        <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
+        <img src="images/logo-vw-financial.png" alt="VW Financial">
+      </div>
+    </div>
+  </div>
+
+  <a href="#referencie" class="hero-scroll" style="text-decoration:none;color:inherit">Rolovať</a>
   </section>
 
-  <!-- LOGOS -->
-  <section class="logos-section" id="referencie">
-    <p class="logos-label">Naši partneri a referencie</p>
-    <div class="logos-track-wrap">
-      <div class="logos-track" id="logosTrack">
-        <img src="images/logo-asseco.png" alt="Asseco"><img src="images/logo-avis.png" alt="Avis"><img src="images/logo-budget.png" alt="Budget"><img src="images/logo-business-lease.png" alt="Business Lease"><img src="images/logo-csob-leasing.png" alt="Csob Leasing"><img src="images/logo-leaseplan.png" class="logo-color" alt="Leaseplan"><img src="images/logo-sap.png" class="logo-color" alt="Sap"><img src="images/logo-schneider.png" alt="Schneider"><img src="images/logo-slovenske-elektrarne.png" alt="Slovenske Elektrarne"><img src="images/logo-unicredit-leasing.png" alt="Unicredit Leasing"><img src="images/logo-union.png" alt="Union"><img src="images/logo-veolia.png" alt="Veolia"><img src="images/logo-vub-leasing.png" alt="Vub Leasing"><img src="images/logo-vw-financial.png" class="logo-color" alt="Vw Financial"><img src="images/logo-asseco.png" alt="Asseco"><img src="images/logo-avis.png" alt="Avis"><img src="images/logo-budget.png" alt="Budget"><img src="images/logo-business-lease.png" alt="Business Lease"><img src="images/logo-csob-leasing.png" alt="Csob Leasing"><img src="images/logo-leaseplan.png" class="logo-color" alt="Leaseplan"><img src="images/logo-sap.png" class="logo-color" alt="Sap"><img src="images/logo-schneider.png" alt="Schneider"><img src="images/logo-slovenske-elektrarne.png" alt="Slovenske Elektrarne"><img src="images/logo-unicredit-leasing.png" alt="Unicredit Leasing"><img src="images/logo-union.png" alt="Union"><img src="images/logo-veolia.png" alt="Veolia"><img src="images/logo-vub-leasing.png" alt="Vub Leasing"><img src="images/logo-vw-financial.png" class="logo-color" alt="Vw Financial">
-      </div>
-  </section>
+
+
 
   <!-- ABOUT SCREEN 1 -->
   <section class="about-section">
     <div class="about-img-wrap reveal">
-      <img src="images/about-photo.jpg" alt="Pneusystem servis" style="filter: grayscale(0.6) contrast(1.2) brightness(0.7);">
+      <img src="images/about-photo.jpg" alt="Pneusystem servis" style="filter: grayscale(1) contrast(1.15) brightness(0.55);">
       <div class="about-badge">
         <div class="about-badge-num">31</div>
         <div class="about-badge-txt">Partnerov</div>
@@ -1319,7 +1399,7 @@
     <div class="siet-layout reveal">
       <!-- INTERAKTÍVNA MAPA -->
       <div class="siet-map-wrap">
-        <div id="map" style="width:100%;height:520px;"></div>
+        <div id="map" style="width:100%;height:580px;"></div>
       </div>
 
       <!-- ACCORDION ZOZNAM -->
@@ -1597,10 +1677,11 @@
 
     function initMap() {
       map = L.map('map', {zoomControl: true}).setView([48.75, 19.2], 7);
-      // Fit to Slovakia bounds after markers load
+      // Fit tight to Slovakia
       setTimeout(() => {
-        const skBounds = [[47.7, 16.8], [49.6, 22.6]];
-        map.fitBounds(skBounds, {padding: [20, 20]});
+        const skBounds = [[47.75, 16.85], [49.55, 22.55]];
+        map.fitBounds(skBounds, {padding: [30, 30]});
+        map.setMaxBounds([[46.5, 15.0], [50.5, 24.0]]);
       }, 300);
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap &copy; CARTO',
