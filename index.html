@@ -142,11 +142,11 @@
 
     /* HERO */
     .hero {
-      min-height: 100vh;
+      min-height: 78vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 72px 5% 3rem;
+      padding: 80px 5% 3rem;
       position: relative;
       overflow: hidden;
     }
@@ -317,7 +317,8 @@
       margin-top: 4px;
     }
     .hero-scroll {
-      display: none;
+      position: absolute;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -907,9 +908,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 100px; padding-bottom: 4rem; }
+      .hero { grid-template-columns: 1fr; padding-top: 90px; }
       .hero-visual { display: none; }
-      .hero { grid-template-columns: 1fr; }
       .hero-bg-text { font-size: 30vw; }
       .about-section { grid-template-columns: 1fr; gap: 3rem; }
       .about-img-wrap { display: none; }
@@ -924,13 +924,57 @@
       .benefits-grid { grid-template-columns: 1fr; }
     }
 
+    /* LOGOS BAND */
+    .logos-band {
+      padding: 2.5rem 0;
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      width: 100%;
+    }
+    .logos-band-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.4rem;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      width: 100%;
+      text-transform: uppercase;
+    }
+    .logos-band-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .logos-band-track {
+      display: flex;
+      gap: 3.5rem;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    .logos-band-track img {
+      height: 36px;
+      object-fit: contain;
+      filter: grayscale(1) brightness(2);
+      opacity: 0.4;
+      transition: opacity 0.4s, filter 0.5s;
+      flex-shrink: 0;
+      max-width: 130px;
+    }
+    .logos-band-track img:hover {
+      filter: grayscale(0) brightness(1);
+      opacity: 1;
+    }
+
     /* HERO LOGOS */
     .hero-logos {
-      padding: 3rem 0;
+      padding: 3.5rem 0;
       background: var(--dark);
       border-top: 1px solid rgba(255,255,255,0.05);
       border-bottom: 1px solid rgba(255,255,255,0.05);
-      text-align: center;
     }
     .hero-logos-label {
       font-size: 0.75rem;
@@ -940,6 +984,8 @@
       margin-bottom: 1.5rem;
       font-weight: 500;
       display: block;
+      text-align: center;
+      width: 100%;
     }
     .hero-logos-track-wrap {
       overflow: hidden;
@@ -968,7 +1014,7 @@
     }
 
     .hero-scroll-inline {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
       color: rgba(255,255,255,0.4);
@@ -978,7 +1024,6 @@
       text-decoration: none;
       margin-top: 1.5rem;
       transition: color 0.2s;
-      animation: bounce 2s infinite;
     }
     .hero-scroll-inline:hover { color: var(--white); }
 
@@ -1146,10 +1191,54 @@
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { gap: 2rem; }
     }
+    /* LOGOS STRIP INSIDE HERO */
+    .hero-logos-strip {
+      width: 100%;
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-logos-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+      text-align: center;
+      display: block;
+    }
+    .logos-strip-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .logos-strip-track {
+      display: flex;
+      gap: 3.5rem;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    .logos-strip-track img {
+      height: 36px;
+      object-fit: contain;
+      filter: grayscale(1) brightness(2);
+      opacity: 0.4;
+      transition: opacity 0.4s, filter 0.5s;
+      flex-shrink: 0;
+      max-width: 130px;
+    }
+    .logos-strip-track img:hover {
+      filter: grayscale(0) brightness(1);
+      opacity: 1;
+    }
+
     /* DESKTOP FORCE SHOW */
     @media (min-width: 1025px) {
       .hero-visual { display: flex !important; }
-      .hero { grid-template-columns: 1fr 1fr !important; }
+    }
+      .hero-main { grid-template-columns: 1fr 1fr !important; }
     }
   </style>
 </head>
@@ -1195,36 +1284,25 @@
         <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary">Rezervovať termín →</a>
         <a href="#siet" class="btn-secondary">Servisná sieť</a>
       </div>
-      <a href="#referencie" class="hero-scroll-inline">
-        <span>Rolovať</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-      </a>
     </div>
     <div class="hero-visual">
       <div class="hero-img-wrap">
-        <img src="images/about.jpg" alt="Pneusystem">
+        <img src="images/about.jpg" alt="Pneusystem" onerror="this.style.background='#1a1a1a'">
         <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">31</div>
-            <div class="stat-label">Partnerov</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">10+</div>
-            <div class="stat-label">Rokov</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">SK</div>
-            <div class="stat-label">Pokrytie</div>
-          </div>
+          <div class="stat"><div class="stat-num">31</div><div class="stat-label">Partnerov</div></div>
+          <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Rokov</div></div>
+          <div class="stat"><div class="stat-num">SK</div><div class="stat-label">Pokrytie</div></div>
         </div>
       </div>
     </div>
     <div class="hero-bg-text">PNEU</div>
-    <!-- LOGOS IN HERO -->
-  <div class="hero-logos" id="referencie">
-    <p class="hero-logos-label">NAŠI KLIENTI</p>
-    <div class="hero-logos-track-wrap">
-      <div class="hero-logos-track">
+  </section>
+
+  <!-- LOGOS -->
+  <div class="logos-band" id="referencie">
+    <p class="logos-band-label">NAŠI KLIENTI</p>
+    <div class="logos-band-wrap">
+      <div class="logos-band-track">
         <img src="images/logo-asseco.png" alt="Asseco">
         <img src="images/logo-avis.png" alt="AVIS">
         <img src="images/logo-budget.png" alt="Budget">
@@ -1232,9 +1310,9 @@
         <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
         <img src="images/logo-leaseplan.png" alt="LeasePlan">
         <img src="images/logo-sap.png" alt="SAP">
-        <img src="images/logo-schneider.png" alt="Schneider Electric">
-        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
-        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
+        <img src="images/logo-schneider.png" alt="Schneider">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slov. Elektrárne">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit">
         <img src="images/logo-union.png" alt="Union">
         <img src="images/logo-veolia.png" alt="Veolia">
         <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
@@ -1246,9 +1324,9 @@
         <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
         <img src="images/logo-leaseplan.png" alt="LeasePlan">
         <img src="images/logo-sap.png" alt="SAP">
-        <img src="images/logo-schneider.png" alt="Schneider Electric">
-        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
-        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
+        <img src="images/logo-schneider.png" alt="Schneider">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slov. Elektrárne">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit">
         <img src="images/logo-union.png" alt="Union">
         <img src="images/logo-veolia.png" alt="Veolia">
         <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
@@ -1256,11 +1334,6 @@
       </div>
     </div>
   </div>
-
-  </section>
-
-
-
 
   <!-- ABOUT SCREEN 1 -->
   <section class="about-section">
