@@ -36,6 +36,10 @@
       overflow-x: hidden;
       cursor: none;
     }
+    @media (hover: none) {
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+    }
 
     /* CUSTOM CURSOR */
     .cursor {
@@ -359,27 +363,16 @@
       width: max-content;
     }
     .logos-track img {
-      height: 36px;
+      height: 40px;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.35;
+      opacity: 0.4;
       transition: opacity 0.3s;
       flex-shrink: 0;
+      max-width: 140px;
     }
     .logos-track img:hover { opacity: 0.8; }
-    .logo-text-item {
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      white-space: nowrap;
-      flex-shrink: 0;
-      transition: color 0.3s;
-      padding: 0 1rem;
-    }
-    .logo-text-item:hover { color: rgba(255,255,255,0.7); }
+
 
     /* ABOUT */
     .about-section {
@@ -1111,7 +1104,7 @@
     <p class="logos-label">Naši partneri a referencie</p>
     <div class="logos-track-wrap">
       <div class="logos-track" id="logosTrack">
-        <span class="logo-text-item">Asseco</span><span class="logo-text-item">Schneider Electric</span><span class="logo-text-item">Slovenské Elektrárne</span><span class="logo-text-item">Union Poisťovňa</span><span class="logo-text-item">SAP</span><span class="logo-text-item">Veolia</span><span class="logo-text-item">Business Lease</span><span class="logo-text-item">VW Financial Services</span><span class="logo-text-item">AVIS</span><span class="logo-text-item">Budget</span><span class="logo-text-item">LeasePlan</span><span class="logo-text-item">ČSOB Leasing</span><span class="logo-text-item">VÚB Leasing</span><span class="logo-text-item">UCL</span><span class="logo-text-item">Asseco</span><span class="logo-text-item">Schneider Electric</span><span class="logo-text-item">Slovenské Elektrárne</span><span class="logo-text-item">Union Poisťovňa</span><span class="logo-text-item">SAP</span><span class="logo-text-item">Veolia</span><span class="logo-text-item">Business Lease</span><span class="logo-text-item">VW Financial Services</span><span class="logo-text-item">AVIS</span><span class="logo-text-item">Budget</span><span class="logo-text-item">LeasePlan</span><span class="logo-text-item">ČSOB Leasing</span><span class="logo-text-item">VÚB Leasing</span><span class="logo-text-item">UCL</span>
+        <img src="images/logo-asseco.png" alt="Asseco"><img src="images/logo-avis.png" alt="Avis"><img src="images/logo-budget.png" alt="Budget"><img src="images/logo-business-lease.png" alt="Business Lease"><img src="images/logo-csob-leasing.png" alt="Csob Leasing"><img src="images/logo-leaseplan.png" alt="Leaseplan"><img src="images/logo-sap.png" alt="Sap"><img src="images/logo-schneider.png" alt="Schneider"><img src="images/logo-slovenske-elektrarne.png" alt="Slovenske Elektrarne"><img src="images/logo-unicredit-leasing.png" alt="Unicredit Leasing"><img src="images/logo-union.png" alt="Union"><img src="images/logo-veolia.png" alt="Veolia"><img src="images/logo-vub-leasing.png" alt="Vub Leasing"><img src="images/logo-vw-financial.png" alt="Vw Financial"><img src="images/logo-asseco.png" alt="Asseco"><img src="images/logo-avis.png" alt="Avis"><img src="images/logo-budget.png" alt="Budget"><img src="images/logo-business-lease.png" alt="Business Lease"><img src="images/logo-csob-leasing.png" alt="Csob Leasing"><img src="images/logo-leaseplan.png" alt="Leaseplan"><img src="images/logo-sap.png" alt="Sap"><img src="images/logo-schneider.png" alt="Schneider"><img src="images/logo-slovenske-elektrarne.png" alt="Slovenske Elektrarne"><img src="images/logo-unicredit-leasing.png" alt="Unicredit Leasing"><img src="images/logo-union.png" alt="Union"><img src="images/logo-veolia.png" alt="Veolia"><img src="images/logo-vub-leasing.png" alt="Vub Leasing"><img src="images/logo-vw-financial.png" alt="Vw Financial">
       </div>
   </section>
 
