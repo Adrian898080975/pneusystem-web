@@ -1430,6 +1430,64 @@
       .book-modal-options { grid-template-columns: 1fr; }
     }
 
+    /* FLEET INFO BANNER */
+    .fleet-info-banner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: rgba(217,0,27,0.06);
+      border: 1px solid rgba(217,0,27,0.2);
+      padding: 1.4rem 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .fleet-info-icon {
+      width: 40px;
+      height: 40px;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .fleet-info-icon svg { width: 100%; height: 100%; }
+    .fleet-info-text {
+      flex: 1;
+      min-width: 200px;
+    }
+    .fleet-info-text strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .fleet-info-text span {
+      font-size: 0.83rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+    .fleet-info-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex-shrink: 0;
+    }
+    .fleet-info-tel {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .fleet-info-tel:hover { color: var(--red); }
+    .fleet-info-email {
+      color: var(--grey);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+    .fleet-info-email:hover { color: var(--white); }
+    @media (max-width: 768px) {
+      .fleet-info-banner { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.5rem; }
+    }
+
     /* DESKTOP FORCE SHOW */
     @media (min-width: 1025px) {
       .hero-visual { display: flex !important; }
@@ -1996,13 +2054,16 @@
         const marker = L.marker([p.lat, p.lng], {icon: redIcon})
           .addTo(map)
           .bindPopup(`<div style="font-family:sans-serif;min-width:240px;padding:6px 2px">
-            <strong style="font-size:15px;display:block;margin-bottom:3px">${p.city}</strong>
-            <span style="font-size:13px;display:block;margin-bottom:3px;color:#555">${p.name}</span>
-            <span style="color:#888;font-size:12px;display:block;margin-bottom:8px">${p.addr}</span>
-            <a href="tel:${p.tel}" style="color:#D9001B;font-size:14px;font-weight:600;display:block;margin-bottom:10px">${p.tel}</a>
-            <div style="display:flex;gap:6px;flex-wrap:wrap">
-              ${p.book ? `<a href="${p.book}" target="_blank" style="background:#D9001B;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Rezervovať →</a>` : `<a href="tel:${p.tel}" style="background:#eee;color:#333;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">📞 Zavolať</a>`}
-              <a href="${p.nav}" target="_blank" style="background:#f5f5f5;color:#333;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Navigovať</a>
+            <strong style="font-size:15px;display:block;margin-bottom:2px">${p.city}</strong>
+            <span style="font-size:13px;display:block;margin-bottom:2px;color:#555">${p.name}</span>
+            <span style="color:#888;font-size:11px;display:block;margin-bottom:10px">${p.addr}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+              ${p.book ? `<a href="${p.book}" target="_blank" style="background:#D9001B;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">Online rezervácia →</a>` : `<a href="tel:${p.tel}" style="background:#222;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">📞 ${p.tel}</a>`}
+              <a href="${p.nav}" target="_blank" style="background:#f0f0f0;color:#333;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">Navigovať</a>
+            </div>
+            <div style="border-top:1px solid #eee;padding-top:8px;font-size:11px;color:#888;line-height:1.5">
+              Otázky k vášmu parku?<br>
+              <a href="tel:+421908797492" style="color:#D9001B;font-weight:600;text-decoration:none">Katarína Ovečková: 0908 797 492</a>
             </div>
           </div>`, {maxWidth: 300});
         marker.on('click', () => openAccordion(i));
