@@ -82,6 +82,7 @@
       align-items: center;
       justify-content: space-between;
       height: 72px;
+      gap: 1rem;
       background: rgba(10,10,10,0.85);
       -webkit-backdrop-filter: blur(20px);
       backdrop-filter: blur(20px);
@@ -100,9 +101,10 @@
     .nav-logo img:hover { filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--red)); }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
       align-items: center;
+      flex-shrink: 0;
     }
     .nav-links a {
       color: var(--light-grey);
@@ -127,30 +129,37 @@
     .nav-partner-btn {
       color: var(--red) !important;
       border: 1px solid var(--red);
-      padding: 10px 16px;
+      padding: 0 16px;
+      height: 36px;
       letter-spacing: 0.06em;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       transition: background 0.2s, color 0.2s !important;
       line-height: 1;
       display: inline-flex;
       align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .nav-partner-btn::after { display: none !important; }
     .nav-partner-btn:hover { background: var(--red) !important; color: var(--white) !important; }
     .nav-cta {
       background: var(--red);
       color: var(--white) !important;
-      padding: 10px 16px;
+      padding: 0 16px;
+      height: 36px;
       letter-spacing: 0.06em;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       line-height: 1;
       display: inline-flex;
       align-items: center;
-      transition: background 0.2s, transform 0.2s !important;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: none;
+      transition: background 0.2s !important;
     }
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--red-dark) !important; transform: translateY(-1px); }
@@ -176,14 +185,21 @@
       display: none;
       flex-direction: column;
       gap: 5px;
-      cursor: none;
-      padding: 4px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
     }
     .nav-hamburger span {
       display: block;
       width: 24px; height: 2px;
       background: var(--white);
       transition: all 0.3s;
+      border-radius: 1px;
     }
 
     /* HERO */
@@ -961,7 +977,9 @@
       border: none;
       color: var(--white);
       font-size: 1.5rem;
-      cursor: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* RESPONSIVE */
@@ -1197,7 +1215,7 @@
     }
     .acc-item.active .acc-body { max-height: 120px; }
     .acc-body-inner {
-      padding: 0 1.4rem 1.2rem;
+      padding: 1rem 1.4rem 1.4rem;
       font-size: 0.9rem;
       color: var(--grey);
       line-height: 1.8;
@@ -1565,12 +1583,13 @@
 
   <!-- MOBILE NAV -->
   <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-nav-close" id="closeNav">✕</button>
+    <button type="button" class="mobile-nav-close" id="closeNav">✕</button>
     <a href="#onas" class="nav-item">O nás</a>
     <a href="#siet" class="nav-item">Servisná sieť</a>
     <a href="#sluzby" class="nav-item">Produkty</a>
     <a href="#kontakt" class="nav-item">Kontakt</a>
-    <button onclick="openBookModal();document.getElementById('mobileNav').classList.remove('open')" style="color:var(--red);background:none;border:none;font-family:var(--font-display);font-size:2.5rem;cursor:none;">Rezervácia →</button>
+    <a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank" style="color:rgba(255,255,255,0.5);font-size:1.2rem;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;font-family:var(--font-body);font-weight:600;">Prihlásenie partnera</a>
+    <button type="button" onclick="openBookModal();document.getElementById('mobileNav').classList.remove('open')" style="color:var(--red);background:none;border:none;font-family:var(--font-display);font-size:2.5rem;cursor:pointer;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;">Rezervácia →</button>
   </div>
 
   <!-- HERO -->
