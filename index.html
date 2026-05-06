@@ -1932,37 +1932,37 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const PARTNERS = [
-      {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23', tel:'0905 813 712', lat:48.7395, lng:19.1457},
-      {city:'Bardejov', name:'MILEND s.r.o.', addr:'Mičková 3162', tel:'0915 921 761', lat:49.2950, lng:21.2762},
-      {city:'Bojnice', name:'Pneuservis Humaj', addr:'Opatovská cesta 9', tel:'0905 259 211', lat:48.7791, lng:18.5769},
-      {city:'Bratislava', name:'PNEUSYSTEM s.r.o.', addr:'Galvániho 16/A', tel:'0905 643 169', lat:48.1702, lng:17.1763},
-      {city:'Dunajská Streda', name:'Clean Car Servis s.r.o.', addr:'Kračanská cesta 690/23', tel:'0905 501 262', lat:47.9953, lng:17.6171},
-      {city:'Hriadky (Michalovce)', name:'GUMA s.r.o.', addr:'Hlavná 170/2', tel:'0918 562 382', lat:48.7530, lng:21.9200},
-      {city:'Kežmarok', name:'PNEUVOSOVIČ', addr:'Nad Traťou 1', tel:'0905 358 612', lat:49.1354, lng:20.4298},
-      {city:'Komárno', name:'MEHES s.r.o', addr:'Gútsky rad 7', tel:'0905 826 825', lat:47.7632, lng:18.1283},
-      {city:'Košice', name:'MOL EXTRANS MOLNÁR', addr:'Omska 23', tel:'0915 958 311', lat:48.7164, lng:21.2611},
-      {city:'Levice', name:'Autoline', addr:'Mochovská 15', tel:'0905 969 355', lat:48.2147, lng:18.6068},
-      {city:'Liptovský Mikuláš', name:'PNEUSERVIS VIANOR', addr:'Okoličianská 681', tel:'0905 950 080', lat:49.0830, lng:19.6117},
-      {city:'Lučenec', name:'TOP PNEUSERVIS FIDES', addr:'Gemerská cesta 12', tel:'0911 691 667', lat:48.3310, lng:19.6677},
-      {city:'Malacky', name:'Pneuservis Chmela', addr:'Poľná 5426/2', tel:'0911 305 644', lat:48.4348, lng:17.0178},
-      {city:'Martin', name:'VEMAX servis s.r.o', addr:'Kollárova 75', tel:'0905 276 210', lat:49.0666, lng:18.9225},
-      {city:'Nitra', name:'Pneuservis ROKO', addr:'Braneckého 23', tel:'0905 258 421', lat:48.3070, lng:18.0870},
-      {city:'Nitra', name:'Pneuservis Kováčik', addr:'Braneckého 23', tel:'0905 258 421', lat:48.3090, lng:18.0890},
-      {city:'Nové Mesto n.Váhom', name:'PROFI TYRES', addr:'Trenčianska 17', tel:'0905 244 526', lat:48.7564, lng:17.8315},
-      {city:'Nové Zámky', name:'AUTOBOT Centrum', addr:'Výpalisko 65', tel:'0904 380 084', lat:47.9840, lng:18.1608},
-      {city:'Piešťany', name:'AMIKO SLOVAKIA', addr:'Bratislavská 130', tel:'0911 352 974', lat:48.5883, lng:17.8302},
-      {city:'Poprad', name:'PNEU TATRY s.r.o.', addr:'Levočská ulica 857', tel:'0903 646 226', lat:49.0536, lng:20.2974},
-      {city:'Prešov', name:'Pneuservis Biado', addr:'Bottova 3', tel:'0915 898 688', lat:48.9984, lng:21.2393},
-      {city:'Rimavská Sobota', name:'AUTOTRADE s.r.o.', addr:'Čerenčianska cesta 2379', tel:'0905 240 269', lat:48.3810, lng:20.0194},
-      {city:'Rožňava', name:'UNI RACING s.r.o.', addr:'Šafárikova 4135', tel:'0905 625 281', lat:48.6602, lng:20.5279},
-      {city:'Senica', name:'PNEUSERVIS ROJT', addr:'Železničná 1534', tel:'0903 263 539', lat:48.6802, lng:17.3649},
-      {city:'Spišská Nová Ves', name:'PNEUSPIŠ s.r.o.', addr:'Markušovska cesta 3', tel:'0907 238 393', lat:48.9446, lng:20.5682},
-      {city:'Šaľa', name:'PNEUSERVIS HUČKO', addr:'Nitrianska 1754', tel:'0948 517 402', lat:48.1509, lng:17.8779},
-      {city:'Topoľčany', name:'DDJ Servis', addr:'M.Rázusa 683/32A', tel:'0905 659 129', lat:48.5593, lng:18.1704},
-      {city:'Trenčín', name:'PROFI TYRES', addr:'Bratislavská 478', tel:'0905 930 911', lat:48.8943, lng:18.0445},
-      {city:'Trnava', name:'PNEUSYSTEM TT s.r.o.', addr:'Bratislavská cesta 45', tel:'0915 761 862', lat:48.3773, lng:17.5868},
-      {city:'Zvolen', name:'SLOSO SERVIS s.r.o.', addr:'J. Jesenského 10204/68', tel:'0915 715 169', lat:48.5745, lng:19.1271},
-      {city:'Žilina', name:'PNEUSERVIS MRÁZIK', addr:'Kragujevská 1', tel:'0903 555 505', lat:49.2231, lng:18.7398},
+      {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23, 974 05', tel:'0905 813 712', email:'b.bystrica@nicholtrackt.sk', lat:48.7395, lng:19.1457, book:'https://nicholtrackt.sk', nav:'https://maps.google.com/?q=Zvolenská+cesta+23,+974+05+Banská+Bystrica'},
+      {city:'Bardejov', name:'Milend', addr:'Mičková 3162, 085 01', tel:'0915 921 761', email:'milend@centrum.sk', lat:49.2950, lng:21.2762, book:null, nav:'https://maps.google.com/?q=Mičková+3162,+085+01+Bardejov'},
+      {city:'Bojnice', name:'Pneuservis Humaj', addr:'Opatovská cesta 9, 972 01', tel:'0905 259 211', email:'pneuhumaj@pneuhumaj.sk', lat:48.7791, lng:18.5769, book:'https://pneuhumaj.sk', nav:'https://maps.google.com/?q=Opatovská+cesta+9,+972+01+Bojnice'},
+      {city:'Bratislava', name:'Pneusystem', addr:'Galvaniho 16/A, 821 04', tel:'0908 797 492', email:'posta@pneusystem.sk', lat:48.1702, lng:17.1763, book:'https://reservation.pneusystem.sk/', nav:'https://maps.google.com/?q=Galvaniho+16/A,+821+04+Bratislava'},
+      {city:'Dunajská Streda', name:'Clean Car Servis', addr:'Kračanská cesta 690/23, 929 01', tel:'0905 501 262', email:'info@cleancarservice.sk', lat:47.9953, lng:17.6171, book:null, nav:'https://maps.google.com/?q=Kračanská+cesta+690/23,+929+01+Dunajská+Streda'},
+      {city:'Hriadky (Michalovce)', name:'Guma', addr:'Hlavná 170/2, 076 22', tel:'0918 562 382', email:'gumax@gumax.sk', lat:48.7530, lng:21.9200, book:null, nav:'https://maps.google.com/?q=Hlavná+170/2,+076+22+Hriadky'},
+      {city:'Kežmarok', name:'Pneuvosovič', addr:'Nad Traťou 1, 060 01', tel:'0905 358 612', email:'pneuvosovic@pneuvosovic.sk', lat:49.1354, lng:20.4298, book:null, nav:'https://maps.google.com/?q=Nad+Traťou+1,+060+01+Kežmarok'},
+      {city:'Komárno', name:'Méhes Centrum', addr:'Gútsky rad 7, 945 01', tel:'0905 826 825', email:'mehespneu@gmail.com', lat:47.7632, lng:18.1283, book:null, nav:'https://maps.google.com/?q=Gútsky+rad+7,+945+01+Komárno'},
+      {city:'Košice', name:'Mol Extrans Molnár', addr:'Omská 23, 040 01', tel:'0915 958 311', email:'mol-extrans@mol-extrans.sk', lat:48.7164, lng:21.2611, book:null, nav:'https://maps.google.com/?q=Omská+23,+040+01+Košice'},
+      {city:'Košice', name:'AutoLeader s.r.o.', addr:'Dopravná 2, 040 13', tel:'0905 406 295', email:'info@gumy-disky.sk', lat:48.7050, lng:21.2700, book:'https://premio-autoleader.sk/rezervacia', nav:'https://maps.google.com/?q=Dopravná+2,+040+13+Košice'},
+      {city:'Levice', name:'Autoline', addr:'Mochovská 15, 934 01', tel:'0905 969 355', email:'autolinelevice@gmail.com', lat:48.2147, lng:18.6068, book:'https://autoline-levice.sk', nav:'https://maps.google.com/?q=Mochovská+15,+934+01+Levice'},
+      {city:'Liptovský Mikuláš', name:'Pneuservis Vianor', addr:'Okoličianska 681, 031 01', tel:'0905 950 080', email:'vladomajzlik@gmail.com', lat:49.0830, lng:19.6117, book:null, nav:'https://maps.google.com/?q=Okoličianska+681,+031+01+Liptovský+Mikuláš'},
+      {city:'Lučenec', name:'Top Pneuservis', addr:'Jiráskova cesta 12, 984 01', tel:'0911 691 667', email:'toppneuservis@centrum.sk', lat:48.3310, lng:19.6677, book:'https://toppneuservis.sk', nav:'https://maps.google.com/?q=Jiráskova+cesta+12,+984+01+Lučenec'},
+      {city:'Malacky', name:'Pneuservis Chmela', addr:'Poľná 5426/2, 901 01', tel:'0911 305 644', email:'chmela-pneu@chmela-pneu.sk', lat:48.4348, lng:17.0178, book:'https://chmela-pneu.sk', nav:'https://maps.google.com/?q=Poľná+5426/2,+901+01+Malacky'},
+      {city:'Martin', name:'Vemax Servis', addr:'Robotnícka 9, 036 01', tel:'0918 907 728', email:'pneu@autovemax.sk', lat:49.0666, lng:18.9225, book:null, nav:'https://maps.google.com/?q=Robotnícka+9,+036+01+Martin'},
+      {city:'Nitra', name:'Pneuservis Roko', addr:'Braneckého 23, 949 01', tel:'0905 258 421', email:'roko@pneuservisroko.sk', lat:48.3070, lng:18.0870, book:null, nav:'https://maps.google.com/?q=Braneckého+23,+949+01+Nitra'},
+      {city:'Nové Mesto n.V.', name:'Pneuservis Jakub', addr:'Trenčianska 17, 915 01', tel:'0905 244 526', email:'pneuservis@jakubb.sk', lat:48.7564, lng:17.8315, book:'https://jakubb.sk', nav:'https://maps.google.com/?q=Trenčianska+17,+915+01+Nové+Mesto+nad+Váhom'},
+      {city:'Nové Zámky', name:'Autobot Centrum', addr:'Výpalisko 65, 940 01', tel:'0904 380 084', email:'autobot.doprava@gmail.com', lat:47.9840, lng:18.1608, book:null, nav:'https://maps.google.com/?q=Výpalisko+65,+940+01+Nové+Zámky'},
+      {city:'Piešťany', name:'Amiko Slovakia', addr:'Bratislavská 130, 921 01', tel:'0905 538 443', email:'amiko.pn@gmail.com', lat:48.5883, lng:17.8302, book:null, nav:'https://maps.google.com/?q=Bratislavská+130,+921+01+Piešťany'},
+      {city:'Poprad', name:'Pneu Tatry', addr:'Levočská ulica 857, 058 01', tel:'0903 646 226', email:'pneutatrypp@gmail.com', lat:49.0536, lng:20.2974, book:null, nav:'https://maps.google.com/?q=Levočská+ulica+857,+058+01+Poprad'},
+      {city:'Prešov', name:'Pneuservis Biado', addr:'Bottova 3, 080 01', tel:'0915 898 688', email:'pneuservisbiado@gmail.com', lat:48.9984, lng:21.2393, book:null, nav:'https://maps.google.com/?q=Bottova+3,+080+01+Prešov'},
+      {city:'Rimavská Sobota', name:'Autotrade', addr:'Čerenčianska cesta 2379, 979 01', tel:'0905 240 269', email:'info@autotraders.sk', lat:48.3810, lng:20.0194, book:'https://autotraders.sk', nav:'https://maps.google.com/?q=Čerenčianska+cesta+2379,+979+01+Rimavská+Sobota'},
+      {city:'Rožňava', name:'Uni Racing', addr:'Šafárikova 4135, 048 01', tel:'0905 625 281', email:'uniracingpremio@gmail.com', lat:48.6602, lng:20.5279, book:'https://premio-uniracing.sk', nav:'https://maps.google.com/?q=Šafárikova+4135,+048+01+Rožňava'},
+      {city:'Senica', name:'Pneuservis Rojt', addr:'Železničná 1534, 905 01', tel:'0903 263 539', email:'info@rojt.sk', lat:48.6802, lng:17.3649, book:'https://rojt.sk', nav:'https://maps.google.com/?q=Železničná+1534,+905+01+Senica'},
+      {city:'Spišská Nová Ves', name:'Pneuspiš Vianor', addr:'Markušovská cesta 3, 052 01', tel:'0907 238 393', email:'stanislavkukura@pobox.sk', lat:48.9446, lng:20.5682, book:null, nav:'https://maps.google.com/?q=Markušovská+cesta+3,+052+01+Spišská+Nová+Ves'},
+      {city:'Šaľa', name:'Autoservis Hučko', addr:'Nitrianska 1754, 927 05', tel:'0948 517 402', email:'hucko@autoservis-hucko.sk', lat:48.1509, lng:17.8779, book:'https://autoservis-hucko.sk', nav:'https://maps.google.com/?q=Nitrianska+1754,+927+05+Šaľa'},
+      {city:'Topoľčany', name:'DDJ Servis', addr:'M.Rázusa 683/32A, 955 01', tel:'0905 659 129', email:'ddjservis@zoznam.sk', lat:48.5593, lng:18.1704, book:null, nav:'https://maps.google.com/?q=M.Rázusa+683/32A,+955+01+Topoľčany'},
+      {city:'Trenčín', name:'Profityres', addr:'Bratislavská 478, 911 06', tel:'0905 930 911', email:'profityrestn@jakubb.sk', lat:48.8943, lng:18.0445, book:'https://jakubb.sk', nav:'https://maps.google.com/?q=Bratislavská+478,+911+06+Trenčín'},
+      {city:'Trnava', name:'Pneusystem TT', addr:'Bratislavská cesta 45, 917 02', tel:'0915 761 862', email:'posta@pneutt.sk', lat:48.3773, lng:17.5868, book:'https://pneutt.sk/rezervacia', nav:'https://maps.google.com/?q=Bratislavská+cesta+45,+917+02+Trnava'},
+      {city:'Zvolen', name:'Sloso Servis', addr:'J.Jesenského 10204/68, 960 01', tel:'0915 715 169', email:'repisky@slososervis.sk', lat:48.5745, lng:19.1271, book:'https://rezervujsi.sk/sloso-servis', nav:'https://maps.google.com/?q=J.Jesenského+10204/68,+960+01+Zvolen'},
+      {city:'Žilina', name:'Pneuservis Mrázik', addr:'Kragujevská 1, 010 01', tel:'0903 909 622', email:'pneuservis.mrazik@gmail.com', lat:49.2231, lng:18.7398, book:null, nav:'https://maps.google.com/?q=Kragujevská+1,+010+01+Žilina'},
     ];
 
     let map, markers = [];
@@ -1991,7 +1991,16 @@
       PARTNERS.forEach((p, i) => {
         const marker = L.marker([p.lat, p.lng], {icon: redIcon})
           .addTo(map)
-          .bindPopup(`<div style="font-family:sans-serif;min-width:220px;padding:6px 2px"><strong style="font-size:16px;display:block;margin-bottom:6px">${p.city}</strong><span style="font-size:14px;display:block;margin-bottom:4px">${p.name}</span><span style="color:#666;font-size:13px;display:block;margin-bottom:6px">${p.addr}</span><a href="tel:${p.tel}" style="color:#D9001B;font-size:15px;font-weight:600">${p.tel}</a></div>`, {maxWidth: 280});
+          .bindPopup(`<div style="font-family:sans-serif;min-width:240px;padding:6px 2px">
+            <strong style="font-size:15px;display:block;margin-bottom:3px">${p.city}</strong>
+            <span style="font-size:13px;display:block;margin-bottom:3px;color:#555">${p.name}</span>
+            <span style="color:#888;font-size:12px;display:block;margin-bottom:8px">${p.addr}</span>
+            <a href="tel:${p.tel}" style="color:#D9001B;font-size:14px;font-weight:600;display:block;margin-bottom:10px">${p.tel}</a>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              ${p.book ? `<a href="${p.book}" target="_blank" style="background:#D9001B;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Rezervovať →</a>` : `<a href="tel:${p.tel}" style="background:#eee;color:#333;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">📞 Zavolať</a>`}
+              <a href="${p.nav}" target="_blank" style="background:#f5f5f5;color:#333;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Navigovať</a>
+            </div>
+          </div>`, {maxWidth: 300});
         marker.on('click', () => openAccordion(i));
         markers.push(marker);
       });
@@ -2023,9 +2032,13 @@
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
-              <div style="margin-bottom:6px">${p.addr}</div>
-              <a href="tel:${p.tel}" style="display:block;margin-bottom:10px">${p.tel}</a>
-              <a href="https://reservation.pneusystem.sk/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Rezervovať →</a>
+              <div style="margin-bottom:4px;color:var(--light-grey)">${p.addr}</div>
+              <a href="mailto:${p.email}" style="display:block;margin-bottom:4px;font-size:0.82rem;color:var(--grey)">${p.email}</a>
+              <a href="tel:${p.tel}" style="display:block;margin-bottom:12px;font-weight:600;color:var(--white)">${p.tel}</a>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                ${p.book ? `<a href="${p.book}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:var(--red);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Online rezervácia →</a>` : `<a href="tel:${p.tel}" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.08);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.12)">📞 Zavolať</a>`}
+                <a href="${p.nav}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:transparent;color:var(--grey);padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.1)">Navigovať →</a>
+              </div>
             </div>
           </div>`;
         container.appendChild(div);
