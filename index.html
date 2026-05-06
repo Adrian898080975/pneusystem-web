@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="sk" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. Kdekoľvek na Slovensku.">
   <meta name="keywords" content="pneumatiky, pneuservis, bratislava, pneusystem, uskladnenie pneumatik, oprava defektov, defekt, prezutie gum, nakup pneumatik">
   <title>Pneusystem.sk — Partner pre vaše pneumatiky</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&display=swap:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     :root {
       --red: #D9001B;
@@ -35,6 +38,9 @@
       color: var(--white);
       overflow-x: hidden;
       cursor: none;
+    }
+    @supports not (cursor: none) {
+      body { cursor: auto; }
     }
     @media (hover: none) {
       body { cursor: auto; }
@@ -77,6 +83,7 @@
       justify-content: space-between;
       height: 72px;
       background: rgba(10,10,10,0.85);
+      -webkit-backdrop-filter: blur(20px);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,255,255,0.05);
       transition: all 0.3s ease;
@@ -93,8 +100,9 @@
     .nav-logo img:hover { filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--red)); }
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
+      align-items: center;
     }
     .nav-links a {
       color: var(--light-grey);
@@ -119,29 +127,36 @@
     .nav-partner-btn {
       color: var(--red) !important;
       border: 1px solid var(--red);
-      padding: 10px 20px;
-      letter-spacing: 0.08em;
-      font-size: 0.82rem;
+      padding: 10px 16px;
+      letter-spacing: 0.06em;
+      font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
       transition: background 0.2s, color 0.2s !important;
       line-height: 1;
+      display: inline-flex;
+      align-items: center;
     }
     .nav-partner-btn::after { display: none !important; }
     .nav-partner-btn:hover { background: var(--red) !important; color: var(--white) !important; }
     .nav-cta {
       background: var(--red);
       color: var(--white) !important;
-      padding: 10px 20px;
-      letter-spacing: 0.08em;
-      font-size: 0.82rem;
+      padding: 10px 16px;
+      letter-spacing: 0.06em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
       line-height: 1;
+      display: inline-flex;
+      align-items: center;
       transition: background 0.2s, transform 0.2s !important;
     }
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--red-dark) !important; transform: translateY(-1px); }
 
-    .lang-switch {
+    .lang-switch { display: none !important; /* disabled */ }
+    .lang-switch-hidden {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -212,7 +227,8 @@
       font-weight: 500;
       margin-bottom: 1.5rem;
       opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
+      -webkit-animation: fadeUp 0.8s 0.2s forwards;
+    animation: fadeUp 0.8s 0.2s forwards;
     }
     .hero-eyebrow::before {
       content: '';
@@ -880,6 +896,10 @@
     .footer-ico span { color: rgba(255,255,255,0.5); }
 
     /* ANIMATIONS */
+    @-webkit-keyframes fadeUp {
+      from { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+      to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+    }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -891,6 +911,10 @@
     @keyframes bounce {
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(8px); }
+    }
+    @-webkit-keyframes marquee {
+      from { -webkit-transform: translateX(0); transform: translateX(0); }
+      to { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
     }
     @keyframes marquee {
       from { transform: translateX(0); }
@@ -979,11 +1003,15 @@
     }
     .logos-band-wrap {
       overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
       mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     }
     .logos-band-track {
+      touch-action: none;
+      will-change: transform;
       display: flex;
       gap: 3.5rem;
+      -webkit-animation: marquee 30s linear infinite;
       animation: marquee 30s linear infinite;
       width: max-content;
       align-items: center;
@@ -1024,11 +1052,13 @@
     .hero-logos-track-wrap {
       overflow: hidden;
       width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
       mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     }
     .hero-logos-track {
       display: flex;
       gap: 3.5rem;
+      -webkit-animation: marquee 30s linear infinite;
       animation: marquee 30s linear infinite;
       width: max-content;
       align-items: center;
@@ -1121,6 +1151,7 @@
     .siet-search:focus { border-color: var(--red); }
     .siet-search::placeholder { color: var(--grey); }
     .partner-accordion {
+      -webkit-overflow-scrolling: touch;
       overflow-y: auto;
       flex: 1;
       max-height: 460px;
@@ -1245,11 +1276,13 @@
     }
     .logos-strip-wrap {
       overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
       mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     }
     .logos-strip-track {
       display: flex;
       gap: 3.5rem;
+      -webkit-animation: marquee 30s linear infinite;
       animation: marquee 30s linear infinite;
       width: max-content;
       align-items: center;
@@ -1275,6 +1308,7 @@
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.85);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       z-index: 9000;
       display: flex;
@@ -1296,10 +1330,12 @@
       width: 100%;
       padding: 3rem;
       position: relative;
+      -webkit-transform: translateY(30px);
       transform: translateY(30px);
       transition: transform 0.3s ease;
     }
     .book-modal-overlay.open .book-modal {
+      -webkit-transform: translateY(0);
       transform: translateY(0);
     }
     .book-modal-close {
@@ -1515,7 +1551,7 @@
       <li><a href="#sluzby">Produkty</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
       <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank" class="nav-partner-btn">Prihlásenie partnera</a>
-      <button onclick="openBookModal()" class="nav-cta" style="border:none;cursor:none;">Rezervácia</button></li>
+      <button type="button" onclick="openBookModal()" class="nav-cta" style="border:none;cursor:none;">Rezervácia</button></li>
     </ul>
     <div class="lang-switch">
         <a href="#" class="lang-btn active" onclick="setLang('sk');return false;">SK</a>
@@ -1544,7 +1580,7 @@
       <h1>Vaše<br><em>pneumatiky.</em><br>Celé Slovensko.</h1>
       <p class="hero-desc">Jeden partner. Jedna faktúra. Pneumatiky a servis pre celý váš vozový park kdekoľvek na Slovensku. Bez komplikácií, za dohodnuté ceny.</p>
       <div class="hero-actions">
-        <button onclick="openBookModal()" class="btn-primary">Rezervovať termín →</button>
+        <button type="button" onclick="openBookModal()" class="btn-primary">Rezervovať termín →</button>
         <a href="#siet" class="btn-secondary">Servisná sieť</a>
       </div>
     </div>
@@ -1568,28 +1604,32 @@
       <div class="logos-band-track">
         <img src="images/logo-asseco.png" alt="Asseco">
         <img src="images/logo-avis.png" alt="AVIS">
+        <img src="images/logo-ayvens.png" alt="Ayvens">
         <img src="images/logo-budget.png" alt="Budget">
         <img src="images/logo-business-lease.png" alt="Business Lease">
         <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
-        <img src="images/logo-leaseplan.png" alt="LeasePlan">
+        <img src="images/logo-kaufland.png" alt="Kaufland">
+        <img src="images/logo-novo_nordisk.png" alt="Novo Nordisk">
         <img src="images/logo-sap.png" alt="SAP">
-        <img src="images/logo-schneider.png" alt="Schneider">
-        <img src="images/logo-slovenske-elektrarne.png" alt="Slov. Elektrárne">
-        <img src="images/logo-unicredit-leasing.png" alt="UniCredit">
+        <img src="images/logo-schneider.png" alt="Schneider Electric">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
         <img src="images/logo-union.png" alt="Union">
         <img src="images/logo-veolia.png" alt="Veolia">
         <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
         <img src="images/logo-vw-financial.png" alt="VW Financial">
         <img src="images/logo-asseco.png" alt="Asseco">
         <img src="images/logo-avis.png" alt="AVIS">
+        <img src="images/logo-ayvens.png" alt="Ayvens">
         <img src="images/logo-budget.png" alt="Budget">
         <img src="images/logo-business-lease.png" alt="Business Lease">
         <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
-        <img src="images/logo-leaseplan.png" alt="LeasePlan">
+        <img src="images/logo-kaufland.png" alt="Kaufland">
+        <img src="images/logo-novo_nordisk.png" alt="Novo Nordisk">
         <img src="images/logo-sap.png" alt="SAP">
-        <img src="images/logo-schneider.png" alt="Schneider">
-        <img src="images/logo-slovenske-elektrarne.png" alt="Slov. Elektrárne">
-        <img src="images/logo-unicredit-leasing.png" alt="UniCredit">
+        <img src="images/logo-schneider.png" alt="Schneider Electric">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
         <img src="images/logo-union.png" alt="Union">
         <img src="images/logo-veolia.png" alt="Veolia">
         <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
@@ -1684,12 +1724,12 @@
     <div class="box-item">
       <div class="box-title" data-i18n="box2-title">Pick-up</div>
       <div class="box-text" data-i18n="box2-text">Prídeme pre auto k vám, odservísujeme ho a vrátime späť. Minimálny výpadok vozidla, nula starostí pre zamestnanca.</div>
-      <button onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať pick-up →</button>
+      <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať pick-up →</button>
     </div>
     <div class="box-item">
       <div class="box-title" data-i18n="box3-title">Uskladnenie</div>
       <div class="box-text" data-i18n="box3-text">Sezónne uskladnenie s evidenciou a správou. Každú sezónu dostanete správu o stave a opotrebovaní vašich pneumatík.</div>
-      <button onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať uskladnenie →</button>
+      <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať uskladnenie →</button>
     </div>
   </div>
 
@@ -1700,7 +1740,7 @@
         <span class="section-label">Čo ponúkame</span>
         <h2 class="section-title">Naše <em>služby</em></h2>
       </div>
-      <button onclick="openBookModal()" class="btn-secondary" style="border:none;cursor:none;">Všetky rezervácie →</button>
+      <button type="button" onclick="openBookModal()" class="btn-secondary" style="border:none;cursor:none;">Všetky rezervácie →</button>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
@@ -1710,7 +1750,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s1-name">Pneumatiky</div>
           <div class="service-desc" data-i18n="s1-desc">Všetky hlavné značky za zmluvné ceny. Letné, zimné aj celoročné pneumatiky pre osobné aj úžitkové vozidlá.</div>
-          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
+          <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
       <div class="service-card reveal">
@@ -1720,7 +1760,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s2-name">Služby</div>
           <div class="service-desc" data-i18n="s2-desc">Prezutie, vyváženie, oprava defektov. Rýchlo, spoľahlivo, v sieti 31 servisov po celom Slovensku.</div>
-          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
+          <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
       <div class="service-card reveal">
@@ -1730,7 +1770,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s3-name">Uskladnenie</div>
           <div class="service-desc" data-i18n="s3-desc">Bezpečné uskladnenie celého parku. Označené, evidované, so správou o stave po každej sezóne.</div>
-          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
+          <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
       <div class="service-card reveal">
@@ -1740,7 +1780,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s4-name">Pickup</div>
           <div class="service-desc" data-i18n="s4-desc">Prídeme pre vozidlo priamo k vám. Žiadny čas stratený cestovaním do servisu. Ideálne pre väčšie parky.</div>
-          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
+          <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
     </div>
@@ -2007,12 +2047,13 @@
 
   <!-- LEAFLET MAP (OpenStreetMap, no API key needed) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>.leaflet-pane { z-index: 400; } .leaflet-top, .leaflet-bottom { z-index: 400; }</style>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const PARTNERS = [
-      {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23, 974 05', tel:'0905 813 712', email:'b.bystrica@nicholtrackt.sk', lat:48.7395, lng:19.1457, book:'https://nicholtrackt.sk', nav:'https://maps.google.com/?q=Zvolenská+cesta+23,+974+05+Banská+Bystrica'},
+      {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23, 974 05', tel:'0905 813 712', email:'b.bystrica@nicholtrackt.sk', lat:48.7395, lng:19.1457, book:'https://rezervacie.nicholtrackt.eu/servis/objednavka', nav:'https://maps.google.com/?q=Zvolenská+cesta+23,+974+05+Banská+Bystrica'},
       {city:'Bardejov', name:'Milend', addr:'Mičková 3162, 085 01', tel:'0915 921 761', email:'milend@centrum.sk', lat:49.2950, lng:21.2762, book:null, nav:'https://maps.google.com/?q=Mičková+3162,+085+01+Bardejov'},
-      {city:'Bojnice', name:'Pneuservis Humaj', addr:'Opatovská cesta 9, 972 01', tel:'0905 259 211', email:'pneuhumaj@pneuhumaj.sk', lat:48.7791, lng:18.5769, book:'https://pneuhumaj.sk', nav:'https://maps.google.com/?q=Opatovská+cesta+9,+972+01+Bojnice'},
+      {city:'Bojnice', name:'Pneuservis Humaj', addr:'Opatovská cesta 9, 972 01', tel:'0905 259 211', email:'pneuhumaj@pneuhumaj.sk', lat:48.7791, lng:18.5769, book:'https://www.bestdrive.sk/branches/_tefan_humaj_pneuservis-bojnice-opatovskacesta.html', nav:'https://maps.google.com/?q=Opatovská+cesta+9,+972+01+Bojnice'},
       {city:'Bratislava', name:'Pneusystem', addr:'Galvaniho 16/A, 821 04', tel:'0908 797 492', email:'posta@pneusystem.sk', lat:48.1702, lng:17.1763, book:'https://reservation.pneusystem.sk/', nav:'https://maps.google.com/?q=Galvaniho+16/A,+821+04+Bratislava'},
       {city:'Dunajská Streda', name:'Clean Car Servis', addr:'Kračanská cesta 690/23, 929 01', tel:'0905 501 262', email:'info@cleancarservice.sk', lat:47.9953, lng:17.6171, book:null, nav:'https://maps.google.com/?q=Kračanská+cesta+690/23,+929+01+Dunajská+Streda'},
       {city:'Hriadky (Michalovce)', name:'Guma', addr:'Hlavná 170/2, 076 22', tel:'0918 562 382', email:'gumax@gumax.sk', lat:48.7530, lng:21.9200, book:null, nav:'https://maps.google.com/?q=Hlavná+170/2,+076+22+Hriadky'},
@@ -2020,26 +2061,26 @@
       {city:'Komárno', name:'Méhes Centrum', addr:'Gútsky rad 7, 945 01', tel:'0905 826 825', email:'mehespneu@gmail.com', lat:47.7632, lng:18.1283, book:null, nav:'https://maps.google.com/?q=Gútsky+rad+7,+945+01+Komárno'},
       {city:'Košice', name:'Mol Extrans Molnár', addr:'Omská 23, 040 01', tel:'0915 958 311', email:'mol-extrans@mol-extrans.sk', lat:48.7164, lng:21.2611, book:null, nav:'https://maps.google.com/?q=Omská+23,+040+01+Košice'},
       {city:'Košice', name:'AutoLeader s.r.o.', addr:'Dopravná 2, 040 13', tel:'0905 406 295', email:'info@gumy-disky.sk', lat:48.7050, lng:21.2700, book:'https://premio-autoleader.sk/rezervacia', nav:'https://maps.google.com/?q=Dopravná+2,+040+13+Košice'},
-      {city:'Levice', name:'Autoline', addr:'Mochovská 15, 934 01', tel:'0905 969 355', email:'autolinelevice@gmail.com', lat:48.2147, lng:18.6068, book:'https://autoline-levice.sk', nav:'https://maps.google.com/?q=Mochovská+15,+934+01+Levice'},
+      {city:'Levice', name:'Autoline', addr:'Mochovská 15, 934 01', tel:'0905 969 355', email:'autolinelevice@gmail.com', lat:48.2147, lng:18.6068, book:'https://www.autolinelv.sk/pneuservis/#prezutie', nav:'https://maps.google.com/?q=Mochovská+15,+934+01+Levice'},
       {city:'Liptovský Mikuláš', name:'Pneuservis Vianor', addr:'Okoličianska 681, 031 01', tel:'0905 950 080', email:'vladomajzlik@gmail.com', lat:49.0830, lng:19.6117, book:null, nav:'https://maps.google.com/?q=Okoličianska+681,+031+01+Liptovský+Mikuláš'},
-      {city:'Lučenec', name:'Top Pneuservis', addr:'Jiráskova cesta 12, 984 01', tel:'0911 691 667', email:'toppneuservis@centrum.sk', lat:48.3310, lng:19.6677, book:'https://toppneuservis.sk', nav:'https://maps.google.com/?q=Jiráskova+cesta+12,+984+01+Lučenec'},
-      {city:'Malacky', name:'Pneuservis Chmela', addr:'Poľná 5426/2, 901 01', tel:'0911 305 644', email:'chmela-pneu@chmela-pneu.sk', lat:48.4348, lng:17.0178, book:'https://chmela-pneu.sk', nav:'https://maps.google.com/?q=Poľná+5426/2,+901+01+Malacky'},
+      {city:'Lučenec', name:'Top Pneuservis', addr:'Jiráskova cesta 12, 984 01', tel:'0911 691 667', email:'toppneuservis@centrum.sk', lat:48.3310, lng:19.6677, book:'https://www.bestdrive.sk/branches/top_pneuservis_spolsro-luenec-jiraskovacesta.html', nav:'https://maps.google.com/?q=Jiráskova+cesta+12,+984+01+Lučenec'},
+      {city:'Malacky', name:'Pneuservis Chmela', addr:'Poľná 5426/2, 901 01', tel:'0911 305 644', email:'chmela-pneu@chmela-pneu.sk', lat:48.4348, lng:17.0178, book:'https://www.chmela-pneu.sk/rezervacia/', nav:'https://maps.google.com/?q=Poľná+5426/2,+901+01+Malacky'},
       {city:'Martin', name:'Vemax Servis', addr:'Robotnícka 9, 036 01', tel:'0918 907 728', email:'pneu@autovemax.sk', lat:49.0666, lng:18.9225, book:null, nav:'https://maps.google.com/?q=Robotnícka+9,+036+01+Martin'},
       {city:'Nitra', name:'Pneuservis Roko', addr:'Braneckého 23, 949 01', tel:'0905 258 421', email:'roko@pneuservisroko.sk', lat:48.3070, lng:18.0870, book:null, nav:'https://maps.google.com/?q=Braneckého+23,+949+01+Nitra'},
-      {city:'Nové Mesto n.V.', name:'Pneuservis Jakub', addr:'Trenčianska 17, 915 01', tel:'0905 244 526', email:'pneuservis@jakubb.sk', lat:48.7564, lng:17.8315, book:'https://jakubb.sk', nav:'https://maps.google.com/?q=Trenčianska+17,+915+01+Nové+Mesto+nad+Váhom'},
+      {city:'Nové Mesto n.V.', name:'Pneuservis Jakub', addr:'Trenčianska 17, 915 01', tel:'0905 244 526', email:'pneuservis@jakubb.sk', lat:48.7564, lng:17.8315, book:'https://www.bookingforsure.eu/bc?servis=2026&lng=cz', nav:'https://maps.google.com/?q=Trenčianska+17,+915+01+Nové+Mesto+nad+Váhom'},
       {city:'Nové Zámky', name:'Autobot Centrum', addr:'Výpalisko 65, 940 01', tel:'0904 380 084', email:'autobot.doprava@gmail.com', lat:47.9840, lng:18.1608, book:null, nav:'https://maps.google.com/?q=Výpalisko+65,+940+01+Nové+Zámky'},
       {city:'Piešťany', name:'Amiko Slovakia', addr:'Bratislavská 130, 921 01', tel:'0905 538 443', email:'amiko.pn@gmail.com', lat:48.5883, lng:17.8302, book:null, nav:'https://maps.google.com/?q=Bratislavská+130,+921+01+Piešťany'},
       {city:'Poprad', name:'Pneu Tatry', addr:'Levočská ulica 857, 058 01', tel:'0903 646 226', email:'pneutatrypp@gmail.com', lat:49.0536, lng:20.2974, book:null, nav:'https://maps.google.com/?q=Levočská+ulica+857,+058+01+Poprad'},
       {city:'Prešov', name:'Pneuservis Biado', addr:'Bottova 3, 080 01', tel:'0915 898 688', email:'pneuservisbiado@gmail.com', lat:48.9984, lng:21.2393, book:null, nav:'https://maps.google.com/?q=Bottova+3,+080+01+Prešov'},
-      {city:'Rimavská Sobota', name:'Autotrade', addr:'Čerenčianska cesta 2379, 979 01', tel:'0905 240 269', email:'info@autotraders.sk', lat:48.3810, lng:20.0194, book:'https://autotraders.sk', nav:'https://maps.google.com/?q=Čerenčianska+cesta+2379,+979+01+Rimavská+Sobota'},
-      {city:'Rožňava', name:'Uni Racing', addr:'Šafárikova 4135, 048 01', tel:'0905 625 281', email:'uniracingpremio@gmail.com', lat:48.6602, lng:20.5279, book:'https://premio-uniracing.sk', nav:'https://maps.google.com/?q=Šafárikova+4135,+048+01+Rožňava'},
-      {city:'Senica', name:'Pneuservis Rojt', addr:'Železničná 1534, 905 01', tel:'0903 263 539', email:'info@rojt.sk', lat:48.6802, lng:17.3649, book:'https://rojt.sk', nav:'https://maps.google.com/?q=Železničná+1534,+905+01+Senica'},
+      {city:'Rimavská Sobota', name:'Autotrade', addr:'Čerenčianska cesta 2379, 979 01', tel:'0905 240 269', email:'info@autotraders.sk', lat:48.3810, lng:20.0194, book:'https://autotraders.bosch-car-service.sk/online-objednavka.html', nav:'https://maps.google.com/?q=Čerenčianska+cesta+2379,+979+01+Rimavská+Sobota'},
+      {city:'Rožňava', name:'Uni Racing', addr:'Šafárikova 4135, 048 01', tel:'0905 625 281', email:'uniracingpremio@gmail.com', lat:48.6602, lng:20.5279, book:'https://www.premio-pneuservis.sk/all-dealers/roznava/premio-uni-racing-221140.html#navServices', nav:'https://maps.google.com/?q=Šafárikova+4135,+048+01+Rožňava'},
+      {city:'Senica', name:'Pneuservis Rojt', addr:'Železničná 1534, 905 01', tel:'0903 263 539', email:'info@rojt.sk', lat:48.6802, lng:17.3649, book:'https://rojt.sk/rezervacia/', nav:'https://maps.google.com/?q=Železničná+1534,+905+01+Senica'},
       {city:'Spišská Nová Ves', name:'Pneuspiš Vianor', addr:'Markušovská cesta 3, 052 01', tel:'0907 238 393', email:'stanislavkukura@pobox.sk', lat:48.9446, lng:20.5682, book:null, nav:'https://maps.google.com/?q=Markušovská+cesta+3,+052+01+Spišská+Nová+Ves'},
-      {city:'Šaľa', name:'Autoservis Hučko', addr:'Nitrianska 1754, 927 05', tel:'0948 517 402', email:'hucko@autoservis-hucko.sk', lat:48.1509, lng:17.8779, book:'https://autoservis-hucko.sk', nav:'https://maps.google.com/?q=Nitrianska+1754,+927+05+Šaľa'},
+      {city:'Šaľa', name:'Autoservis Hučko', addr:'Nitrianska 1754, 927 05', tel:'0948 517 402', email:'hucko@autoservis-hucko.sk', lat:48.1509, lng:17.8779, book:'https://pneuservis-hucko.youcanbook.me', nav:'https://maps.google.com/?q=Nitrianska+1754,+927+05+Šaľa'},
       {city:'Topoľčany', name:'DDJ Servis', addr:'M.Rázusa 683/32A, 955 01', tel:'0905 659 129', email:'ddjservis@zoznam.sk', lat:48.5593, lng:18.1704, book:null, nav:'https://maps.google.com/?q=M.Rázusa+683/32A,+955+01+Topoľčany'},
-      {city:'Trenčín', name:'Profityres', addr:'Bratislavská 478, 911 06', tel:'0905 930 911', email:'profityrestn@jakubb.sk', lat:48.8943, lng:18.0445, book:'https://jakubb.sk', nav:'https://maps.google.com/?q=Bratislavská+478,+911+06+Trenčín'},
-      {city:'Trnava', name:'Pneusystem TT', addr:'Bratislavská cesta 45, 917 02', tel:'0915 761 862', email:'posta@pneutt.sk', lat:48.3773, lng:17.5868, book:'https://pneutt.sk/rezervacia', nav:'https://maps.google.com/?q=Bratislavská+cesta+45,+917+02+Trnava'},
-      {city:'Zvolen', name:'Sloso Servis', addr:'J.Jesenského 10204/68, 960 01', tel:'0915 715 169', email:'repisky@slososervis.sk', lat:48.5745, lng:19.1271, book:'https://rezervujsi.sk/sloso-servis', nav:'https://maps.google.com/?q=J.Jesenského+10204/68,+960+01+Zvolen'},
+      {city:'Trenčín', name:'Profityres', addr:'Bratislavská 478, 911 06', tel:'0905 930 911', email:'profityrestn@jakubb.sk', lat:48.8943, lng:18.0445, book:'https://www.bookingforsure.eu/bc?servis=2054&lng=cz', nav:'https://maps.google.com/?q=Bratislavská+478,+911+06+Trenčín'},
+      {city:'Trnava', name:'Pneusystem TT', addr:'Bratislavská cesta 45, 917 02', tel:'0915 761 862', email:'posta@pneutt.sk', lat:48.3773, lng:17.5868, book:'https://www.pneutt.sk/rezervacia', nav:'https://maps.google.com/?q=Bratislavská+cesta+45,+917+02+Trnava'},
+      {city:'Zvolen', name:'Sloso Servis', addr:'J.Jesenského 10204/68, 960 01', tel:'0915 715 169', email:'repisky@slososervis.sk', lat:48.5745, lng:19.1271, book:'https://www.rezervujsi.sk/index.php?id=firma&cmd=info&firma_id=334&kateg_id=53', nav:'https://maps.google.com/?q=J.Jesenského+10204/68,+960+01+Zvolen'},
       {city:'Žilina', name:'Pneuservis Mrázik', addr:'Kragujevská 1, 010 01', tel:'0903 909 622', email:'pneuservis.mrazik@gmail.com', lat:49.2231, lng:18.7398, book:null, nav:'https://maps.google.com/?q=Kragujevská+1,+010+01+Žilina'},
     ];
 
