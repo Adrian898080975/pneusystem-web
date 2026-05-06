@@ -1323,9 +1323,9 @@
       <div class="hero-img-wrap">
         <img src="images/about.jpg" alt="Pneusystem" onerror="this.style.background='#1a1a1a'">
         <div class="hero-stats">
-          <div class="stat"><div class="stat-num">31</div><div class="stat-label">Partnerov</div></div>
+          <div class="stat"><div class="stat-num">31</div><div class="stat-label" data-i18n="stat-partners">Partnerov</div></div>
           <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Rokov</div></div>
-          <div class="stat"><div class="stat-num">SK</div><div class="stat-label">Pokrytie</div></div>
+          <div class="stat"><div class="stat-num">SK</div><div class="stat-label" data-i18n="stat-coverage">Pokrytie</div></div>
         </div>
       </div>
     </div>
@@ -1383,7 +1383,7 @@
       <h2 class="section-title">Váš fleet.<br>Naša<br><em>starosť.</em></h2>
       <p class="section-text">Pneusystem je slovenská sieť pneuservisov s 25-ročnou históriou. Staráme sa o vozové parky firiem od 1 do 300 vozidiel, vo vlastníctve aj operatívnom leasingu. Náš model je jednoduchý: vy jazdíte, my riešime pneumatiky.</p>
       <p class="section-text">Každý klient dostane osobného fleet managera. Jeden kontakt, všetky služby, jedna faktúra za celý park. Servis, dodávka aj uskladnenie, kdekoľvek na Slovensku.</p>
-      <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary" data-i18n="btn-ponuka">Vyžiadať cenovú ponuku →</a>
+      <a href="#kontakt" class="btn-primary" data-i18n="btn-ponuka">Vyžiadať cenovú ponuku →</a>
     </div>
   </section>
 
@@ -1554,7 +1554,7 @@
         <p class="section-text" data-i18n="contact-desc">Sídlime v Bratislave, obsluhujeme celé Slovensko. Pre dopyt ohľadom firemného parku kontaktujte priamo Katarínu Ovečkovú.</p>
         <div class="contact-blocks">
           <div class="contact-block">
-            <div class="contact-block-label">Sídlo spoločnosti</div>
+            <div class="contact-block-label" data-i18n="cb-hq">Sídlo spoločnosti</div>
             <div class="contact-block-content">
               <strong>PNEUSYSTEM s.r.o.</strong><br>
               Galvániho 16 A<br>
@@ -1562,7 +1562,7 @@
             </div>
           </div>
           <div class="contact-block">
-            <div class="contact-block-label">Predajňa / servis</div>
+            <div class="contact-block-label" data-i18n="cb-shop">Predajňa / servis</div>
             <div class="contact-block-content">
               <a href="tel:+421905717661">0905 717 661</a><br>
               <a href="tel:+421905643169">0905 643 169</a><br>
@@ -1570,7 +1570,7 @@
             </div>
           </div>
           <div class="contact-block">
-            <div class="contact-block-label">Fleet / Firemný autopark</div>
+            <div class="contact-block-label" data-i18n="cb-fleet">Fleet / Firemný autopark</div>
             <div class="contact-block-content">
               <strong>Katarína Ovečková</strong><br>
               <a href="tel:+421908797492">0908 797 492</a><br>
@@ -1578,14 +1578,14 @@
             </div>
           </div>
           <div class="contact-block">
-            <div class="contact-block-label">Otváracie hodiny</div>
+            <div class="contact-block-label" data-i18n="cb-hours">Otváracie hodiny</div>
             <div class="contact-block-content">
               <strong>Po – Pi: 8:30 – 17:00</strong><br>
               <span style="color:var(--grey);font-size:0.82rem">Január, Február, Jún, Júl, August do 16:00</span>
             </div>
           </div>
           <div class="contact-block" style="grid-column:1/-1;">
-            <div class="contact-block-label">Fakturačné údaje</div>
+            <div class="contact-block-label" data-i18n="cb-billing">Fakturačné údaje</div>
             <div class="contact-block-content">
               IČO: 44342951 &nbsp;|&nbsp; DIČ: 2022684873 &nbsp;|&nbsp; IČ DPH: SK2022684873
             </div>
@@ -1631,7 +1631,7 @@
           </div>
           <div class="form-group">
             <label class="form-label" data-i18n="form-msg">Správa</label>
-            <textarea name="message" class="form-input form-textarea" placeholder="Popíšte Vašu požiadavku..."></textarea>
+            <textarea name="message" class="form-input form-textarea" placeholder="Popíšte Vašu požiadavku..." data-i18n-placeholder="form-msg-placeholder"></textarea>
           </div>
           <button type="submit" class="btn-primary" data-i18n="btn-send" style="width:100%;justify-content:center;font-size:0.9rem;padding:16px">Odoslať dopyt →</button>
           <div id="formStatus" style="margin-top:1rem;font-size:0.85rem;display:none"></div>
@@ -1639,7 +1639,7 @@
       </div>
       <div class="map-wrap reveal">
         <div class="hours-badge">
-          <div class="hours-badge-label">Otváracie hodiny</div>
+          <div class="hours-badge-label" data-i18n="cb-hours">Otváracie hodiny</div>
           <div class="hours-badge-time">Po – Pi: 8:30 – 17:00</div>
           <div class="hours-badge-note">Aug, Jún, Júl, Jan, Feb do 16:00</div>
         </div>
@@ -1657,10 +1657,10 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="https://pneusystem.sk/images/logo.png" alt="Pneusystem">
-        <p class="footer-tagline">Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. Kdekoľvek na Slovensku.</p>
+        <p class="footer-tagline" data-i18n="footer-tagline">Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. Kdekoľvek na Slovensku.</p>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Navigácia</div>
+        <div class="footer-col-title" data-i18n="footer-nav">Navigácia</div>
         <ul>
           <li><a href="#onas">O nás</a></li>
           <li><a href="#siet">Servisná sieť</a></li>
@@ -1668,7 +1668,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Kontakt</div>
+        <div class="footer-col-title" data-i18n="footer-contact">Kontakt</div>
         <ul>
           <li><a href="tel:+421905717661">0905 717 661</a></li>
           <li><a href="tel:+421905643169">0905 643 169</a></li>
@@ -1677,9 +1677,9 @@
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Rezervácia</div>
+        <div class="footer-col-title" data-i18n="footer-book">Rezervácia</div>
         <ul>
-          <li><a href="https://reservation.pneusystem.sk/" target="_blank">Online rezervácia</a></li>
+          <li><a href="https://reservation.pneusystem.sk/" target="_blank" data-i18n="footer-online">Online rezervácia</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </div>
@@ -1942,6 +1942,22 @@
         'form-msg': 'Správa',
         'btn-send': 'Odoslať dopyt →',
         'search-placeholder': 'Hľadať mesto alebo partnera...',
+        'stat-partners': 'Partnerov',
+        'stat-years': 'Rokov skúseností',
+        'stat-coverage': 'Pokrytie',
+        'cb-hq': 'Sídlo spoločnosti',
+        'cb-shop': 'Predajňa / servis',
+        'cb-fleet': 'Fleet / Firemný autopark',
+        'cb-hours': 'Otváracie hodiny',
+        'cb-billing': 'Fakturačné údaje',
+        'footer-nav': 'Navigácia',
+        'footer-contact': 'Kontakt',
+        'footer-book': 'Rezervácia',
+        'footer-online': 'Online rezervácia',
+        'footer-tagline': 'Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. Kdekoľvek na Slovensku.',
+        'form-msg-placeholder': 'Popíšte Vašu požiadavku...',
+        'network-label': 'Pokrytie',
+        'network-h2': '31 servisov.<br><em>Celé Slovensko.</em>',
       },
       en: {
         'nav-onas': 'About',
@@ -1961,6 +1977,7 @@
         'about-p1': 'Pneusystem is a Slovak tyre service network with 25 years of history. We manage vehicle fleets for companies with 1 to 300 vehicles, owned or on operational lease. Our model is simple: you drive, we handle the tyres.',
         'about-p2': 'Every client gets a dedicated fleet manager. One contact, all services, one invoice for the entire fleet. Service, delivery and storage, anywhere in Slovakia.',
         'btn-ponuka': 'Request a quote →',
+        'btn-rezervovat': 'Book an appointment →',
         'benefits-label': 'Why Pneusystem',
         'benefits-h2': 'What you<br>gain<br><em>with us</em>',
         'network-label': 'Coverage',
@@ -2025,6 +2042,22 @@
         'form-msg': 'Message',
         'btn-send': 'Send enquiry →',
         'footer-copy': '© 2026 PNEUSYSTEM s.r.o. All rights reserved.',
+        'stat-partners': 'Partners',
+        'stat-years': 'Years of experience',
+        'stat-coverage': 'Coverage',
+        'cb-hq': 'Registered office',
+        'cb-shop': 'Sales / Service',
+        'cb-fleet': 'Fleet / Corporate',
+        'cb-hours': 'Opening hours',
+        'cb-billing': 'Billing details',
+        'footer-nav': 'Navigation',
+        'footer-contact': 'Contact',
+        'footer-book': 'Booking',
+        'footer-online': 'Online booking',
+        'footer-tagline': 'One partner for your entire fleet. Tyres, service, storage. Anywhere in Slovakia.',
+        'form-msg-placeholder': 'Describe your requirements...',
+        'network-label': 'Coverage',
+        'network-h2': '31 service points.<br><em>All of Slovakia.</em>',
       }
     };
 
@@ -2124,6 +2157,39 @@
       document.querySelectorAll('.network-header .btn-primary').forEach(a => {
         a.textContent = lang === 'en' ? 'Book →' : 'Rezervovať →';
       });
+
+      // Placeholders with data-i18n-placeholder
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if(t[key]) el.placeholder = t[key];
+      });
+
+      // Mobile nav
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav a.nav-item');
+      const mobileKeys = ['nav-onas','nav-siet','nav-produkty','nav-kontakt'];
+      mobileNavLinks.forEach((a, i) => { if(mobileKeys[i]) a.textContent = t[mobileKeys[i]]; });
+      const mobileRezBtn = document.querySelector('.mobile-nav a[style*="red"]');
+      if(mobileRezBtn) mobileRezBtn.textContent = lang === 'en' ? 'Book Now →' : 'Rezervácia →';
+
+      // Accordion reservation buttons
+      document.querySelectorAll('.acc-body-inner a[href*="reservation"]').forEach(a => {
+        a.textContent = lang === 'en' ? 'Book →' : 'Rezervovať →';
+      });
+
+      // Hours badge note
+      const hoursNote = document.querySelector('.hours-badge-note');
+      if(hoursNote) hoursNote.textContent = lang === 'en' ? 'Jan, Feb, Jun, Jul, Aug until 4pm' : 'Aug, Jún, Júl, Jan, Feb do 16:00';
+      const hoursTime = document.querySelector('.hours-badge-time');
+      if(hoursTime) hoursTime.textContent = lang === 'en' ? 'Mon – Fri: 8:30 – 17:00' : 'Po – Pi: 8:30 – 17:00';
+
+      // Contact block content that's static text
+      if(lang === 'en') {
+        const hoursContent = document.querySelector('[data-i18n="cb-hours"]')?.nextElementSibling;
+        if(hoursContent) hoursContent.innerHTML = '<strong>Mon – Fri: 8:30 – 17:00</strong><br><span style="color:var(--grey);font-size:0.82rem">Jan, Feb, Jun, Jul, Aug until 4:00pm</span>';
+      } else {
+        const hoursContent = document.querySelector('[data-i18n="cb-hours"]')?.nextElementSibling;
+        if(hoursContent) hoursContent.innerHTML = '<strong>Po – Pi: 8:30 – 17:00</strong><br><span style="color:var(--grey);font-size:0.82rem">Január, Február, Jún, Júl, August do 16:00</span>';
+      }
 
     } // Apply saved lang on load
     document.addEventListener('DOMContentLoaded', () => {
