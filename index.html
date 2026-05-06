@@ -374,7 +374,7 @@
     }
     .stat-label {
       font-size: 0.72rem;
-      color: rgba(255,255,255,0.65);
+      color: #555555;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 4px;
@@ -1955,7 +1955,7 @@
           <div class="hours-badge-note">Aug, Jún, Júl, Jan, Feb do 16:00</div>
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v1712000000000!6m8!1m7!1sCAoSLEFGMVFpcFBBMEVzS3h2NTNzQ1lhZ3hpRnVJMGVUUWhJZlh4bFBSWGhtWHlR!2m2!1d48.17002!2d17.17649!3f50!4f5!5f0.7820865974627469"
+          src="https://www.google.com/maps/embed?pb=!4v1712000000000!6m8!1m7!1sCAoSLEFGMVFpcFBBMEVzS3h2NTNzQ1lhZ3hpRnVJMGVUUWhJZlh4bFBSWGhtWHlR!2m2!1d48.17002!2d17.17649!3f10!4f3!5f0.7820865974627469"
           allowfullscreen=""
           loading="lazy"
           style="border:0;width:100%;height:100%;">
@@ -2188,8 +2188,8 @@
               <a href="mailto:${p.email}" style="display:block;margin-bottom:4px;font-size:0.82rem;color:var(--grey)">${p.email}</a>
               <a href="tel:${p.tel}" style="display:block;margin-bottom:12px;font-weight:600;color:var(--white)">${p.tel}</a>
               <div style="display:flex;gap:8px;flex-wrap:wrap">
-                ${p.book ? `<a href="${p.book}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:var(--red);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Online rezervácia →</a>` : `<a href="tel:${p.tel}" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.08);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.12)">📞 Zavolať</a>`}
-                <a href="${p.nav}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:transparent;color:var(--grey);padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.1)">Navigovať →</a>
+                ${p.book ? `<a href="${p.book}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:var(--red);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Online rezervácia →</a>` : `<a href="tel:${p.tel}" style="display:inline-flex;align-items:center;gap:5px;background:#1a1a1a;color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">📞 Zavolať</a>`}
+                <a href="${p.nav}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:transparent;color:#333;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1px solid #bbb;">Navigovať →</a>
               </div>
             </div>
           </div>`;
