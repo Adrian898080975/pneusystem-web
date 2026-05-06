@@ -146,7 +146,7 @@
     .nav-partner-btn:hover { background: var(--red) !important; color: var(--white) !important; }
     .nav-cta {
       background: var(--red);
-      color: var(--white) !important;
+      color: #fff !important;
       padding: 0 16px;
       height: 36px;
       letter-spacing: 0.06em;
@@ -287,7 +287,7 @@
       align-items: center;
       gap: 8px;
       background: var(--red);
-      color: var(--white);
+      color: #fff;
       padding: 14px 28px;
       font-family: var(--font-body);
       font-size: 0.88rem;
@@ -372,6 +372,8 @@
       color: var(--red);
       line-height: 1;
     }
+    .hero-stats { color: #fff; }
+    .stat-label { color: rgba(255,255,255,0.7) !important; }
     .stat-label {
       font-size: 0.72rem;
       color: var(--grey);
@@ -482,17 +484,20 @@
       background: var(--red);
       padding: 1.5rem;
       text-align: center;
+      color: #fff;
     }
     .about-badge-num {
       font-family: var(--font-display);
       font-size: 2.5rem;
       line-height: 1;
+      color: #fff;
     }
     .about-badge-txt {
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-top: 4px;
+      color: #fff;
     }
     .section-label {
       display: inline-flex;
@@ -502,7 +507,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--red);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 1rem;
     }
     .section-label::before {
@@ -1603,9 +1608,9 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <span class="hero-eyebrow">25 rokov na trhu. 31 servisov. Celé Slovensko.</span>
-      <h1>Vaše<br><em>pneumatiky.</em><br>Celé Slovensko.</h1>
-      <p class="hero-desc">Jeden partner. Jedna faktúra. Pneumatiky a servis pre celý váš vozový park kdekoľvek na Slovensku. Bez komplikácií, za dohodnuté ceny.</p>
+      <span class="hero-eyebrow">Slovenská sieť pneuservisov — 25 rokov skúseností</span>
+      <h1>Postaráme sa<br>o vaše<br><em>pneumatiky.</em></h1>
+      <p class="hero-desc">Dodávame a servisujeme pneumatiky pre firemné vozové parky po celom Slovensku. Jeden kontakt, jedna faktúra, žiadne starosti.</p>
       <div class="hero-actions">
         <button type="button" onclick="openBookModal()" class="btn-primary">Rezervovať termín →</button>
         <a href="#siet" class="btn-secondary">Servisná sieť</a>
@@ -1746,17 +1751,17 @@
     <div class="box-item">
       <div class="box-title" data-i18n="box1-title">Poradenstvo</div>
       <div class="box-text" data-i18n="box1-text">Nie ste si istí čo váš park potrebuje? Náš fleet manager príde k vám, zhodnotí situáciu a navrhne riešenie.</div>
-      <a href="#kontakt" class="box-link" data-i18n="box1-link">Dohodnúť stretnutie →</a>
+      <a href="#kontakt" class="box-link" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);" data-i18n="box1-link">Dohodnúť stretnutie →</a>
     </div>
     <div class="box-item">
       <div class="box-title" data-i18n="box2-title">Pick-up</div>
       <div class="box-text" data-i18n="box2-text">Prídeme pre auto k vám, odservísujeme ho a vrátime späť. Minimálny výpadok vozidla, nula starostí pre zamestnanca.</div>
-      <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať pick-up →</button>
+      <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;padding:0;font-family:inherit;color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);">Rezervovať pick-up →</button>
     </div>
     <div class="box-item">
       <div class="box-title" data-i18n="box3-title">Uskladnenie</div>
       <div class="box-text" data-i18n="box3-text">Sezónne uskladnenie s evidenciou a správou. Každú sezónu dostanete správu o stave a opotrebovaní vašich pneumatík.</div>
-      <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať uskladnenie →</button>
+      <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;padding:0;font-family:inherit;color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);">Rezervovať uskladnenie →</button>
     </div>
   </div>
 
@@ -1827,12 +1832,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </div>
       <div class="fleet-info-text">
-        <strong>Potrebujete nové pneumatiky alebo neviete kde sú uskladnené?</strong>
-        <span>Zavolajte Kataríne Ovečkovej, poradí vám a vyrieši to za vás.</span>
+<strong>Neviete kde sú vaše pneumatiky alebo potrebujete nové?</strong>
+        <span>Zavolajte nám, radi poradíme.</span>
       </div>
       <div class="fleet-info-cta">
-        <a href="tel:+421908797492" class="fleet-info-tel">0908 797 492</a>
-        <a href="mailto:katarina.oveckova@pneusystem.sk" class="fleet-info-email">katarina.oveckova@pneusystem.sk</a>
+<a href="tel:+421908797492" class="fleet-info-tel">0908 797 492</a>
       </div>
     </div>
 
@@ -1953,9 +1957,10 @@
           <div class="hours-badge-note">Aug, Jún, Júl, Jan, Feb do 16:00</div>
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v1524778186120!6m8!1m7!1sCAoSLEFGMVFpcFBBMEVzS3h2NTNzQ1lhZ3hpRnVJMGVUUWhJZlh4bFBSWGhtWHlR!2m2!1d48.170257!2d17.176310!3f180!4f0!5f0.7820865974627469"
+          src="https://www.google.com/maps/embed?pb=!4v1712000000000!6m8!1m7!1sCAoSLEFGMVFpcFBBMEVzS3h2NTNzQ1lhZ3hpRnVJMGVUUWhJZlh4bFBSWGhtWHlR!2m2!1d48.17002!2d17.17649!3f50!4f5!5f0.7820865974627469"
           allowfullscreen=""
-          loading="lazy">
+          loading="lazy"
+          style="border:0;width:100%;height:100%;">
         </iframe>
       </div>
     </div>
@@ -2126,16 +2131,18 @@
         maxZoom: 19
       }).addTo(map);
 
-      const redIcon = L.divIcon({
-        className: '',
-        html: '<div style="width:14px;height:14px;background:#D9001B;border:2px solid #fff;border-radius:50%;box-shadow:0 0 6px rgba(217,0,27,0.5)"></div>',
-        iconSize: [14, 14],
-        iconAnchor: [7, 7],
-        popupAnchor: [0, -10]
-      });
-
       PARTNERS.forEach((p, i) => {
-        const marker = L.marker([p.lat, p.lng], {icon: redIcon})
+        const labelIcon = L.divIcon({
+          className: '',
+          html: `<div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+            <div style="width:12px;height:12px;background:#D9001B;border:2px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3)"></div>
+            <div style="background:rgba(255,255,255,0.95);color:#111;font-size:10px;font-weight:700;padding:2px 5px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.2);letter-spacing:0.02em">${p.city}</div>
+          </div>`,
+          iconSize: [80, 40],
+          iconAnchor: [40, 12],
+          popupAnchor: [0, 20]
+        });
+        const marker = L.marker([p.lat, p.lng], {icon: labelIcon})
           .addTo(map)
           .bindPopup(`<div style="font-family:sans-serif;min-width:240px;padding:6px 2px">
             <strong style="font-size:15px;display:block;margin-bottom:2px">${p.city}</strong>
