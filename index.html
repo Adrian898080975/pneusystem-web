@@ -119,20 +119,23 @@
     .nav-partner-btn {
       color: var(--red) !important;
       border: 1px solid var(--red);
-      padding: 9px 18px;
+      padding: 10px 20px;
       letter-spacing: 0.08em;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       font-weight: 600;
       text-transform: uppercase;
       transition: background 0.2s, color 0.2s !important;
+      line-height: 1;
     }
     .nav-partner-btn::after { display: none !important; }
     .nav-partner-btn:hover { background: var(--red) !important; color: var(--white) !important; }
     .nav-cta {
       background: var(--red);
       color: var(--white) !important;
-      padding: 10px 22px;
+      padding: 10px 20px;
       letter-spacing: 0.08em;
+      font-size: 0.82rem;
+      line-height: 1;
       transition: background 0.2s, transform 0.2s !important;
     }
     .nav-cta::after { display: none !important; }
@@ -1681,12 +1684,12 @@
     <div class="box-item">
       <div class="box-title" data-i18n="box2-title">Pick-up</div>
       <div class="box-text" data-i18n="box2-text">Prídeme pre auto k vám, odservísujeme ho a vrátime späť. Minimálny výpadok vozidla, nula starostí pre zamestnanca.</div>
-      <a href="https://reservation.pneusystem.sk/" target="_blank" class="box-link">Rezervovať pick-up →</a>
+      <button onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať pick-up →</button>
     </div>
     <div class="box-item">
       <div class="box-title" data-i18n="box3-title">Uskladnenie</div>
       <div class="box-text" data-i18n="box3-text">Sezónne uskladnenie s evidenciou a správou. Každú sezónu dostanete správu o stave a opotrebovaní vašich pneumatík.</div>
-      <a href="https://reservation.pneusystem.sk/" target="_blank" class="box-link">Rezervovať uskladnenie →</a>
+      <button onclick="openBookModal()" class="box-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;color:inherit;">Rezervovať uskladnenie →</button>
     </div>
   </div>
 
@@ -1697,7 +1700,7 @@
         <span class="section-label">Čo ponúkame</span>
         <h2 class="section-title">Naše <em>služby</em></h2>
       </div>
-      <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-secondary">Všetky rezervácie →</a>
+      <button onclick="openBookModal()" class="btn-secondary" style="border:none;cursor:none;">Všetky rezervácie →</button>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
@@ -1707,7 +1710,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s1-name">Pneumatiky</div>
           <div class="service-desc" data-i18n="s1-desc">Všetky hlavné značky za zmluvné ceny. Letné, zimné aj celoročné pneumatiky pre osobné aj úžitkové vozidlá.</div>
-          <a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank" class="service-link">Rezervácia →</a>
+          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
       <div class="service-card reveal">
@@ -1717,7 +1720,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s2-name">Služby</div>
           <div class="service-desc" data-i18n="s2-desc">Prezutie, vyváženie, oprava defektov. Rýchlo, spoľahlivo, v sieti 31 servisov po celom Slovensku.</div>
-          <a href="https://reservation.pneusystem.sk/" target="_blank" class="service-link">Rezervácia →</a>
+          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
       <div class="service-card reveal">
@@ -1727,7 +1730,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s3-name">Uskladnenie</div>
           <div class="service-desc" data-i18n="s3-desc">Bezpečné uskladnenie celého parku. Označené, evidované, so správou o stave po každej sezóne.</div>
-          <a href="https://reservation.pneusystem.sk/" target="_blank" class="service-link">Rezervácia →</a>
+          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
       <div class="service-card reveal">
@@ -1737,7 +1740,7 @@
         <div class="service-body">
           <div class="service-name" data-i18n="s4-name">Pickup</div>
           <div class="service-desc" data-i18n="s4-desc">Prídeme pre vozidlo priamo k vám. Žiadny čas stratený cestovaním do servisu. Ideálne pre väčšie parky.</div>
-          <a href="https://reservation.pneusystem.sk/" target="_blank" class="service-link">Rezervácia →</a>
+          <button onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
     </div>
@@ -1747,10 +1750,23 @@
   <section class="network-section" id="siet">
     <div class="network-header reveal">
       <div>
-        <span class="section-label">Naši partneri</span>
-        <h2 class="section-title">Servisná sieť<br><em>po celom Slovensku</em></h2>
+        <span class="section-label" data-i18n="network-label">Pokrytie</span>
+        <h2 class="section-title" data-i18n="network-h2">31 servisov.<br><em>Celé Slovensko.</em></h2>
       </div>
-      <a href="https://reservation.pneusystem.sk/" target="_blank" class="btn-primary">Rezervovať →</a>
+    </div>
+
+    <div class="fleet-info-banner reveal">
+      <div class="fleet-info-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="fleet-info-text">
+        <strong>Potrebujete nové pneumatiky alebo neviete kde sú uskladnené?</strong>
+        <span>Zavolajte Kataríne Ovečkovej, poradí vám a vyrieši to za vás.</span>
+      </div>
+      <div class="fleet-info-cta">
+        <a href="tel:+421908797492" class="fleet-info-tel">0908 797 492</a>
+        <a href="mailto:katarina.oveckova@pneusystem.sk" class="fleet-info-email">katarina.oveckova@pneusystem.sk</a>
+      </div>
     </div>
 
     <div class="siet-layout reveal">
@@ -2061,10 +2077,7 @@
               ${p.book ? `<a href="${p.book}" target="_blank" style="background:#D9001B;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">Online rezervácia →</a>` : `<a href="tel:${p.tel}" style="background:#222;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">📞 ${p.tel}</a>`}
               <a href="${p.nav}" target="_blank" style="background:#f0f0f0;color:#333;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">Navigovať</a>
             </div>
-            <div style="border-top:1px solid #eee;padding-top:8px;font-size:11px;color:#888;line-height:1.5">
-              Otázky k vášmu parku?<br>
-              <a href="tel:+421908797492" style="color:#D9001B;font-weight:600;text-decoration:none">Katarína Ovečková: 0908 797 492</a>
-            </div>
+
           </div>`, {maxWidth: 300});
         marker.on('click', () => openAccordion(i));
         markers.push(marker);
@@ -2470,8 +2483,8 @@
         </button>
       </div>
       <div class="book-modal-footer">
-        <span>Potrebujete poradiť?</span>
-        <a href="tel:+421905717661">0905 717 661</a>
+        <span>Neviete kde sú uskladnené alebo potrebujete nové?</span>
+        <a href="tel:+421908797492">Katarína Ovečková: 0908 797 492</a>
       </div>
     </div>
   </div>
