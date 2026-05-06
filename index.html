@@ -116,6 +116,18 @@
     }
     .nav-links a:hover { color: var(--white); }
     .nav-links a:hover::after { width: 100%; }
+    .nav-partner-btn {
+      color: var(--red) !important;
+      border: 1px solid var(--red);
+      padding: 9px 18px;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s !important;
+    }
+    .nav-partner-btn::after { display: none !important; }
+    .nav-partner-btn:hover { background: var(--red) !important; color: var(--white) !important; }
     .nav-cta {
       background: var(--red);
       color: var(--white) !important;
@@ -126,6 +138,22 @@
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--red-dark) !important; transform: translateY(-1px); }
 
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lang-btn {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.35) !important;
+      text-decoration: none;
+      transition: color 0.2s !important;
+    }
+    .lang-btn::after { display: none !important; }
+    .lang-btn.active { color: var(--white) !important; }
+    .lang-btn:hover { color: var(--white) !important; }
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -1257,9 +1285,15 @@
       <li><a href="#siet">Servisná sieť</a></li>
       <li><a href="#sluzby">Produkty</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
-      <li><a href="https://reservation.pneusystem.sk/" target="_blank" class="nav-cta">Rezervácia</a></li>
+      <li><a href="https://mojpneuservis.eu/?PneuSystemSK" target="_blank" class="nav-partner-btn">Prihlásenie partnera</a>
+      <a href="https://reservation.pneusystem.sk/" target="_blank" class="nav-cta">Rezervácia</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <div class="lang-switch">
+        <a href="#" class="lang-btn active" onclick="setLang('sk');return false;">SK</a>
+        <span style="color:rgba(255,255,255,0.2)">|</span>
+        <a href="#" class="lang-btn" onclick="setLang('en');return false;">EN</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -1827,8 +1861,9 @@
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
-              ${p.addr}<br>
-              <a href="tel:${p.tel}">${p.tel}</a>
+              <div style="margin-bottom:6px">${p.addr}</div>
+              <a href="tel:${p.tel}" style="display:block;margin-bottom:10px">${p.tel}</a>
+              <a href="https://reservation.pneusystem.sk/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Rezervovať →</a>
             </div>
           </div>`;
         container.appendChild(div);
@@ -1871,5 +1906,120 @@
   </script>
 
 
+
+  <script>
+    const TRANSLATIONS = {
+      sk: {
+        'nav-onas': 'O nás',
+        'nav-siet': 'Servisná sieť',
+        'nav-produkty': 'Produkty',
+        'nav-kontakt': 'Kontakt',
+        'nav-rezervacia': 'Rezervácia',
+        'nav-partner': 'Prihlásenie partnera',
+        'hero-eyebrow': '25 rokov na trhu. 31 servisov. Celé Slovensko.',
+        'hero-h1': 'Vaše<br><em>pneumatiky.</em><br>Celé Slovensko.',
+        'hero-desc': 'Jeden partner. Jedna faktúra. Pneumatiky a servis pre celý váš vozový park kdekoľvek na Slovensku. Bez komplikácií, za dohodnuté ceny.',
+        'btn-rezervovat': 'Rezervovať termín →',
+        'btn-siet': 'Servisná sieť',
+        'logos-label': 'NAŠI KLIENTI',
+        'about-label': 'Kto sme',
+        'about-h2': 'Váš fleet.<br>Naša<br><em>starosť.</em>',
+        'about-p1': 'Pneusystem je slovenská sieť pneuservisov s 25-ročnou históriou. Staráme sa o vozové parky firiem od 1 do 300 vozidiel, vo vlastníctve aj operatívnom leasingu. Náš model je jednoduchý: vy jazdíte, my riešime pneumatiky.',
+        'about-p2': 'Každý klient dostane osobného fleet managera. Jeden kontakt, všetky služby, jedna faktúra za celý park. Servis, dodávka aj uskladnenie, kdekoľvek na Slovensku.',
+        'btn-ponuka': 'Vyžiadať cenovú ponuku →',
+        'benefits-label': 'Prečo Pneusystem',
+        'benefits-h2': 'Čo<br>získate<br><em>s nami</em>',
+        'network-label': 'Pokrytie',
+        'network-h2': '31 servisov.<br><em>Celé Slovensko.</em>',
+        'contact-label': 'Kontakt',
+        'contact-h2': 'Kontaktujte<br><em>nás</em>',
+        'contact-desc': 'Sídlime v Bratislave, obsluhujeme celé Slovensko. Pre dopyt ohľadom firemného parku kontaktujte priamo Katarínu Ovečkovú.',
+        'form-label': 'Dopyt',
+        'form-h3': 'Cenová<br><em>ponuka</em>',
+        'form-name': 'Meno a priezvisko *',
+        'form-company': 'Spoločnosť',
+        'form-email': 'Email *',
+        'form-phone': 'Telefón',
+        'form-fleet': 'Počet vozidiel vo vozovom parku',
+        'form-msg': 'Správa',
+        'btn-send': 'Odoslať dopyt →',
+        'search-placeholder': 'Hľadať mesto alebo partnera...',
+      },
+      en: {
+        'nav-onas': 'About',
+        'nav-siet': 'Service Network',
+        'nav-produkty': 'Products',
+        'nav-kontakt': 'Contact',
+        'nav-rezervacia': 'Book Now',
+        'nav-partner': 'Partner Login',
+        'hero-eyebrow': '25 years of experience. 31 service points. All of Slovakia.',
+        'hero-h1': 'Your<br><em>tyres.</em><br>All of Slovakia.',
+        'hero-desc': 'One partner. One invoice. Tyres and service for your entire fleet anywhere in Slovakia. Simple, transparent, at agreed prices.',
+        'btn-rezervovat': 'Book an appointment →',
+        'btn-siet': 'Service Network',
+        'logos-label': 'OUR CLIENTS',
+        'about-label': 'Who we are',
+        'about-h2': 'Your fleet.<br>Our<br><em>responsibility.</em>',
+        'about-p1': 'Pneusystem is a Slovak tyre service network with 25 years of history. We manage vehicle fleets for companies with 1 to 300 vehicles, owned or on operational lease. Our model is simple: you drive, we handle the tyres.',
+        'about-p2': 'Every client gets a dedicated fleet manager. One contact, all services, one invoice for the entire fleet. Service, delivery and storage, anywhere in Slovakia.',
+        'btn-ponuka': 'Request a quote →',
+        'benefits-label': 'Why Pneusystem',
+        'benefits-h2': 'What you<br>gain<br><em>with us</em>',
+        'network-label': 'Coverage',
+        'network-h2': '31 service points.<br><em>All of Slovakia.</em>',
+        'contact-label': 'Contact',
+        'contact-h2': 'Get in<br><em>touch</em>',
+        'contact-desc': 'Based in Bratislava, serving all of Slovakia. For fleet enquiries contact Katarína Ovečková directly.',
+        'form-label': 'Enquiry',
+        'form-h3': 'Request a<br><em>quote</em>',
+        'form-name': 'Full name *',
+        'form-company': 'Company',
+        'form-email': 'Email *',
+        'form-phone': 'Phone',
+        'form-fleet': 'Number of vehicles in fleet',
+        'form-msg': 'Message',
+        'btn-send': 'Send enquiry →',
+        'search-placeholder': 'Search city or partner...',
+      }
+    };
+
+    function setLang(lang) {
+      const t = TRANSLATIONS[lang];
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.lang-btn[onclick*="'${lang}'"]`).classList.add('active');
+      localStorage.setItem('lang', lang);
+
+      // Nav
+      const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta):not(.nav-partner-btn)');
+      const keys = ['nav-onas','nav-siet','nav-produkty','nav-kontakt'];
+      navLinks.forEach((a, i) => { if(keys[i]) a.textContent = t[keys[i]]; });
+      const partnerBtn = document.querySelector('.nav-partner-btn');
+      if(partnerBtn) partnerBtn.textContent = t['nav-partner'];
+      const rezervBtn = document.querySelector('.nav-cta');
+      if(rezervBtn) rezervBtn.textContent = t['nav-rezervacia'];
+
+      // Helper
+      const setText = (sel, val) => { const el = document.querySelector(sel); if(el) el.innerHTML = val; };
+      const setAttr = (sel, attr, val) => { const el = document.querySelector(sel); if(el) el[attr] = val; };
+
+      setText('.hero-eyebrow', t['hero-eyebrow']);
+      setText('.hero h1', t['hero-h1']);
+      setText('.hero-desc', t['hero-desc']);
+      const heroBtns = document.querySelectorAll('.hero-actions a');
+      if(heroBtns[0]) heroBtns[0].textContent = t['btn-rezervovat'];
+      if(heroBtns[1]) heroBtns[1].textContent = t['btn-siet'];
+      setText('.logos-band-label', t['logos-label']);
+
+      // Search
+      const search = document.getElementById('partnerSearch');
+      if(search) search.placeholder = t['search-placeholder'];
+    }
+
+    // Apply saved lang on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('lang') || 'sk';
+      if(saved === 'en') setLang('en');
+    });
+  </script>
 </body>
 </html>
