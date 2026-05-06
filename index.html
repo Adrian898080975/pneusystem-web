@@ -254,7 +254,7 @@
     }
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
       line-height: 0.95;
       letter-spacing: 0.01em;
       color: var(--white);
@@ -436,7 +436,7 @@
       max-width: 160px;
     }
     .logos-track img:hover {
-      filter: grayscale(0) brightness(1);
+      filter: none;
       opacity: 1;
     }
     .logos-track img:hover { opacity: 0.8; }
@@ -513,7 +513,7 @@
     }
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 4rem);
+      font-size: clamp(1.6rem, 2.5vw, 2.8rem);
       line-height: 1.0;
       letter-spacing: 0.01em;
       margin-bottom: 1.5rem;
@@ -674,18 +674,20 @@
       font-size: 2.2rem;
       letter-spacing: 0.03em;
       margin-bottom: 0.8rem;
+      color: #fff;
     }
     .box-text {
       font-size: 0.9rem;
       line-height: 1.7;
-      opacity: 0.85;
+      opacity: 0.9;
       margin-bottom: 1.8rem;
+      color: rgba(255,255,255,0.9);
     }
     .box-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--white);
+      color: #fff;
       text-decoration: none;
       font-size: 0.8rem;
       font-weight: 600;
@@ -693,6 +695,10 @@
       text-transform: uppercase;
       border-bottom: 1px solid rgba(255,255,255,0.4);
       padding-bottom: 2px;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
       transition: border-color 0.2s, gap 0.2s;
     }
     .box-link:hover { border-color: white; gap: 14px; }
@@ -832,7 +838,7 @@
     .map-wrap iframe {
       width: 100%; height: 100%;
       border: none;
-      filter: grayscale(1) brightness(0.95) contrast(1.05);
+      filter: none;
       opacity: 0.8;
     }
     .hours-badge {
@@ -909,7 +915,7 @@
       font-size: 0.78rem;
       color: var(--grey);
     }
-    .footer-ico span { color: rgba(255,255,255,0.5); }
+    .footer-ico span { color: var(--grey); }
 
     /* ANIMATIONS */
     @-webkit-keyframes fadeUp {
@@ -1038,14 +1044,14 @@
     .logos-band-track img {
       height: 36px;
       object-fit: contain;
-      filter: grayscale(1) brightness(0.3);
-      opacity: 0.5;
+      filter: none;
+      opacity: 0.75;
       transition: opacity 0.4s, filter 0.5s;
       flex-shrink: 0;
       max-width: 130px;
     }
     .logos-band-track img:hover {
-      filter: grayscale(0) brightness(1);
+      filter: none;
       opacity: 1;
     }
 
@@ -1091,7 +1097,7 @@
       max-width: 130px;
     }
     .hero-logos-track img:hover {
-      filter: grayscale(0) brightness(1);
+      filter: none;
       opacity: 1;
     }
 
@@ -1265,7 +1271,7 @@
     }
     .form-input:focus { border-color: var(--red); }
     .form-input::placeholder { color: rgba(255,255,255,0.2); }
-    select.form-input option { background: var(--dark2); color: var(--white); }
+    select.form-input option { background: #fff; color: #111; }
     .form-textarea { min-height: 110px; resize: vertical; }
     @media (max-width: 1024px) {
       .contact-grid { grid-template-columns: 1fr; }
@@ -1309,14 +1315,14 @@
     .logos-strip-track img {
       height: 36px;
       object-fit: contain;
-      filter: grayscale(1) brightness(0.3);
-      opacity: 0.5;
+      filter: none;
+      opacity: 0.75;
       transition: opacity 0.4s, filter 0.5s;
       flex-shrink: 0;
       max-width: 130px;
     }
     .logos-strip-track img:hover {
-      filter: grayscale(0) brightness(1);
+      filter: none;
       opacity: 1;
     }
 
@@ -1947,7 +1953,7 @@
           <div class="hours-badge-note">Aug, Jún, Júl, Jan, Feb do 16:00</div>
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.887084603202!2d17.174309315943646!3d48.170257456862636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8f223e175113%3A0xf605df032f889132!2sGalvaniho+16051%2F16A%2C+821+04+Bratislava!5e0!3m2!1ssk!2ssk!4v1524778186120"
+          src="https://www.google.com/maps/embed?pb=!4v1524778186120!6m8!1m7!1sCAoSLEFGMVFpcFBBMEVzS3h2NTNzQ1lhZ3hpRnVJMGVUUWhJZlh4bFBSWGhtWHlR!2m2!1d48.170257!2d17.176310!3f180!4f0!5f0.7820865974627469"
           allowfullscreen=""
           loading="lazy">
         </iframe>
@@ -1989,7 +1995,7 @@
     </div>
     <div class="footer-bottom">
       <span data-i18n="footer-copy">© 2026 PNEUSYSTEM s.r.o. Všetky práva vyhradené.</span>
-      <span class="footer-ico">IČO: <span>44342951</span> &nbsp; DIČ: <span>2022684873</span> &nbsp; IČ DPH: <span>SK2022684873</span></span>
+      <span class="footer-ico" style="color:var(--grey)">IČO: <span>44342951</span> &nbsp; DIČ: <span>2022684873</span> &nbsp; IČ DPH: <span>SK2022684873</span></span>
     </div>
   </footer>
 
@@ -2115,8 +2121,8 @@
         map.fitBounds(skBounds, {padding: [30, 30]});
         map.setMaxBounds([[46.5, 15.0], [50.5, 24.0]]);
       }, 300);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO',
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
         maxZoom: 19
       }).addTo(map);
 
