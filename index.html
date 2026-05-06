@@ -478,7 +478,7 @@
     }
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-size: clamp(2rem, 3.5vw, 4rem);
       line-height: 1.0;
       letter-spacing: 0.01em;
       margin-bottom: 1.5rem;
@@ -686,12 +686,15 @@
     /* SERVISNA SIET */
     .network-section {
       padding: 6rem 5%;
+      overflow: visible;
     }
     .network-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .partner-table {
       width: 100%;
@@ -1091,6 +1094,7 @@
       gap: 0;
       border: 1px solid rgba(255,255,255,0.06);
       min-height: 520px;
+      overflow: hidden;
     }
     .siet-map-wrap { position: relative; }
     .siet-list {
