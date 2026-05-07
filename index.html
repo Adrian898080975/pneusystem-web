@@ -1562,6 +1562,137 @@
     }
       .hero-main { grid-template-columns: 1fr 1fr !important; }
     }
+
+    /* REVIEWS SECTION */
+    .reviews-section {
+      padding: 6rem 5%;
+      background: var(--black);
+    }
+    .reviews-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .reviews-header-left {
+      max-width: 600px;
+    }
+    .reviews-header-left .section-title {
+      margin-top: 0.5rem;
+      font-size: 2.8rem;
+    }
+    .reviews-header-left .section-text {
+      margin-top: 0.75rem;
+      max-width: 480px;
+    }
+    .google-badge {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--dark);
+      border: 1px solid var(--dark3);
+      border-radius: 12px;
+      padding: 1.1rem 1.4rem;
+      min-width: 220px;
+      flex-shrink: 0;
+    }
+    .google-badge svg { flex-shrink: 0; }
+    .google-badge-score {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .google-badge-stars { display: flex; gap: 2px; margin: 4px 0; }
+    .google-badge-stars span { color: #FBBC04; font-size: 1rem; }
+    .google-badge-count {
+      font-size: 0.75rem;
+      color: var(--grey);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-header { flex-direction: column; }
+      .google-badge { width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+    .review-card {
+      background: var(--dark);
+      border: 1px solid var(--dark3);
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      transition: box-shadow 0.2s;
+    }
+    .review-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .review-stars { display: flex; gap: 2px; }
+    .review-stars span { color: #FBBC04; font-size: 1.1rem; }
+    .review-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--white);
+      flex: 1;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #C5D5E8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #2C5F8A;
+      flex-shrink: 0;
+    }
+    .review-author-name {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+    .review-author-source {
+      font-size: 0.75rem;
+      color: var(--grey);
+    }
+    .reviews-cta {
+      display: flex;
+      justify-content: center;
+    }
+    .reviews-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1.5px solid var(--dark3);
+      border-radius: 8px;
+      padding: 0.9rem 2rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .reviews-cta a:hover {
+      border-color: var(--red);
+      background: var(--red-glow);
+    }
   </style>
 </head>
 <body>
@@ -1857,6 +1988,109 @@
   </section>
 
   <!-- CONTACT -->
+
+  <!-- REVIEWS -->
+  <section class="reviews-section reveal">
+    <div class="reviews-header">
+      <div class="reviews-header-left">
+        <span class="section-label">Recenzie</span>
+        <h2 class="section-title">Čo hovoria<br><em>naši klienti</em></h2>
+        <p class="section-text">Vaša spokojnosť je pre nás najlepšou vizitkou. Prečítajte si, čo o nás hovoria naši zákazníci.</p>
+      </div>
+      <div class="google-badge">
+        <svg width="36" height="36" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
+          <path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.4 19.2 14 24 14c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.6 7.3 6.3 14.7z"/>
+          <path fill="#FBBC05" d="M24 46c5.9 0 10.9-2 14.5-5.3l-6.7-5.5C29.8 36.9 27 38 24 38c-6.1 0-11.2-4.1-13-9.6l-6.9 5.3C7.5 41.5 15.1 46 24 46z"/>
+          <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 2.8-2.9 5.1-5.5 6.7l6.7 5.5C41.6 37.2 45 31 45 24c0-1.3-.2-2.7-.5-4z"/>
+        </svg>
+        <div>
+          <div class="google-badge-score">4,7</div>
+          <div class="google-badge-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <div class="google-badge-count">43 recenzií na Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="review-text">„Oceňujem najmä službu pick-up. Pán si prišiel pre auto a doviezol späť po prezutí. Skvelá služba!"</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-author-name">Anton Brisuda</div>
+            <div class="review-author-source">Google recenzia</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="review-text">„Potreboval som rýchlo opraviť defekt. Za 10 minút som odchádzal vybavený. Ochotný pán, takto si predstavujem prístup ku zákazníkovi."</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-author-name">Anton Petrík</div>
+            <div class="review-author-source">Google recenzia</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="review-text">„Keď sú voľní, pracujú aj štyria na jedno auto. Výmena pneumatík asi na 10 minút. Parkovisko pri obchvate BA, výjazd Avion."</p>
+        <div class="review-author">
+          <div class="review-avatar">Z</div>
+          <div>
+            <div class="review-author-name">Zelislav</div>
+            <div class="review-author-source">Google recenzia</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="review-text">„Vždy super. Chalani makajú, práca na 100 percent. Odporúčam."</p>
+        <div class="review-author">
+          <div class="review-avatar">D</div>
+          <div>
+            <div class="review-author-name">Mgr. Dušan Zlatko Roskoš</div>
+            <div class="review-author-source">Google recenzia</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="review-text">„Objednaný na čas. Prišiel som o pár minút skôr a hneď ma zobrali. Práca kvalitná, ceny primerané. Výhoda je možnosť uskladnenia pneu."</p>
+        <div class="review-author">
+          <div class="review-avatar">P</div>
+          <div>
+            <div class="review-author-name">Peter Dobiaš</div>
+            <div class="review-author-source">Google recenzia</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="review-text">„Dnes som sa snažil zbaviť starých pneumatík, nikde naokolo nechceli zobrať. Tu nemali problém, veľmi ochotný a perfektný prístup."</p>
+        <div class="review-author">
+          <div class="review-avatar">Š</div>
+          <div>
+            <div class="review-author-name">Štefan Knap</div>
+            <div class="review-author-source">Google recenzia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-cta">
+      <a href="https://maps.app.goo.gl/1bW1rTrz2kKaxr1Y6" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Vážime si váš názor — napíšte nám recenziu
+      </a>
+    </div>
+  </section>
+
   <section class="contact-section" id="kontakt">
     <div class="contact-grid">
       <div class="reveal">
