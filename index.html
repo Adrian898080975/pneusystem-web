@@ -423,7 +423,7 @@
     .logos-track {
       display: flex;
       gap: 4rem;
-      animation: marquee 25s linear infinite;
+      animation: marquee 60s linear infinite;
       width: max-content;
     }
     .logos-track img {
@@ -1038,8 +1038,8 @@
       will-change: transform;
       display: flex;
       gap: 3.5rem;
-      -webkit-animation: marquee 30s linear infinite;
-      animation: marquee 30s linear infinite;
+      -webkit-animation: marquee 60s linear infinite;
+      animation: marquee 60s linear infinite;
       width: max-content;
       align-items: center;
       padding: 0 2rem;
@@ -1085,8 +1085,8 @@
     .hero-logos-track {
       display: flex;
       gap: 3.5rem;
-      -webkit-animation: marquee 30s linear infinite;
-      animation: marquee 30s linear infinite;
+      -webkit-animation: marquee 60s linear infinite;
+      animation: marquee 60s linear infinite;
       width: max-content;
       align-items: center;
     }
@@ -1309,8 +1309,8 @@
     .logos-strip-track {
       display: flex;
       gap: 3.5rem;
-      -webkit-animation: marquee 30s linear infinite;
-      animation: marquee 30s linear infinite;
+      -webkit-animation: marquee 60s linear infinite;
+      animation: marquee 60s linear infinite;
       width: max-content;
       align-items: center;
       padding: 0 2rem;
@@ -1496,6 +1496,55 @@
     @media (max-width: 640px) {
       .book-modal { padding: 2rem 1.5rem; }
       .book-modal-options { grid-template-columns: 1fr; }
+    }
+
+
+    /* BRAND TIERS */
+    .brands-block {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .brands-intro p {
+      color: var(--grey);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-top: 0.5rem;
+      max-width: 320px;
+    }
+    .brands-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .brand-tier {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      align-items: center;
+    }
+    .brand-tier:last-child { border-bottom: none; }
+    .brand-tier-label {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      color: var(--red);
+    }
+    .brand-tier-names {
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .brands-block { grid-template-columns: 1fr; gap: 1.5rem; }
+      .brand-tier { grid-template-columns: 1fr; gap: 0.3rem; }
     }
 
     /* FLEET INFO BANNER */
@@ -1748,7 +1797,7 @@
     <div class="hero-content">
       <span class="hero-eyebrow">Slovenská sieť pneuservisov — 25 rokov skúseností</span>
       <h1>Postaráme sa<br>o vaše<br><em>pneumatiky.</em></h1>
-      <p class="hero-desc">Dodávame a servisujeme pneumatiky pre firemné vozové parky po celom Slovensku. Jeden kontakt, jedna faktúra, žiadne starosti.</p>
+      <p class="hero-desc">Zjednodušujeme a zefektívňujeme sezónne prezutie vozidiel a nákup pneumatík. Celoslovenské pokrytie, centrála v Bratislave. Jednotný technický, schvaľovací a fakturačný systém.</p>
       <div class="hero-actions">
         <button type="button" onclick="openBookModal()" class="btn-primary">Rezervovať termín →</button>
         <a href="#siet" class="btn-secondary">Servisná sieť</a>
@@ -1819,9 +1868,9 @@
     </div>
     <div class="reveal">
       <span class="section-label" data-i18n="about-label">Kto sme</span>
-      <h2 class="section-title">Váš fleet.<br>Naša<br><em>starosť.</em></h2>
-      <p class="section-text">Pneusystem je slovenská sieť pneuservisov s 25-ročnou históriou. Staráme sa o vozové parky firiem od 1 do 300 vozidiel, vo vlastníctve aj operatívnom leasingu. Náš model je jednoduchý: vy jazdíte, my riešime pneumatiky.</p>
-      <p class="section-text">Každý klient dostane osobného fleet managera. Jeden kontakt, všetky služby, jedna faktúra za celý park. Servis, dodávka aj uskladnenie, kdekoľvek na Slovensku.</p>
+      <h2 class="section-title">Váš fleet<br>—<br>naša <em>starosť</em></h2>
+      <p class="section-text">Pneusystem s.r.o. je spoločnosť, ktorá na Slovensku od r. 2008 buduje a zdokonaľuje pneuservisnú sieť pozostávajúcu z nezávislých pneuservisov pod názvom PNEUSYSTEM. Sieť pozostáva z 31 špecializovaných kamenných prevádzok s pokrytím v rámci celého Slovenska, má centrálu v Bratislave a funguje pod jednotným centrálnym technickým, schvaľovacím i fakturačným systémom.</p>
+      <p class="section-text">Našimi klientami sú vozové parky pozostávajúce z niekoľko stoviek vozidiel umiestnených v lokalitách v rámci celého Slovenska. Obchodná stratégia spoločnosti je nastavená na cielenej a adresnej komunikácii s každým jedným klientom.</p>
       <a href="#kontakt" class="btn-primary" data-i18n="btn-ponuka">Vyžiadať cenovú ponuku →</a>
     </div>
   </section>
@@ -1829,8 +1878,8 @@
   <!-- ABOUT SCREEN 2 - BENEFITS -->
   <section class="benefits-section">
     <div class="benefits-section-header reveal">
-      <span class="section-label" data-i18n="benefits-label">Prečo Pneusystem</span>
-      <h2 class="section-title">Čo<br>získate<br><em>s nami</em></h2>
+      <span class="section-label" data-i18n="benefits-label">Čo s nami získate</span>
+      <h2 class="section-title">Čo s nami<br><em>získate</em></h2>
     </div>
     <div class="benefits-grid-full reveal">
       <div class="benefit-item">
@@ -1838,48 +1887,48 @@
         <div class="benefit-icon-svg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
-        <div class="benefit-title" data-i18n="b1-title">31 overených servisov</div>
-        <div class="benefit-text" data-i18n="b1-text">Aktívna sieť pneuservisov od Bratislavy po Košice. Kde stojí vaše auto, tam je aj náš servis.</div>
+        <div class="benefit-title" data-i18n="b1-title">31 overených pneuservisov</div>
+        <div class="benefit-text" data-i18n="b1-text">Aktívna pneuservisná sieť s celoslovenským pokrytím.</div>
       </div>
       <div class="benefit-item">
         <div class="benefit-num">02</div>
         <div class="benefit-icon-svg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </div>
-        <div class="benefit-title" data-i18n="b2-title">Jedna faktúra za celý park</div>
-        <div class="benefit-text" data-i18n="b2-text">Žiadne desiatky dokladov od rôznych servisov. Konsolidovaná fakturácia v dohodnutých intervaloch.</div>
+        <div class="benefit-title" data-i18n="b2-title">Centrálna fakturácia</div>
+        <div class="benefit-text" data-i18n="b2-text">Centrálna fakturácia nastavená podľa Vašich potrieb.</div>
       </div>
       <div class="benefit-item">
         <div class="benefit-num">03</div>
         <div class="benefit-icon-svg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
-        <div class="benefit-title" data-i18n="b3-title">Osobný fleet manager</div>
-        <div class="benefit-text" data-i18n="b3-text">Jeden konkrétny človek, ktorý pozná váš park. Dostupný, proaktívny, vždy pripravený prísť k vám.</div>
+        <div class="benefit-title" data-i18n="b3-title">Váš osobný fleet manager</div>
+        <div class="benefit-text" data-i18n="b3-text">Cez jedného človeka zabezpečíte sezónne prezutie vozidiel v rámci všetkých Vašich prevádzok.</div>
       </div>
       <div class="benefit-item">
         <div class="benefit-num">04</div>
         <div class="benefit-icon-svg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 7a7 7 0 1 0 0 10M3 9h11M3 15h11"/></svg>
         </div>
-        <div class="benefit-title" data-i18n="b4-title">Zmluvné ceny, žiadne prekvapenia</div>
-        <div class="benefit-text" data-i18n="b4-text">Dohodnutý cenník platí pre celý vozový park, celý rok. Transparentné podmienky bez skrytých poplatkov.</div>
+        <div class="benefit-title" data-i18n="b4-title">Transparentné ceny</div>
+        <div class="benefit-text" data-i18n="b4-text">Žiadne skryté poplatky. Fakturácia služieb je nastavená v zmysle dohodnutých paušálnych sadzieb.</div>
       </div>
       <div class="benefit-item">
         <div class="benefit-num">05</div>
         <div class="benefit-icon-svg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <div class="benefit-title" data-i18n="b5-title">Pick-up bez stresu</div>
-        <div class="benefit-text" data-i18n="b5-text">Prídeme pre auto priamo k vám, vykonáme servis a vrátime ho späť. Vaši zamestnanci nestratia ani hodinu.</div>
+        <div class="benefit-title" data-i18n="b5-title">Pick-up servis</div>
+        <div class="benefit-text" data-i18n="b5-text">Aktívny pick-up servis k sezónnemu prezúvaniu poskytujeme na vysokej profesionálnej úrovni.</div>
       </div>
       <div class="benefit-item">
         <div class="benefit-num">06</div>
         <div class="benefit-icon-svg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         </div>
-        <div class="benefit-title" data-i18n="b6-title">Prehľad o stave parku</div>
-        <div class="benefit-text" data-i18n="b6-text">Po každej sezóne dostanete správu o stave pneumatík celého parku vrátane odporúčaní pre ďalší nákup.</div>
+        <div class="benefit-title" data-i18n="b6-title">Pravidelné prehľady</div>
+        <div class="benefit-text" data-i18n="b6-text">Podrobný report stavu uskladnených pneumatík aj s doporučenými výmenami už nevyhovujúcich pneumatík.</div>
       </div>
     </div>
   </section>
@@ -1888,17 +1937,17 @@
   <div class="boxes-section">
     <div class="box-item">
       <div class="box-title" data-i18n="box1-title">Poradenstvo</div>
-      <div class="box-text" data-i18n="box1-text">Nie ste si istí čo váš park potrebuje? Náš fleet manager príde k vám, zhodnotí situáciu a navrhne riešenie.</div>
+      <div class="box-text" data-i18n="box1-text">Potrebujete poradiť so sezónnym prezúvaním a starostlivosťou o pneumatiky? Kontaktujte nás a ponuku Vám vypracujeme na mieru.</div>
       <a href="#kontakt" class="box-link" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);" data-i18n="box1-link">Dohodnúť stretnutie →</a>
     </div>
     <div class="box-item">
       <div class="box-title" data-i18n="box2-title">Pick-up</div>
-      <div class="box-text" data-i18n="box2-text">Prídeme pre auto k vám, odservísujeme ho a vrátime späť. Minimálny výpadok vozidla, nula starostí pre zamestnanca.</div>
+      <div class="box-text" data-i18n="box2-text">Pre Vaše vozidlo prídeme, postaráme sa o jeho prezutie a vrátime ho späť na parkovisko do 1,5 hodiny. Pozn.: službu neposkytujeme klientom AVIS.</div>
       <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;padding:0;font-family:inherit;color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);">Rezervovať pick-up →</button>
     </div>
     <div class="box-item">
       <div class="box-title" data-i18n="box3-title">Uskladnenie</div>
-      <div class="box-text" data-i18n="box3-text">Sezónne uskladnenie s evidenciou a správou. Každú sezónu dostanete správu o stave a opotrebovaní vašich pneumatík.</div>
+      <div class="box-text" data-i18n="box3-text">Profesionálna starostlivosť o uskladnené pneumatiky. Okrem uskladnenia Vám poskytneme podrobný report stavu pneumatík aj s doporučenými výmenami.</div>
       <button type="button" onclick="openBookModal()" class="box-link" style="background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;padding:0;font-family:inherit;color:#fff;border-bottom:1px solid rgba(255,255,255,0.4);">Rezervovať uskladnenie →</button>
     </div>
   </div>
@@ -1919,7 +1968,7 @@
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s1-name">Pneumatiky</div>
-          <div class="service-desc" data-i18n="s1-desc">Všetky hlavné značky za zmluvné ceny. Letné, zimné aj celoročné pneumatiky pre osobné aj úžitkové vozidlá.</div>
+          <div class="service-desc" data-i18n="s1-desc">Sme dodávateľom viacerých značiek pneumatík vo všetkých kvalitatívnych triedach, pre osobné aj úžitkové vozidlá.</div>
           <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
@@ -1929,7 +1978,7 @@
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s2-name">Služby</div>
-          <div class="service-desc" data-i18n="s2-desc">Prezutie, vyváženie, oprava defektov. Rýchlo, spoľahlivo, v sieti 31 servisov po celom Slovensku.</div>
+          <div class="service-desc" data-i18n="s2-desc">V sieti 31 pneuservisov zabezpečujeme komplexné služby spojené so sezónnym prezutím vozidiel a starostlivosťou o pneumatiky.</div>
           <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
@@ -1939,7 +1988,7 @@
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s3-name">Uskladnenie</div>
-          <div class="service-desc" data-i18n="s3-desc">Bezpečné uskladnenie celého parku. Označené, evidované, so správou o stave po každej sezóne.</div>
+          <div class="service-desc" data-i18n="s3-desc">Uskladnenie Vašich pneumatík zabezpečíme aj s podrobným reportom stavu, vrátane doporučených výmen ojazdených a poškodených pneumatík.</div>
           <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
@@ -1949,11 +1998,33 @@
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s4-name">Pickup</div>
-          <div class="service-desc" data-i18n="s4-desc">Prídeme pre vozidlo priamo k vám. Žiadny čas stratený cestovaním do servisu. Ideálne pre väčšie parky.</div>
+          <div class="service-desc" data-i18n="s4-desc">Pre Vaše vozidlo prídeme, postaráme sa o jeho prezutie a vrátime ho späť na parkovisko do 1,5 hodiny. Vaši zamestnanci sa môžu venovať svojej práci.</div>
           <button type="button" onclick="openBookModal()" class="service-link" style="background:none;border:none;cursor:none;padding:0;font-family:inherit;">Rezervácia →</button>
         </div>
       </div>
     </div>
+  
+    <div class="brands-block reveal">
+      <div class="brands-intro">
+        <span class="section-label">Značky pneumatík</span>
+        <p>Dodávame pneumatiky vo všetkých kvalitatívnych triedach podľa Vašich potrieb a rozpočtu.</p>
+      </div>
+      <div class="brands-tiers">
+        <div class="brand-tier">
+          <div class="brand-tier-label">High trieda</div>
+          <div class="brand-tier-names">Bridgestone · Pirelli · Goodyear · Continental · Dunlop · Michelin</div>
+        </div>
+        <div class="brand-tier">
+          <div class="brand-tier-label">Medium trieda</div>
+          <div class="brand-tier-names">Nokian · Hankook · Fulda · Firestone</div>
+        </div>
+        <div class="brand-tier">
+          <div class="brand-tier-label">Low trieda</div>
+          <div class="brand-tier-names">Kumho · Matador · Barum · Sava</div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- SERVISNA SIET - MAPA + ZOZNAM -->
@@ -1970,11 +2041,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </div>
       <div class="fleet-info-text">
-<strong>Neviete kde sú vaše pneumatiky alebo potrebujete nové?</strong>
+<strong>Neviete, na ktorej prevádzke máte uskladnené pneumatiky? Potrebujete nové alebo prvú zimnú sadu?</strong>
         <span>Zavolajte nám, radi poradíme.</span>
       </div>
       <div class="fleet-info-cta">
 <a href="tel:+421908797492" class="fleet-info-tel">0908 797 492</a>
+        <a href="tel:+421905717661" class="fleet-info-tel">0905 717 661</a>
       </div>
     </div>
 
@@ -2107,7 +2179,7 @@
       <div class="reveal">
         <span class="section-label" data-i18n="contact-label">Kontakt</span>
         <h2 class="section-title">Kontaktujte<br><em>nás</em></h2>
-        <p class="section-text" data-i18n="contact-desc">Sídlime v Bratislave, obsluhujeme celé Slovensko. Pre dopyt ohľadom firemného parku kontaktujte priamo Katarínu Ovečkovú.</p>
+        <p class="section-text" data-i18n="contact-desc">Nájdete nás v bode stretu Galvaniho a Starej Ivánskej cesty, oproti parkovisku kúpeľne SIKO. Pre dopyt ohľadom firemného parku nás neváhajte kontaktovať.</p>
         <div class="contact-blocks">
           <div class="contact-block">
             <div class="contact-block-label" data-i18n="cb-hq">Sídlo spoločnosti</div>
@@ -2126,7 +2198,7 @@
             </div>
           </div>
           <div class="contact-block">
-            <div class="contact-block-label" data-i18n="cb-fleet">Fleet / Firemný autopark</div>
+            <div class="contact-block-label" data-i18n="cb-fleet">Obchodné oddelenie / firemné autoparky</div>
             <div class="contact-block-content">
               <strong>Katarína Ovečková</strong><br>
               <a href="tel:+421908797492">0908 797 492</a><br>
@@ -2329,7 +2401,7 @@
       {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23, 974 05', tel:'0905 813 712', email:'b.bystrica@nicholtrackt.sk', lat:48.7395, lng:19.1457, book:'https://rezervacie.nicholtrackt.eu/servis/objednavka', nav:'https://maps.google.com/?q=Zvolenská+cesta+23,+974+05+Banská+Bystrica'},
       {city:'Bardejov', name:'Milend', addr:'Mičková 3162, 085 01', tel:'0915 921 761', email:'milend@centrum.sk', lat:49.2950, lng:21.2762, book:null, nav:'https://maps.google.com/?q=Mičková+3162,+085+01+Bardejov'},
       {city:'Bojnice', name:'Pneuservis Humaj', addr:'Opatovská cesta 9, 972 01', tel:'0905 259 211', email:'pneuhumaj@pneuhumaj.sk', lat:48.7791, lng:18.5769, book:'https://www.bestdrive.sk/branches/_tefan_humaj_pneuservis-bojnice-opatovskacesta.html', nav:'https://maps.google.com/?q=Opatovská+cesta+9,+972+01+Bojnice'},
-      {city:'Bratislava', name:'Pneusystem', addr:'Galvaniho 16/A, 821 04', tel:'0908 797 492', email:'posta@pneusystem.sk', lat:48.1702, lng:17.1763, book:'https://reservation.pneusystem.sk/', nav:'https://maps.google.com/?q=Galvaniho+16/A,+821+04+Bratislava'},
+      {city:'Bratislava', name:'Pneusystem', addr:'Galvaniho 16/A, 821 04', tel:'0908 797 492', email:'posta@pneusystem.sk', lat:48.1702, lng:17.1763, book:'https://reservation.pneusystem.sk/', nav:'https://maps.google.com/?q=Galvaniho+16/A,+821+04+Bratislava', hideContact:true},
       {city:'Dunajská Streda', name:'Clean Car Servis', addr:'Kračanská cesta 690/23, 929 01', tel:'0905 501 262', email:'info@cleancarservice.sk', lat:47.9953, lng:17.6171, book:null, nav:'https://maps.google.com/?q=Kračanská+cesta+690/23,+929+01+Dunajská+Streda'},
       {city:'Hriadky (Michalovce)', name:'Guma', addr:'Hlavná 170/2, 076 22', tel:'0918 562 382', email:'gumax@gumax.sk', lat:48.7530, lng:21.9200, book:null, nav:'https://maps.google.com/?q=Hlavná+170/2,+076+22+Hriadky'},
       {city:'Kežmarok', name:'Pneuvosovič', addr:'Nad Traťou 1, 060 01', tel:'0905 358 612', email:'pneuvosovic@pneuvosovic.sk', lat:49.1354, lng:20.4298, book:null, nav:'https://maps.google.com/?q=Nad+Traťou+1,+060+01+Kežmarok'},
@@ -2392,6 +2464,7 @@
             <strong style="font-size:15px;display:block;margin-bottom:2px">${p.city}</strong>
             <span style="font-size:13px;display:block;margin-bottom:2px;color:#555">${p.name}</span>
             <span style="color:#888;font-size:11px;display:block;margin-bottom:10px">${p.addr}</span>
+            ${p.hideContact ? '' : ''}
             <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
               ${p.book ? `<a href="${p.book}" target="_blank" style="background:#D9001B;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">Online rezervácia →</a>` : `<a href="tel:${p.tel}" style="background:#222;color:#fff;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">📞 ${p.tel}</a>`}
               <a href="${p.nav}" target="_blank" style="background:#f0f0f0;color:#333;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">Navigovať</a>
@@ -2430,9 +2503,9 @@
           <div class="acc-body">
             <div class="acc-body-inner">
               <div style="margin-bottom:4px;color:var(--light-grey)">${p.addr}</div>
-              <a href="mailto:${p.email}" style="display:block;margin-bottom:4px;font-size:0.82rem;color:var(--grey)">${p.email}</a>
-              <a href="tel:${p.tel}" style="display:block;margin-bottom:12px;font-weight:600;color:var(--white)">${p.tel}</a>
-              <div style="display:flex;gap:8px;flex-wrap:wrap">
+              ${p.hideContact ? '' : `<a href="mailto:${p.email}" style="display:block;margin-bottom:4px;font-size:0.82rem;color:var(--grey)">${p.email}</a>`}
+              ${p.hideContact ? '' : `<a href="tel:${p.tel}" style="display:block;margin-bottom:12px;font-weight:600;color:var(--white)">${p.tel}</a>`}
+              <div style="display:flex;gap:8px;flex-wrap:wrap;${p.hideContact ? 'margin-top:12px' : ''}">
                 ${p.book ? `<a href="${p.book}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:var(--red);color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Online rezervácia →</a>` : `<a href="tel:${p.tel}" style="display:inline-flex;align-items:center;gap:5px;background:#1a1a1a;color:#fff;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">📞 Zavolať</a>`}
                 <a href="${p.nav}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:transparent;color:#333;padding:7px 14px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1px solid #bbb;">Navigovať →</a>
               </div>
@@ -2496,8 +2569,8 @@
         'logos-label': 'NAŠI KLIENTI',
         'about-label': 'Kto sme',
         'about-h2': 'Váš fleet.<br>Naša<br><em>starosť.</em>',
-        'about-p1': 'Pneusystem je slovenská sieť pneuservisov s 25-ročnou históriou. Staráme sa o vozové parky firiem od 1 do 300 vozidiel, vo vlastníctve aj operatívnom leasingu. Náš model je jednoduchý: vy jazdíte, my riešime pneumatiky.',
-        'about-p2': 'Každý klient dostane osobného fleet managera. Jeden kontakt, všetky služby, jedna faktúra za celý park. Servis, dodávka aj uskladnenie, kdekoľvek na Slovensku.',
+        'about-p1': 'Pneusystem s.r.o. je spoločnosť, ktorá na Slovensku od r. 2008 buduje a zdokonaľuje pneuservisnú sieť pozostávajúcu z nezávislých pneuservisov pod názvom PNEUSYSTEM. Sieť pozostáva z 31 špecializovaných kamenných prevádzok s pokrytím v rámci celého Slovenska, má centrálu v Bratislave a funguje pod jednotným centrálnym technickým, schvaľovacím i fakturačným systémom.',
+        'about-p2': 'Našimi klientami sú vozové parky pozostávajúce z niekoľko stoviek vozidiel umiestnených v lokalitách v rámci celého Slovenska. Obchodná stratégia spoločnosti je nastavená na cielenej a adresnej komunikácii s každým jedným klientom.',
         'btn-ponuka': 'Vyžiadať cenovú ponuku →',
         'benefits-label': 'Prečo Pneusystem',
         'benefits-h2': 'Čo<br>získate<br><em>s nami</em>',
@@ -2505,7 +2578,7 @@
         'network-h2': '31 servisov.<br><em>Celé Slovensko.</em>',
         'contact-label': 'Kontakt',
         'contact-h2': 'Kontaktujte<br><em>nás</em>',
-        'contact-desc': 'Sídlime v Bratislave, obsluhujeme celé Slovensko. Pre dopyt ohľadom firemného parku kontaktujte priamo Katarínu Ovečkovú.',
+        'contact-desc': 'Nájdete nás v bode stretu Galvaniho a Starej Ivánskej cesty, oproti parkovisku kúpeľne SIKO. Pre dopyt ohľadom firemného parku nás neváhajte kontaktovať.',
         'form-label': 'Dopyt',
         'form-h3': 'Cenová<br><em>ponuka</em>',
         'form-name': 'Meno a priezvisko *',
@@ -2777,8 +2850,8 @@
     <div class="book-modal">
       <button class="book-modal-close" onclick="closeBookModal()">✕</button>
       <div class="book-modal-eyebrow">Rezervácia servisu</div>
-      <h2 class="book-modal-title">Kde potrebujete<br><em>servis?</em></h2>
-      <p class="book-modal-desc">Vyberte lokalitu a nasmerujeme vás na správny kontakt.</p>
+      <h2 class="book-modal-title">Vyberte si<br><em>pneuservis</em></h2>
+      <p class="book-modal-desc">Vyberte si pneuservis zo siete PNEUSYSTEM podľa lokality.</p>
       <div class="book-modal-options">
         <a href="https://reservation.pneusystem.sk/" target="_blank" class="book-option" onclick="closeBookModal()">
           <div class="book-option-icon">
@@ -2786,7 +2859,7 @@
           </div>
           <div class="book-option-body">
             <div class="book-option-title">Bratislava</div>
-            <div class="book-option-desc">Online rezervácia priamo<br>na náš hlavný servis</div>
+            <div class="book-option-desc">Online rezervácie do pneuservisu<br>v Bratislave</div>
             <div class="book-option-cta">Rezervovať online →</div>
           </div>
         </a>
@@ -2796,7 +2869,7 @@
           </div>
           <div class="book-option-body">
             <div class="book-option-title">Iné mesto</div>
-            <div class="book-option-desc">Nájdite partnera vo vašom<br>meste a rezervujte telefonicky</div>
+            <div class="book-option-desc">Nájdite si pneuservis vo Vašom<br>meste a objednajte sa</div>
             <div class="book-option-cta">Zobraziť servisnú sieť →</div>
           </div>
         </button>
