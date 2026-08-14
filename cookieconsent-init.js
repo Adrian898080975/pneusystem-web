@@ -1,4 +1,4 @@
-/* Pneusystem — CookieConsent v3 konfiguracia
+/* Pneusystem CookieConsent v3 konfiguracia
    GA: dopln merace ID (G-XXXXXXXXXX) do GA_MEASUREMENT_ID.
    Kym je prazdne, analytika sa nenacita ani po suhlase. */
 
@@ -107,7 +107,7 @@ CookieConsent.run({
             },
             {
               title: 'Analytické cookies',
-              description: 'Google Analytics — anonymné meranie návštevnosti stránky. Pomáha nám zlepšovať web.',
+              description: 'Google Analytics, anonymné meranie návštevnosti stránky. Pomáha nám zlepšovať web.',
               linkedCategory: 'analytics'
             },
             {
