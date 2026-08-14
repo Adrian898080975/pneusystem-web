@@ -3,15 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0A0A0A">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#FFFFFF">
   <meta name="description" content="Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. Kdekoľvek na Slovensku.">
   <meta name="keywords" content="pneumatiky, pneuservis, bratislava, pneusystem, uskladnenie pneumatik, oprava defektov, defekt, prezutie gum, nakup pneumatik">
   <title>Pneusystem.sk — Partner pre vaše pneumatiky</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&display=swap:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://pneusystem.sk/">
+
+  <!-- Ikony -->
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph / socialne siete -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pneusystem">
+  <meta property="og:title" content="Pneusystem — Partner pre vaše pneumatiky">
+  <meta property="og:description" content="Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. 32 servisov po celom Slovensku.">
+  <meta property="og:url" content="https://pneusystem.sk/">
+  <meta property="og:image" content="https://pneusystem.sk/images/og-image.jpg">
+  <meta property="og:locale" content="sk_SK">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pneusystem — Partner pre vaše pneumatiky">
+  <meta name="twitter:description" content="Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. 32 servisov po celom Slovensku.">
+  <meta name="twitter:image" content="https://pneusystem.sk/images/og-image.jpg">
+
+  <!-- Strukturovane data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "@id": "https://pneusystem.sk/#firma",
+    "name": "PNEUSYSTEM s.r.o.",
+    "url": "https://pneusystem.sk/",
+    "logo": "https://pneusystem.sk/images/logo.png",
+    "image": "https://pneusystem.sk/images/og-image.jpg",
+    "description": "Slovenská sieť pneuservisov. Pneumatiky, servis a uskladnenie pre firemné vozové parky. 32 servisov po celom Slovensku.",
+    "telephone": "+421905717661",
+    "email": "posta@pneusystem.sk",
+    "vatID": "SK2022684873",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Galvániho 16/A",
+      "addressLocality": "Bratislava",
+      "postalCode": "821 04",
+      "addressCountry": "SK"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 48.1702, "longitude": 17.1763 },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:30",
+      "closes": "17:00"
+    }],
+    "areaServed": { "@type": "Country", "name": "Slovensko" },
+    "sameAs": ["https://maps.app.goo.gl/1bW1rTrz2kKaxr1Y6"]
+  }
+  </script>
+
+  <link href="fonts/fonts.css" rel="stylesheet">
   <style>
     :root {
       --red: #D9001B;
@@ -186,7 +237,7 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 8px;
+      padding: 12px 8px;
       background: none;
       border: none;
       -webkit-appearance: none;
@@ -981,9 +1032,10 @@
     .mobile-nav a:hover { color: var(--red); }
     .mobile-nav-close {
       position: absolute;
-      top: 1.5rem; right: 5%;
+      top: 0.9rem; right: calc(5% - 12px);
       background: none;
       border: none;
+      padding: 12px;
       color: var(--white);
       font-size: 1.5rem;
       cursor: pointer;
@@ -1034,7 +1086,7 @@
       mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     }
     .logos-band-track {
-      touch-action: none;
+      touch-action: pan-y;
       will-change: transform;
       display: flex;
       gap: 3.5rem;
@@ -1222,7 +1274,7 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
-    .acc-item.active .acc-body { max-height: 200px; }
+    .acc-item.active .acc-body { max-height: 520px; }
     .acc-body-inner {
       padding: 1rem 1.4rem 1.4rem;
       font-size: 0.9rem;
@@ -1273,16 +1325,19 @@
       width: 100%;
     }
     .form-input:focus { border-color: var(--red); }
-    .form-input::placeholder { color: rgba(255,255,255,0.2); }
+    .form-input::placeholder { color: rgba(0,0,0,0.35); }
     select.form-input option { background: #fff; color: #111; }
     .form-textarea { min-height: 110px; resize: vertical; }
     @media (max-width: 1024px) {
       .contact-grid { grid-template-columns: 1fr; }
       .contact-form-wrap { order: -1; }
+      .form-input, .siet-search { font-size: 16px; } /* iOS: pod 16px zoomuje pri fokuse */
     }
     @media (max-width: 640px) {
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { gap: 2rem; }
+      .contact-blocks { grid-template-columns: 1fr; }
+      .contact-block, .contact-block a { overflow-wrap: anywhere; }
     }
     /* LOGOS STRIP INSIDE HERO */
     .hero-logos-strip {
@@ -1345,6 +1400,7 @@
       pointer-events: none;
       transition: opacity 0.3s ease;
       padding: 1rem;
+      overflow-y: auto;
     }
     .book-modal-overlay.open {
       opacity: 1;
@@ -1357,6 +1413,8 @@
       width: 100%;
       padding: 3rem;
       position: relative;
+      max-height: calc(100dvh - 2rem);
+      overflow-y: auto;
       -webkit-transform: translateY(30px);
       transform: translateY(30px);
       transition: transform 0.3s ease;
@@ -1367,12 +1425,13 @@
     }
     .book-modal-close {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: 0.75rem;
+      right: 0.75rem;
       background: none;
       border: none;
       color: #888;
       font-size: 1.1rem;
+      padding: 12px;
       cursor: none;
       transition: color 0.2s;
     }
@@ -1628,8 +1687,6 @@
     @media (min-width: 1025px) {
       .hero-visual { display: flex !important; }
     }
-      .hero-main { grid-template-columns: 1fr 1fr !important; }
-    }
 
     /* REVIEWS SECTION */
     .reviews-section {
@@ -1696,8 +1753,7 @@
     }
     @media (max-width: 900px) {
       .reviews-grid { grid-template-columns: 1fr 1fr; }
-      .reviews-header { flex-direction: column; }
-      .google-badge { width: 100%; }
+      .google-badge { position: static; width: 100%; margin-top: 1.2rem; justify-content: center; }
     }
     @media (max-width: 600px) {
       .reviews-grid { grid-template-columns: 1fr; }
@@ -1781,7 +1837,7 @@
   <!-- NAV -->
   <nav id="nav">
     <a href="/" class="nav-logo">
-      <img src="https://pneusystem.sk/images/logo.png" alt="Pneusystem">
+      <img src="images/logo.png" alt="Pneusystem">
     </a>
     <ul class="nav-links">
       <li><a href="#onas">O nás</a></li>
@@ -1825,7 +1881,10 @@
     </div>
     <div class="hero-visual">
       <div class="hero-img-wrap">
-        <img src="images/about.jpg" alt="Pneusystem" onerror="this.style.background='#1a1a1a'">
+        <picture>
+          <source media="(min-width: 1025px)" srcset="images/about.jpg">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Pneusystem" onerror="this.style.background='#1a1a1a'">
+        </picture>
         <div class="hero-stats">
           <div class="stat"><div class="stat-num">32</div><div class="stat-label" data-i18n="stat-partners">Partnerov</div></div>
           <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Rokov</div></div>
@@ -1841,44 +1900,44 @@
     <p class="logos-band-label">NAŠI KLIENTI</p>
     <div class="logos-band-wrap">
       <div class="logos-band-track">
-        <img src="images/logo-asseco.png" alt="Asseco">
-        <img src="images/logo-avis.png" alt="AVIS">
-        <img src="images/logo-ayvens.png" alt="Ayvens">
-        <img src="images/logo-budget.png" alt="Budget">
-        <img src="images/logo-business-lease.png" alt="Business Lease">
-        <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
-        <img src="images/logo-kaufland.png" alt="Kaufland">
-        <img src="images/logo-novo_nordisk.png" alt="Novo Nordisk">
-        <img src="images/logo-sap.png" alt="SAP">
-        <img src="images/logo-schneider.png" alt="Schneider Electric">
-        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
-        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
-        <img src="images/logo-union.png" alt="Union">
-        <img src="images/logo-veolia.png" alt="Veolia">
-        <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
-        <img src="images/logo-autosklo.png" alt="Autosklo HD">
-        <img src="images/logo-aricoma.png" alt="Aricoma">
-        <img src="images/logo-spp.png" alt="SPP">
-        <img src="images/logo-vw-financial.png" alt="VW Financial">
-        <img src="images/logo-asseco.png" alt="Asseco">
-        <img src="images/logo-avis.png" alt="AVIS">
-        <img src="images/logo-ayvens.png" alt="Ayvens">
-        <img src="images/logo-budget.png" alt="Budget">
-        <img src="images/logo-business-lease.png" alt="Business Lease">
-        <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing">
-        <img src="images/logo-kaufland.png" alt="Kaufland">
-        <img src="images/logo-novo_nordisk.png" alt="Novo Nordisk">
-        <img src="images/logo-sap.png" alt="SAP">
-        <img src="images/logo-schneider.png" alt="Schneider Electric">
-        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne">
-        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing">
-        <img src="images/logo-union.png" alt="Union">
-        <img src="images/logo-veolia.png" alt="Veolia">
-        <img src="images/logo-vub-leasing.png" alt="VÚB Leasing">
-        <img src="images/logo-autosklo.png" alt="Autosklo HD">
-        <img src="images/logo-aricoma.png" alt="Aricoma">
-        <img src="images/logo-spp.png" alt="SPP">
-        <img src="images/logo-vw-financial.png" alt="VW Financial">
+        <img src="images/logo-asseco.png" alt="Asseco" loading="lazy">
+        <img src="images/logo-avis.png" alt="AVIS" loading="lazy">
+        <img src="images/logo-ayvens.png" alt="Ayvens" loading="lazy">
+        <img src="images/logo-budget.png" alt="Budget" loading="lazy">
+        <img src="images/logo-business-lease.png" alt="Business Lease" loading="lazy">
+        <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing" loading="lazy">
+        <img src="images/logo-kaufland.png" alt="Kaufland" loading="lazy">
+        <img src="images/logo-novo_nordisk.png" alt="Novo Nordisk" loading="lazy">
+        <img src="images/logo-sap.png" alt="SAP" loading="lazy">
+        <img src="images/logo-schneider.png" alt="Schneider Electric" loading="lazy">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne" loading="lazy">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing" loading="lazy">
+        <img src="images/logo-union.png" alt="Union" loading="lazy">
+        <img src="images/logo-veolia.png" alt="Veolia" loading="lazy">
+        <img src="images/logo-vub-leasing.png" alt="VÚB Leasing" loading="lazy">
+        <img src="images/logo-autosklo.png" alt="Autosklo HD" loading="lazy">
+        <img src="images/logo-aricoma.png" alt="Aricoma" loading="lazy">
+        <img src="images/logo-spp.png" alt="SPP" loading="lazy">
+        <img src="images/logo-vw-financial.png" alt="VW Financial" loading="lazy">
+        <img src="images/logo-asseco.png" alt="Asseco" loading="lazy">
+        <img src="images/logo-avis.png" alt="AVIS" loading="lazy">
+        <img src="images/logo-ayvens.png" alt="Ayvens" loading="lazy">
+        <img src="images/logo-budget.png" alt="Budget" loading="lazy">
+        <img src="images/logo-business-lease.png" alt="Business Lease" loading="lazy">
+        <img src="images/logo-csob-leasing.png" alt="ČSOB Leasing" loading="lazy">
+        <img src="images/logo-kaufland.png" alt="Kaufland" loading="lazy">
+        <img src="images/logo-novo_nordisk.png" alt="Novo Nordisk" loading="lazy">
+        <img src="images/logo-sap.png" alt="SAP" loading="lazy">
+        <img src="images/logo-schneider.png" alt="Schneider Electric" loading="lazy">
+        <img src="images/logo-slovenske-elektrarne.png" alt="Slovenské Elektrárne" loading="lazy">
+        <img src="images/logo-unicredit-leasing.png" alt="UniCredit Leasing" loading="lazy">
+        <img src="images/logo-union.png" alt="Union" loading="lazy">
+        <img src="images/logo-veolia.png" alt="Veolia" loading="lazy">
+        <img src="images/logo-vub-leasing.png" alt="VÚB Leasing" loading="lazy">
+        <img src="images/logo-autosklo.png" alt="Autosklo HD" loading="lazy">
+        <img src="images/logo-aricoma.png" alt="Aricoma" loading="lazy">
+        <img src="images/logo-spp.png" alt="SPP" loading="lazy">
+        <img src="images/logo-vw-financial.png" alt="VW Financial" loading="lazy">
       </div>
     </div>
   </div>
@@ -1886,7 +1945,10 @@
   <!-- ABOUT SCREEN 1 -->
   <section class="about-section" id="onas">
     <div class="about-img-wrap reveal">
-      <img src="images/about-photo.jpg" alt="Pneusystem servis" style="filter: grayscale(0.5) contrast(1.1) brightness(0.65);">
+      <picture>
+        <source media="(min-width: 1025px)" srcset="images/about-photo.jpg">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Pneusystem servis" loading="lazy" width="933" height="1400" style="filter: grayscale(0.5) contrast(1.1) brightness(0.65);">
+      </picture>
       <div class="about-badge">
         <div class="about-badge-num">32</div>
         <div class="about-badge-txt">Partnerov</div>
@@ -1990,7 +2052,7 @@
     <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-img-wrap">
-          <img src="https://pneusystem.sk/images/1.jpg" alt="Pneumatiky" class="service-img">
+          <img src="images/1.jpg" alt="Pneumatiky" class="service-img" loading="lazy" width="750" height="500">
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s1-name">Pneumatiky</div>
@@ -2000,7 +2062,7 @@
       </div>
       <div class="service-card reveal">
         <div class="service-img-wrap">
-          <img src="https://pneusystem.sk/images/2a.jpg" alt="Služby" class="service-img">
+          <img src="images/2a.jpg" alt="Služby" class="service-img" loading="lazy" width="750" height="500">
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s2-name">Služby</div>
@@ -2010,7 +2072,7 @@
       </div>
       <div class="service-card reveal">
         <div class="service-img-wrap">
-          <img src="https://pneusystem.sk/images/2.jpg" alt="Uskladnenie" class="service-img">
+          <img src="images/2.jpg" alt="Uskladnenie" class="service-img" loading="lazy" width="750" height="500">
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s3-name">Uskladnenie</div>
@@ -2020,7 +2082,7 @@
       </div>
       <div class="service-card reveal">
         <div class="service-img-wrap">
-          <img src="https://pneusystem.sk/images/3.jpg" alt="Pickup" class="service-img">
+          <img src="images/3.jpg" alt="Pickup" class="service-img" loading="lazy" width="750" height="500">
         </div>
         <div class="service-body">
           <div class="service-name" data-i18n="s4-name">Pickup</div>
@@ -2241,7 +2303,7 @@
           <div class="contact-block" style="grid-column:1/-1;">
             <div class="contact-block-label" data-i18n="cb-billing">Fakturačné údaje</div>
             <div class="contact-block-content">
-              IČO: 44342951 &nbsp;|&nbsp; DIČ: 2022684873 &nbsp;|&nbsp; IČ DPH: SK2022684873
+              IČO: 44342951<br>DIČ: 2022684873<br>IČ DPH: SK2022684873
             </div>
           </div>
         </div>
@@ -2288,6 +2350,7 @@
             <textarea name="message" class="form-input form-textarea" placeholder="Popíšte Vašu požiadavku..." data-i18n-placeholder="form-msg-placeholder"></textarea>
           </div>
           <button type="submit" class="btn-primary" data-i18n="btn-send" style="width:100%;justify-content:center;font-size:0.9rem;padding:16px">Odoslať dopyt →</button>
+          <p style="margin-top:0.7rem;font-size:0.75rem;color:var(--grey);line-height:1.5">Odoslaním formulára beriete na vedomie informácie o <a href="ochrana-osobnych-udajov.html" style="color:var(--grey);text-decoration:underline">spracúvaní osobných údajov</a>.</p>
           <div id="formStatus" style="margin-top:1rem;font-size:0.85rem;display:none"></div>
         </form>
       </div>
@@ -2298,11 +2361,18 @@
           <div class="hours-badge-note">Aug, Jún, Júl, Jan, Feb do 16:00</div>
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!4v1712000000000!6m8!1m7!1sCAoSLEFGMVFpcFBBMEVzS3h2NTNzQ1lhZ3hpRnVJMGVUUWhJZlh4bFBSWGhtWHlR!2m2!1d48.17002!2d17.17649!3f10!4f3!5f0.7820865974627469"
+          id="gmapsEmbed"
+          data-src="https://www.google.com/maps/embed?pb=!4v1712000000000!6m8!1m7!1sCAoSLEFGMVFpcFBBMEVzS3h2NTNzQ1lhZ3hpRnVJMGVUUWhJZlh4bFBSWGhtWHlR!2m2!1d48.17002!2d17.17649!3f10!4f3!5f0.7820865974627469"
           allowfullscreen=""
           loading="lazy"
-          style="border:0;width:100%;height:100%;">
+          title="Google Maps — sídlo Pneusystem"
+          style="border:0;width:100%;height:100%;display:none;">
         </iframe>
+        <div id="gmapsPlaceholder" style="width:100%;height:100%;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.9rem;background:var(--dark2);text-align:center;padding:2rem;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span style="font-size:0.9rem;color:var(--grey);max-width:340px;line-height:1.5">Mapa Google sa načíta až po povolení funkčných cookies.</span>
+          <button onclick="if(window.CookieConsent)CookieConsent.showPreferences()" style="background:var(--red);color:#fff;border:none;cursor:pointer;font-family:var(--font-body);font-size:0.8rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:10px 20px">Povoliť mapu</button>
+        </div>
       </div>
     </div>
   </section>
@@ -2311,7 +2381,7 @@
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="https://pneusystem.sk/images/logo.png" alt="Pneusystem">
+        <img src="images/logo.png" alt="Pneusystem">
         <p class="footer-tagline" data-i18n="footer-tagline">Jeden partner pre celý váš vozový park. Pneumatiky, servis, uskladnenie. Kdekoľvek na Slovensku.</p>
       </div>
       <div class="footer-col">
@@ -2341,7 +2411,8 @@
     </div>
     <div class="footer-bottom">
       <span data-i18n="footer-copy">© 2026 PNEUSYSTEM s.r.o. Všetky práva vyhradené.</span>
-      <span class="footer-ico" style="color:var(--grey)">IČO: <span>44342951</span> &nbsp; DIČ: <span>2022684873</span> &nbsp; IČ DPH: <span>SK2022684873</span></span>
+      <span><a href="ochrana-osobnych-udajov.html" style="color:var(--grey);text-decoration:underline">Ochrana osobných údajov</a> &nbsp;·&nbsp; <a href="#" onclick="event.preventDefault();if(window.CookieConsent)CookieConsent.showPreferences()" style="color:var(--grey);text-decoration:underline">Nastavenia cookies</a></span>
+      <span class="footer-ico" style="color:var(--grey)">IČO: <span>44342951</span> | DIČ: <span>2022684873</span> | IČ DPH: <span>SK2022684873</span></span>
     </div>
   </footer>
 
@@ -2419,9 +2490,9 @@
   </script>
 
   <!-- LEAFLET MAP (OpenStreetMap, no API key needed) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css"/>
   <style>.leaflet-pane { z-index: 400; } .leaflet-top, .leaflet-bottom { z-index: 400; }</style>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="vendor/leaflet/leaflet.js"></script>
   <script>
     const PARTNERS = [
       {city:'Banská Bystrica', name:'Nicholtrackt', addr:'Zvolenská cesta 23, 974 05', tel:'0905 813 712', email:'b.bystrica@nicholtrackt.sk', lat:48.7395, lng:19.1457, book:'https://rezervacie.nicholtrackt.eu/servis/objednavka', nav:'https://maps.google.com/?q=Zvolenská+cesta+23,+974+05+Banská+Bystrica'},
@@ -2738,6 +2809,7 @@
     };
 
         function setLang(lang) {
+          document.documentElement.lang = lang;
       const t = TRANSLATIONS[lang];
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
       document.querySelector(`.lang-btn[onclick*="'${lang}'"]`).classList.add('active');
@@ -2924,5 +2996,34 @@
       if(e.key === 'Escape') closeBookModal();
     });
   </script>
+
+  <!-- COOKIES: CookieConsent v3 (self-hosted) + Google Consent Mode v2 -->
+  <script>
+    // Consent Mode v2: vsetko zamietnute, kym pouzivatel neudeli suhlas
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
+  </script>
+  <link rel="stylesheet" href="vendor/cookieconsent/cookieconsent.css">
+  <style>
+    #cc-main {
+      --cc-font-family: var(--font-body);
+      --cc-btn-primary-bg: #D9001B;
+      --cc-btn-primary-border-color: #D9001B;
+      --cc-btn-primary-hover-bg: #A50014;
+      --cc-btn-primary-hover-border-color: #A50014;
+      --cc-btn-border-radius: 0;
+      --cc-modal-border-radius: 0;
+      --cc-toggle-on-bg: #D9001B;
+    }
+  </style>
+  <script src="vendor/cookieconsent/cookieconsent.umd.js"></script>
+  <script src="cookieconsent-init.js"></script>
 </body>
 </html>
