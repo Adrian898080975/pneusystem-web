@@ -2,7 +2,7 @@
    GA: dopln merace ID (G-XXXXXXXXXX) do GA_MEASUREMENT_ID.
    Kym je prazdne, analytika sa nenacita ani po suhlase. */
 
-var GA_MEASUREMENT_ID = '';
+var GA_MEASUREMENT_ID = 'G-5N121CLQVD';
 
 var gaLoaded = false;
 function loadAnalytics() {
