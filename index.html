@@ -145,10 +145,11 @@
       background: rgba(255,255,255,0.98);
     }
     .nav-logo img {
-      height: 36px;
+      height: 48px;
       filter: brightness(0);
-      transition: filter 0.3s;
+      transition: filter 0.3s, height 0.3s;
     }
+    nav.scrolled .nav-logo img { height: 42px; }
     .nav-logo img:hover { filter: brightness(0) drop-shadow(0 0 8px var(--red)); }
     .nav-links {
       display: flex;
