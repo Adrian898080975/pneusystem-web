@@ -2557,10 +2557,9 @@
         map.fitBounds(skBounds, {padding: [30, 30]});
         map.setMaxBounds([[46.5, 15.0], [50.5, 24.0]]);
       }, 300);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
+      L.tileLayer('https://maps.geoapify.com/v1/tile/positron/{z}/{x}/{y}{r}.png?apiKey=71041d12e7244c2590370fffbca40296', {
+        attribution: 'Powered by <a href="https://www.geoapify.com/">Geoapify</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 20
       }).addTo(map);
 
       PARTNERS.forEach((p, i) => {
