@@ -1210,6 +1210,7 @@
       overflow: hidden;
     }
     .siet-map-wrap { position: relative; }
+    #map { height: 580px; }
     .siet-list {
       background: var(--dark2);
       border-left: 1px solid rgba(255,255,255,0.06);
@@ -1298,9 +1299,12 @@
       .siet-layout { grid-template-columns: 1fr; }
       .siet-list { border-left: none; border-top: 1px solid rgba(0,0,0,0.08); }
       .benefits-grid-full { grid-template-columns: 1fr 1fr; }
+      #map { height: 380px; }
+      .partner-accordion { max-height: none; overflow: visible; }
     }
     @media (max-width: 640px) {
       .benefits-grid-full { grid-template-columns: 1fr; }
+      #map { height: 300px; }
     }
 
     /* CONTACT FORM */
@@ -2149,7 +2153,7 @@
     <div class="siet-layout reveal">
       <!-- INTERAKTÍVNA MAPA -->
       <div class="siet-map-wrap">
-        <div id="map" style="width:100%;height:580px;"></div>
+        <div id="map" style="width:100%;"></div>
       </div>
 
       <!-- ACCORDION ZOZNAM -->
@@ -2542,6 +2546,9 @@
 
     let map, markers = [];
 
+    // Normalizacia pre vyhladavanie: odstrani diakritiku, aby 'kosice' nasiel 'Košice'
+    const normSearch = s => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
     function initMap() {
       map = L.map('map', {zoomControl: true}).setView([48.75, 19.2], 7);
       // Fit tight to Slovakia
@@ -2601,6 +2608,15 @@
     function buildAccordion(list) {
       const container = document.getElementById('partnerList');
       container.innerHTML = '';
+      if (!list.length) {
+        const empty = document.createElement('div');
+        empty.style.cssText = 'padding:18px 16px;color:var(--grey);font-size:0.9rem;line-height:1.45';
+        empty.textContent = document.documentElement.lang === 'en'
+          ? 'No results. Try another city or partner name.'
+          : 'Žiadne výsledky. Skúste iné mesto alebo názov partnera.';
+        container.appendChild(empty);
+        return;
+      }
       list.forEach((p, i) => {
         const realIndex = PARTNERS.indexOf(p);
         const div = document.createElement('div');
@@ -2655,9 +2671,10 @@
       buildAccordion(PARTNERS);
 
       document.getElementById('partnerSearch').addEventListener('input', function() {
-        const q = this.value.toLowerCase();
+        if (map) map.closePopup();
+        const q = normSearch(this.value.trim());
         const filtered = PARTNERS.filter(p =>
-          p.city.toLowerCase().includes(q) || p.name.toLowerCase().includes(q)
+          normSearch(p.city).includes(q) || normSearch(p.name).includes(q)
         );
         buildAccordion(filtered);
         markers.forEach((m, i) => {
